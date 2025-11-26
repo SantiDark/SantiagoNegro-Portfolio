@@ -30,6 +30,10 @@
             padding: 0;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: "Lexend", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
             background: radial-gradient(circle at top left, #111827 0, #020308 55%);
@@ -213,7 +217,14 @@
         .section-heading {
             font-size: 1.25rem;
             font-weight: 600;
-            margin-bottom: 18px;
+            margin-bottom: 12px;
+        }
+
+        .section-subheading {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-bottom: 14px;
         }
 
         /* GRID */
@@ -233,12 +244,29 @@
             }
         }
 
+        .card-link {
+            display: block;
+            color: inherit;
+            text-decoration: none;
+        }
+
         .card {
             background: var(--surface);
             border-radius: var(--radius-lg);
             border: 1px solid var(--border-soft);
             padding: 16px 16px 14px;
             box-shadow: var(--shadow-soft);
+        }
+
+        .card-hover {
+            transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+        }
+
+        .card-link:hover .card-hover {
+            transform: translateY(-3px);
+            border-color: var(--accent);
+            box-shadow: 0 22px 60px rgba(0, 0, 0, 0.9);
+            background: radial-gradient(circle at top, rgba(249,115,22,0.12), transparent 55%), var(--surface);
         }
 
         .card-title {
@@ -311,6 +339,59 @@
             font-size: 0.82rem;
             color: var(--text-soft);
         }
+
+        /* PROJECT DETAILS */
+
+        .detail-grid {
+            display: grid;
+            gap: 16px;
+        }
+
+        @media (min-width: 768px) {
+            .detail-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        .detail-block {
+            background: rgba(11, 15, 22, 0.95);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-soft);
+            padding: 16px 16px 14px;
+        }
+
+        .detail-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .detail-meta {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .detail-body {
+            font-size: 0.82rem;
+            color: var(--text-soft);
+            margin-bottom: 10px;
+        }
+
+        .detail-links {
+            list-style: none;
+            display: grid;
+            gap: 4px;
+            font-size: 0.8rem;
+        }
+
+            .detail-links a {
+                color: var(--accent);
+            }
+
+                .detail-links a:hover {
+                    text-decoration: underline;
+                }
 
         /* FOOTER */
 
@@ -398,113 +479,252 @@
             <p class="section-label">Projects</p>
             <h2 class="section-heading">Selected work</h2>
 
+            <p class="section-subheading">Game projects (Unity, Unreal & design docs)</p>
+            <div class="grid grid-2" style="margin-bottom:20px;">
+                <a href="#proj-getitback" class="card-link">
+                    <article class="card card-hover">
+                        <h3 class="card-title">Get it Back! – Roguelike Shooter</h3>
+                        <p class="card-subtitle">Game Design · Unity Prototype</p>
+                        <p class="card-body">
+                            Top–down shooter with light base-building where the player recovers
+                            stolen items to rebuild their home. Inspired by Hotline Miami and
+                            Hades, focusing on pace, risk / reward and experimental builds.
+                        </p>
+                        <div class="pill-row">
+                            <span class="pill">Core loop</span>
+                            <span class="pill">Combat & pacing</span>
+                            <span class="pill">Level blockouts</span>
+                        </div>
+                    </article>
+                </a>
+
+                <a href="#proj-stillness" class="card-link">
+                    <article class="card card-hover">
+                        <h3 class="card-title">Stillness – Systemic Narrative Simulation</h3>
+                        <p class="card-subtitle">Game Design · System Design Document</p>
+                        <p class="card-body">
+                            A project exploring how trust, perception and memory change NPC and
+                            player behaviour over time. Built around emotional states and
+                            systemic interactions instead of fixed branches.
+                        </p>
+                        <div class="pill-row">
+                            <span class="pill">Systemic narrative</span>
+                            <span class="pill">Emotional models</span>
+                        </div>
+                    </article>
+                </a>
+
+                <a href="#proj-stealth" class="card-link">
+                    <article class="card card-hover">
+                        <h3 class="card-title">Stealth Prototype – MGS-inspired</h3>
+                        <p class="card-subtitle">Level & Systems · Unreal / Unity coursework</p>
+                        <p class="card-body">
+                            Stealth prototype focused on enemy states, patrol paths and vision
+                            cones, plus level layout that supports readable stealth gameplay and
+                            player planning.
+                        </p>
+                        <div class="pill-row">
+                            <span class="pill">Enemy states</span>
+                            <span class="pill">Level readability</span>
+                        </div>
+                    </article>
+                </a>
+
+                <a href="#proj-riftbound" class="card-link">
+                    <article class="card card-hover">
+                        <h3 class="card-title">Riftbound – Tower Defense Roguelike</h3>
+                        <p class="card-subtitle">Game Design · Systems & Progression</p>
+                        <p class="card-body">
+                            Concept for a roguelike tower defense where runs feed back into a
+                            persistent base, mixing moment-to-moment defense choices with long-term
+                            progression.
+                        </p>
+                        <div class="pill-row">
+                            <span class="pill">Progression systems</span>
+                            <span class="pill">Run-based design</span>
+                        </div>
+                    </article>
+                </a>
+            </div>
+
+            <p class="section-subheading">Client & campaign work</p>
             <div class="grid grid-2">
+                <a href="#proj-undici" class="card-link">
+                    <article class="card card-hover">
+                        <h3 class="card-title">Undici Hotel – Boca Juniors Experience</h3>
+                        <p class="card-subtitle">Paid Social · Strategy & Creatives</p>
+                        <p class="card-body">
+                            Full-funnel campaigns and content for a football-themed hotel with
+                            direct view to La Bombonera. Focus on emotional storytelling,
+                            tactical offers and creatives designed around conversion.
+                        </p>
+                        <div class="pill-row">
+                            <span class="pill">Funnel strategy</span>
+                            <span class="pill">UGC-style ads</span>
+                            <span class="pill">Event & offer promos</span>
+                        </div>
+                    </article>
+                </a>
+
+                <a href="#proj-marlin" class="card-link">
+                    <article class="card card-hover">
+                        <h3 class="card-title">Marlin del Rey & others</h3>
+                        <p class="card-subtitle">Paid Social · Tourism & Experiences</p>
+                        <p class="card-body">
+                            Performance creatives for global tour and experience brands.
+                            Constant testing of hooks, offers and layouts with ROAS and
+                            bookings as the main success metrics.
+                        </p>
+                        <div class="pill-row">
+                            <span class="pill">Creative strategy</span>
+                            <span class="pill">Static & video ads</span>
+                        </div>
+                    </article>
+                </a>
+            </div>
+        </section>
+
+        <!-- 3D WORK -->
+        <section id="work-3d">
+            <p class="section-label">3D Work</p>
+            <h2 class="section-heading">Selected 3D pieces</h2>
+            <p class="section-subheading">
+                A few examples of 3D work I’ve done alongside game and marketing projects.
+            </p>
+
+            <div class="grid grid-3">
                 <article class="card">
-                    <h3 class="card-title">Get it Back! – Roguelike Shooter</h3>
-                    <p class="card-subtitle">Game Design · Unity Prototype</p>
+                    <h3 class="card-title">Environment Study</h3>
+                    <p class="card-subtitle">Lighting & Composition</p>
                     <p class="card-body">
-                        Top–down shooter with light base-building where the player recovers
-                        stolen items to rebuild their home. Inspired by Hotline Miami and
-                        Hades, focusing on pace, risk / reward and experimental builds.
+                        Small-scale environment focused on atmosphere, color balance and
+                        readable focal points. Built to test how mood supports narrative beats.
                     </p>
                     <div class="pill-row">
-                        <span class="pill">Core loop</span>
-                        <span class="pill">Combat & pacing</span>
-                        <span class="pill">Level blockouts</span>
+                        <span class="pill">Lighting</span>
+                        <span class="pill">Composition</span>
                     </div>
                 </article>
 
                 <article class="card">
-                    <h3 class="card-title">Stillness – Systemic Narrative Simulation</h3>
-                    <p class="card-subtitle">Game Design · System Design Document</p>
+                    <h3 class="card-title">Prop Exploration</h3>
+                    <p class="card-subtitle">Hard-surface assets</p>
                     <p class="card-body">
-                        A project exploring how trust, perception and memory change NPC and
-                        player behaviour over time. Built around emotional states and
-                        systemic interactions instead of fixed narrative branches.
+                        Set of props created to support different gameplay spaces, keeping
+                        silhouettes clean and easy to read from the player camera.
                     </p>
                     <div class="pill-row">
-                        <span class="pill">Systemic narrative</span>
-                        <span class="pill">Emotional models</span>
+                        <span class="pill">Silhouette</span>
+                        <span class="pill">Game-ready props</span>
                     </div>
                 </article>
 
                 <article class="card">
-                    <h3 class="card-title">Undici Hotel – Boca Juniors Experience</h3>
-                    <p class="card-subtitle">Paid Social · Strategy & Creatives</p>
+                    <h3 class="card-title">Material & Detail Passes</h3>
+                    <p class="card-subtitle">Surface work</p>
                     <p class="card-body">
-                        Full-funnel campaigns and content for a football-themed hotel with
-                        direct view to La Bombonera. Focus on emotional storytelling,
-                        tactical offers and creatives designed around conversion.
+                        Experiments with materials and small details that add storytelling to
+                        environments without cluttering the scene.
                     </p>
                     <div class="pill-row">
-                        <span class="pill">Funnel strategy</span>
-                        <span class="pill">UGC-style ads</span>
-                        <span class="pill">Event & offer promos</span>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <h3 class="card-title">Marlin del Rey & others</h3>
-                    <p class="card-subtitle">Paid Social · Tourism & Experiences</p>
-                    <p class="card-body">
-                        Performance creatives for global tour and experience brands.
-                        Constant testing of hooks, offers and layouts with ROAS and
-                        bookings as the main success metrics.
-                    </p>
-                    <div class="pill-row">
-                        <span class="pill">Creative strategy</span>
-                        <span class="pill">Static & video ads</span>
+                        <span class="pill">Shaders / materials</span>
+                        <span class="pill">Storytelling detail</span>
                     </div>
                 </article>
             </div>
         </section>
 
-        <!-- SKILLS -->
-        <section id="skills">
-            <p class="section-label">Skills</p>
-            <h2 class="section-heading">How I like to work</h2>
+        <!-- PROJECT DETAILS -->
+        <section id="details">
+            <p class="section-label">Project details</p>
+            <h2 class="section-heading">A closer look</h2>
+            <p class="section-subheading">
+                Click any card above to jump here. Each block can hold a deeper breakdown
+                and links to docs, builds or extra material.
+            </p>
 
-            <div class="grid grid-3">
-                <article class="card">
-                    <h3 class="card-title">Game Design</h3>
-                    <p class="card-body">
-                        Design of core and meta loops, systems, lightweight economies and
-                        player-focused experiences. I care a lot about readable, practical
-                        documentation that teams can actually use.
+            <div class="detail-grid">
+                <div class="detail-block" id="proj-getitback">
+                    <h3 class="detail-title">Get it Back! – Roguelike Shooter</h3>
+                    <p class="detail-meta">Unity prototype · Top–down action & base-building</p>
+                    <p class="detail-body">
+                        Focused on fast combat, clear readability and a satisfying loop of
+                        taking risks in each run to recover objects that upgrade the player’s
+                        home/base. Enemy behaviours and room layouts are tuned around short,
+                        replayable sessions.
                     </p>
-                    <div class="pill-row">
-                        <span class="pill">Core & meta loop</span>
-                        <span class="pill">Design docs & pitches</span>
-                        <span class="pill">Unity prototyping</span>
-                    </div>
-                </article>
+                    <ul class="detail-links">
+                        <li><a href="#" target="_blank">Design outline / GDD (placeholder)</a></li>
+                        <li><a href="#" target="_blank">Prototype build or video (placeholder)</a></li>
+                    </ul>
+                </div>
 
-                <article class="card">
-                    <h3 class="card-title">Performance Creative</h3>
-                    <p class="card-body">
-                        Creative that looks good but is built around performance. I work
-                        with funnels, metrics and structured testing while keeping brand
-                        voice and constraints in mind.
+                <div class="detail-block" id="proj-stillness">
+                    <h3 class="detail-title">Stillness – Systemic Narrative Simulation</h3>
+                    <p class="detail-meta">System design doc · Trust, perception & memory</p>
+                    <p class="detail-body">
+                        Models how NPCs change their internal state based on what they see,
+                        hear and remember from the player, and how those changes affect
+                        dialogue options, access to spaces and overall tone. Less about
+                        branching, more about how the system evolves over time.
                     </p>
-                    <div class="pill-row">
-                        <span class="pill">Meta ads</span>
-                        <span class="pill">Hooks & angles</span>
-                        <span class="pill">Landing flow</span>
-                    </div>
-                </article>
+                    <ul class="detail-links">
+                        <li><a href="#" target="_blank">System design document (placeholder)</a></li>
+                    </ul>
+                </div>
 
-                <article class="card">
-                    <h3 class="card-title">Systems & Psychology</h3>
-                    <p class="card-body">
-                        I lean on psychology, semiotics and systems design to understand
-                        why people act the way they do inside games and digital products,
-                        and how to nudge that behaviour.
+                <div class="detail-block" id="proj-stealth">
+                    <h3 class="detail-title">Stealth Prototype – MGS-inspired</h3>
+                    <p class="detail-meta">Enemy states · Patrol, alert & chase</p>
+                    <p class="detail-body">
+                        Implements a clear state machine for guards (patrol, suspicious,
+                        alert/chase) with vision cones, hearing ranges and feedback that
+                        helps the player understand when they’re safe or about to be spotted.
                     </p>
-                    <div class="pill-row">
-                        <span class="pill">Player psychology</span>
-                        <span class="pill">UX thinking</span>
-                    </div>
-                </article>
+                    <ul class="detail-links">
+                        <li><a href="#" target="_blank">Level overview or diagrams (placeholder)</a></li>
+                    </ul>
+                </div>
+
+                <div class="detail-block" id="proj-riftbound">
+                    <h3 class="detail-title">Riftbound – Tower Defense Roguelike</h3>
+                    <p class="detail-meta">Concept · Core loop & progression</p>
+                    <p class="detail-body">
+                        Explores how to balance moment-to-moment defence decisions with
+                        long-term progression: runs feed into base upgrades, and each upgrade
+                        changes how players approach future runs.
+                    </p>
+                    <ul class="detail-links">
+                        <li><a href="#" target="_blank">Concept deck or one-pager (placeholder)</a></li>
+                    </ul>
+                </div>
+
+                <div class="detail-block" id="proj-undici">
+                    <h3 class="detail-title">Undici Hotel – Boca Juniors Experience</h3>
+                    <p class="detail-meta">Paid social strategy · Content & events</p>
+                    <p class="detail-body">
+                        Work includes evergreen campaigns for rooms and experiences, plus
+                        event-led pushes (Fan Fests, match days, special promos). Creative is
+                        built around the emotional experience of being next to La Bombonera.
+                    </p>
+                    <ul class="detail-links">
+                        <li><a href="#" target="_blank">Creative examples / reel (placeholder)</a></li>
+                    </ul>
+                </div>
+
+                <div class="detail-block" id="proj-marlin">
+                    <h3 class="detail-title">Marlin del Rey & other operators</h3>
+                    <p class="detail-meta">Performance creatives · Tours & experiences</p>
+                    <p class="detail-body">
+                        Focus on testing: variations of hooks, offers, formats and framing,
+                        with decisions driven by booked tours and ROAS, not only CTR. This
+                        work overlaps heavily with my interest in systems thinking and player
+                        psychology.
+                    </p>
+                    <ul class="detail-links">
+                        <li><a href="#" target="_blank">Ad examples or case notes (placeholder)</a></li>
+                    </ul>
+                </div>
             </div>
         </section>
 
@@ -573,6 +793,7 @@
                     LinkedIn
                 </a>
                 <a class="footer-link" href="#projects">Projects</a>
+                <a class="footer-link" href="#work-3d">3D Work</a>
                 <a class="footer-link" href="#contact">Contact</a>
             </div>
         </footer>
