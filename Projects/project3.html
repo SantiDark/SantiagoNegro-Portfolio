@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>Get it Back! – Project · Santiago Negro</title>
+    <title>Stealth Prototype – Project · Santiago Negro</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap">
     <style>
@@ -146,58 +146,55 @@
 </head>
 <body>
     <div class="page">
-
-        <!-- FIXED URL HERE -->
         <a class="back-link" href="https://santidark.github.io/SantiagoNegro-Portfolio/index.html#projects">
             <span>←</span> Back to projects
         </a>
 
         <div class="card">
-            <h1>Get it Back! – Roguelike Shooter</h1>
+            <h1>Stealth Prototype – MGS-inspired</h1>
             <p class="meta">
-                Unity prototype · Top–down action & base-building · Role: Game Designer
+                Level & systems prototype · Enemy states, patrol & vision cones · Role: Game Designer
             </p>
 
             <div class="columns">
                 <div>
                     <p class="section-title">Overview</p>
                     <p class="body">
-                        Get it Back! is a fast-paced top–down shooter where each run is about
-                        pushing your luck to recover stolen items that upgrade the player’s
-                        home. The core loop mixes tight combat with small, meaningful
-                        progression choices between runs.
+                        A small stealth prototype inspired by classic Metal Gear Solid,
+                        focused on guard behaviour and level readability. The goal was to
+                        make the player understand at a glance when they are safe, about to
+                        be spotted or fully detected.
                     </p>
 
                     <p class="section-title">Design focus</p>
                     <ul>
-                        <li>Readable combat with clear feedback and short time-to-fail.</li>
-                        <li>Risk / reward decisions around how far to push each run.</li>
-                        <li>Base upgrades that subtly change how players approach new runs.</li>
+                        <li>Clear enemy state machine: patrol, suspicious, alert / chase.</li>
+                        <li>Vision cones and occlusion logic with clean feedback.</li>
+                        <li>Level layout that supports sneaking, flanking and planning routes.</li>
                     </ul>
 
                     <div class="pill-row">
-                        <span class="pill">Core loop</span>
-                        <span class="pill">Enemy & room design</span>
-                        <span class="pill">Economy tuning (light)</span>
+                        <span class="pill">Enemy AI states</span>
+                        <span class="pill">Level blockout</span>
+                        <span class="pill">Stealth readability</span>
                     </div>
                 </div>
 
                 <div>
                     <p class="section-title">Links & material</p>
                     <p class="body">
-                        These are placeholders you can replace with real links when you have
-                        builds, docs or videos you’re happy to share.
+                        Documentation focuses on guard behaviour, state diagrams and how
+                        cameras and enemies coordinate to create tension spikes.
                     </p>
-
                     <ul class="links">
-                        <li><a href="#" target="_blank">GDD / design outline (placeholder)</a></li>
-                        <li><a href="#" target="_blank">Prototype build or gameplay video (placeholder)</a></li>
+                        <li><a href="#" target="_blank">AI & level diagrams (placeholder)</a></li>
+                        <li><a href="#" target="_blank">Prototype gameplay video (placeholder)</a></li>
                     </ul>
 
                     <p class="section-title">Context</p>
                     <p class="body">
-                        Built as a personal / coursework prototype to explore how combat
-                        pacing and meta progression influence retention in small sessions.
+                        Built as part of a stealth-focused coursework piece, combining Unity
+                        scripting with level design principles taken from MGS1-style spaces.
                     </p>
                 </div>
             </div>
