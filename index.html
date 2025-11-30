@@ -7,6 +7,7 @@
     <meta name="description"
           content="Portfolio of Santiago Negro – Game Designer and Creative Performance Designer." />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap">
+
     <style>
         :root {
             --bg: #050608;
@@ -16,12 +17,12 @@
             --text-main: #f9fafb;
             --text-soft: #d1d5db;
             --text-muted: #9ca3af;
-            --accent: #f97316; /* orange */
-            --accent-soft: #4b2f22; /* soft brown/orange */
+            --accent: #f97316;
+            --accent-soft: #4b2f22;
             --accent-dark: #ea580c;
             --radius-lg: 18px;
             --radius-pill: 999px;
-            --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.6);
+            --shadow-soft: 0 18px 45px rgba(0,0,0,0.6);
         }
 
         * {
@@ -35,8 +36,8 @@
         }
 
         body {
-            font-family: "Lexend", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background: radial-gradient(circle at top left, #111827 0, #020308 55%);
+            font-family: "Lexend",system-ui,-apple-system;
+            background: radial-gradient(circle at top left,#111827 0,#020308 55%);
             color: var(--text-main);
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
@@ -53,38 +54,34 @@
             padding: 40px 20px 64px;
         }
 
-        @media (min-width: 768px) {
+        @media(min-width:768px) {
             .page {
                 padding: 56px 24px 80px;
             }
         }
 
-        /* HEADER / HERO */
-
         header {
             display: grid;
-            grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr);
+            grid-template-columns: minmax(0,2.2fr) minmax(0,1fr);
             gap: 32px;
             margin-bottom: 48px;
             align-items: center;
         }
 
-        @media (max-width: 768px) {
+        @media(max-width:768px) {
             header {
-                grid-template-columns: minmax(0, 1fr);
+                grid-template-columns: 1fr;
             }
         }
 
         .hero-title {
-            font-size: clamp(2.3rem, 4vw, 3rem);
+            font-size: clamp(2.3rem,4vw,3rem);
             font-weight: 700;
-            letter-spacing: 0.02em;
             margin-bottom: 4px;
         }
 
         .hero-role {
             font-size: 1rem;
-            font-weight: 500;
             color: var(--text-muted);
             margin-bottom: 16px;
         }
@@ -107,81 +104,73 @@
             font-size: 0.75rem;
             padding: 4px 10px;
             border-radius: var(--radius-pill);
-            background: rgba(15, 23, 42, 0.8);
+            background: rgba(15,23,42,.8);
             border: 1px solid var(--border-soft);
             color: var(--text-muted);
         }
 
         .hero-actions {
             display: flex;
-            flex-wrap: wrap;
             gap: 10px;
             margin-bottom: 12px;
+            flex-wrap: wrap;
         }
 
         .btn-primary {
             padding: 9px 18px;
             border-radius: var(--radius-pill);
             border: 1px solid var(--accent-dark);
-            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            background: linear-gradient(135deg,var(--accent),var(--accent-dark));
             color: #fef3c7;
-            font-size: 0.9rem;
+            font-size: .9rem;
             font-weight: 500;
             display: inline-flex;
             align-items: center;
-            justify-content: center;
             gap: 6px;
             cursor: pointer;
             box-shadow: var(--shadow-soft);
-            transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+            transition: .15s;
         }
 
             .btn-primary:hover {
                 filter: brightness(1.05);
                 transform: translateY(-1px);
-                box-shadow: 0 22px 60px rgba(0, 0, 0, 0.85);
             }
 
         .btn-ghost {
             padding: 9px 16px;
             border-radius: var(--radius-pill);
             border: 1px solid var(--border-soft);
-            background: rgba(15, 23, 42, 0.9);
-            font-size: 0.9rem;
-            font-weight: 500;
+            background: rgba(15,23,42,.9);
+            font-size: .9rem;
             color: var(--text-soft);
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+            transition: .15s;
         }
 
             .btn-ghost:hover {
-                background: rgba(31, 41, 55, 0.95);
+                background: #1f2937;
                 border-color: #4b5563;
                 color: #e5e7eb;
             }
 
         .hero-note {
-            font-size: 0.8rem;
+            font-size: .8rem;
             color: var(--text-muted);
         }
 
         .hero-card {
-            background: radial-gradient(circle at top, rgba(249,115,22,0.18), transparent 55%), var(--surface);
+            background: radial-gradient(circle at top,rgba(249,115,22,.18),transparent 55%), var(--surface);
             border-radius: var(--radius-lg);
             border: 1px solid var(--border-soft);
-            padding: 18px 18px;
+            padding: 18px;
             box-shadow: var(--shadow-soft);
-            font-size: 0.8rem;
-            color: var(--text-soft);
             max-width: 260px;
+            font-size: .8rem;
+            color: var(--text-soft);
             justify-self: end;
         }
 
-        @media (max-width: 768px) {
+        @media(max-width:768px) {
             .hero-card {
                 justify-self: stretch;
                 max-width: 100%;
@@ -189,26 +178,18 @@
         }
 
         .hero-card-title {
-            font-size: 0.8rem;
             font-weight: 600;
             margin-bottom: 4px;
             color: var(--text-main);
         }
-
-        .hero-card-body {
-            font-size: 0.8rem;
-            color: var(--text-soft);
-        }
-
-        /* SECTIONS */
 
         section {
             margin-bottom: 40px;
         }
 
         .section-label {
-            font-size: 0.7rem;
-            letter-spacing: 0.18em;
+            font-size: .7rem;
+            letter-spacing: .18em;
             text-transform: uppercase;
             color: var(--text-muted);
             margin-bottom: 6px;
@@ -221,68 +202,58 @@
         }
 
         .section-subheading {
-            font-size: 0.9rem;
-            font-weight: 500;
+            font-size: .9rem;
             color: var(--text-muted);
             margin-bottom: 14px;
         }
-
-        /* GRID */
 
         .grid {
             display: grid;
             gap: 14px;
         }
 
-        @media (min-width: 768px) {
+        @media(min-width:768px) {
             .grid-2 {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
+                grid-template-columns: repeat(2,1fr);
             }
 
             .grid-3 {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
+                grid-template-columns: repeat(3,1fr);
             }
-        }
-
-        .card-link {
-            display: block;
-            color: inherit;
-            text-decoration: none;
         }
 
         .card {
             background: var(--surface);
             border-radius: var(--radius-lg);
             border: 1px solid var(--border-soft);
-            padding: 16px 16px 14px;
+            padding: 16px;
             box-shadow: var(--shadow-soft);
         }
 
         .card-hover {
-            transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+            transition: .15s;
         }
 
         .card-link:hover .card-hover {
             transform: translateY(-3px);
             border-color: var(--accent);
-            box-shadow: 0 22px 60px rgba(0, 0, 0, 0.9);
-            background: radial-gradient(circle at top, rgba(249,115,22,0.12), transparent 55%), var(--surface);
+            background: radial-gradient(circle at top,rgba(249,115,22,.12),transparent 55%),var(--surface);
         }
 
         .card-title {
-            font-size: 0.98rem;
+            font-size: .98rem;
             font-weight: 600;
             margin-bottom: 4px;
         }
 
         .card-subtitle {
-            font-size: 0.78rem;
+            font-size: .78rem;
             color: var(--text-muted);
             margin-bottom: 8px;
         }
 
         .card-body {
-            font-size: 0.82rem;
+            font-size: .82rem;
             color: var(--text-soft);
             margin-bottom: 8px;
         }
@@ -294,119 +265,26 @@
         }
 
         .pill {
-            font-size: 0.72rem;
+            font-size: .72rem;
             padding: 3px 9px;
             border-radius: var(--radius-pill);
-            background: rgba(15, 23, 42, 0.9);
+            background: rgba(15,23,42,.9);
             border: 1px solid var(--border-soft);
             color: var(--text-muted);
         }
-
-        /* TIMELINE */
-
-        .timeline {
-            display: grid;
-            gap: 12px;
-        }
-
-        .timeline-item {
-            display: grid;
-            grid-template-columns: 14px minmax(0, 1fr);
-            gap: 10px;
-        }
-
-        .timeline-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 999px;
-            background: var(--accent);
-            margin-top: 6px;
-        }
-
-        .timeline-title {
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 2px;
-        }
-
-        .timeline-meta {
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            margin-bottom: 6px;
-        }
-
-        .timeline-body {
-            font-size: 0.82rem;
-            color: var(--text-soft);
-        }
-
-        /* PROJECT DETAILS */
-
-        .detail-grid {
-            display: grid;
-            gap: 16px;
-        }
-
-        @media (min-width: 768px) {
-            .detail-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-        }
-
-        .detail-block {
-            background: rgba(11, 15, 22, 0.95);
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border-soft);
-            padding: 16px 16px 14px;
-        }
-
-        .detail-title {
-            font-size: 0.95rem;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .detail-meta {
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-        }
-
-        .detail-body {
-            font-size: 0.82rem;
-            color: var(--text-soft);
-            margin-bottom: 10px;
-        }
-
-        .detail-links {
-            list-style: none;
-            display: grid;
-            gap: 4px;
-            font-size: 0.8rem;
-        }
-
-            .detail-links a {
-                color: var(--accent);
-            }
-
-                .detail-links a:hover {
-                    text-decoration: underline;
-                }
-
-        /* FOOTER */
 
         footer {
             border-top: 1px solid var(--border-soft);
             padding-top: 16px;
             margin-top: 32px;
-            font-size: 0.8rem;
+            font-size: .8rem;
             color: var(--text-muted);
             display: flex;
             flex-direction: column;
             gap: 8px;
         }
 
-        @media (min-width: 640px) {
+        @media(min-width:640px) {
             footer {
                 flex-direction: row;
                 justify-content: space-between;
@@ -416,8 +294,8 @@
 
         .footer-links {
             display: flex;
-            flex-wrap: wrap;
             gap: 12px;
+            flex-wrap: wrap;
         }
 
         .footer-link {
@@ -427,17 +305,17 @@
         }
     </style>
 </head>
+
 <body>
     <div class="page">
+
+        <!-- HEADER -->
         <header>
             <div>
                 <h1 class="hero-title">Santiago Negro</h1>
                 <p class="hero-role">Game Designer & Creative Performance Designer</p>
                 <p class="hero-intro">
-                    I design interactive experiences and performance-driven creative that
-                    connect emotion with measurable results. Between games, systems and
-                    paid social, my focus is understanding how players and users think so
-                    we can design something that actually matters.
+                    I design interactive experiences and performance-driven creative that connect emotion with measurable results.
                 </p>
 
                 <div class="hero-tags">
@@ -448,31 +326,21 @@
                 </div>
 
                 <div class="hero-actions">
-                    <a href="mailto:santi.negro1@gmail.com" class="btn-primary">
-                        Contact me
-                        <span>↗</span>
-                    </a>
-                    <button class="btn-ghost"
-                            onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">
-                        View selected work
-                    </button>
+                    <a href="mailto:santi.negro1@gmail.com" class="btn-primary">Contact me ↗</a>
+                    <button class="btn-ghost" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">View selected work</button>
                 </div>
 
-                <p class="hero-note">
-                    Based in Buenos Aires · Focused on Game Design, Live Service and
-                    performance creatives for global brands.
-                </p>
+                <p class="hero-note">Based in Buenos Aires · Focused on Game Design and performance creatives.</p>
             </div>
 
             <aside class="hero-card">
                 <p class="hero-card-title">About this portfolio</p>
                 <p class="hero-card-body">
-                    Curated overview of the projects and areas where I can bring the most
-                    value: game design, systems thinking and performance-driven creative.
-                    Built as a single-page site so it’s easy to share and update.
+                    Curated overview of the projects and areas where I bring the most value.
                 </p>
             </aside>
         </header>
+
 
         <!-- PROJECTS -->
         <section id="projects">
@@ -480,16 +348,16 @@
             <h2 class="section-heading">Selected work</h2>
 
             <p class="section-subheading">Game projects (Unity, Unreal & design docs)</p>
+
             <div class="grid grid-2" style="margin-bottom:20px;">
-                <!-- Get it Back -->
-                <a href="projects/project1.html" class="card-link">
+
+                <!-- PROJECT 1 -->
+                <a href="Projects/project1.html" class="card-link">
                     <article class="card card-hover">
                         <h3 class="card-title">Get it Back! – Roguelike Shooter</h3>
                         <p class="card-subtitle">Game Design · Unity Prototype</p>
                         <p class="card-body">
-                            Top–down shooter with light base-building where the player recovers
-                            stolen items to rebuild their home. Inspired by Hotline Miami and
-                            Hades, focusing on pace, risk / reward and experimental builds.
+                            Top–down shooter with base-building elements and experimental builds.
                         </p>
                         <div class="pill-row">
                             <span class="pill">Core loop</span>
@@ -499,15 +367,13 @@
                     </article>
                 </a>
 
-                <!-- Stillness -->
-                <a href="projects/project2.html" class="card-link">
+                <!-- PROJECT 2 -->
+                <a href="Projects/project2.html" class="card-link">
                     <article class="card card-hover">
                         <h3 class="card-title">Stillness – Systemic Narrative Simulation</h3>
                         <p class="card-subtitle">Game Design · System Design Document</p>
                         <p class="card-body">
-                            A project exploring how trust, perception and memory change NPC and
-                            player behaviour over time. Built around emotional states and
-                            systemic interactions instead of fixed branches.
+                            Trust, perception and memory interact to create emergent narrative.
                         </p>
                         <div class="pill-row">
                             <span class="pill">Systemic narrative</span>
@@ -516,15 +382,13 @@
                     </article>
                 </a>
 
-                <!-- Stealth -->
-                <a href="projects/project3.html" class="card-link">
+                <!-- PROJECT 3 -->
+                <a href="Projects/project3.html" class="card-link">
                     <article class="card card-hover">
                         <h3 class="card-title">Stealth Prototype – MGS-inspired</h3>
-                        <p class="card-subtitle">Level & Systems · Unreal / Unity coursework</p>
+                        <p class="card-subtitle">Unreal / Unity coursework</p>
                         <p class="card-body">
-                            Stealth prototype focused on enemy states, patrol paths and vision
-                            cones, plus level layout that supports readable stealth gameplay and
-                            player planning.
+                            Enemy patrol states, vision cones and readable stealth design.
                         </p>
                         <div class="pill-row">
                             <span class="pill">Enemy states</span>
@@ -533,18 +397,16 @@
                     </article>
                 </a>
 
-                <!-- Riftbound -->
-                <a href="projects/project4.html" class="card-link">
+                <!-- PROJECT 4 -->
+                <a href="Projects/project4.html" class="card-link">
                     <article class="card card-hover">
                         <h3 class="card-title">Riftbound – Tower Defense Roguelike</h3>
-                        <p class="card-subtitle">Game Design · Systems & Progression</p>
+                        <p class="card-subtitle">Systems & Progression</p>
                         <p class="card-body">
-                            Concept for a roguelike tower defense where runs feed back into a
-                            persistent base, mixing moment-to-moment defense choices with long-term
-                            progression.
+                            Run-based tower defense with persistent base progression.
                         </p>
                         <div class="pill-row">
-                            <span class="pill">Progression systems</span>
+                            <span class="pill">Progression</span>
                             <span class="pill">Run-based design</span>
                         </div>
                     </article>
@@ -552,34 +414,32 @@
             </div>
 
             <p class="section-subheading">Client & campaign work</p>
+
             <div class="grid grid-2">
-                <!-- Undici -->
-                <a href="projects/project5.html" class="card-link">
+
+                <!-- PROJECT 5 -->
+                <a href="Projects/project5.html" class="card-link">
                     <article class="card card-hover">
                         <h3 class="card-title">Undici Hotel – Boca Juniors Experience</h3>
                         <p class="card-subtitle">Paid Social · Strategy & Creatives</p>
                         <p class="card-body">
-                            Full-funnel campaigns and content for a football-themed hotel with
-                            direct view to La Bombonera. Focus on emotional storytelling,
-                            tactical offers and creatives designed around conversion.
+                            Emotional storytelling + funnel strategy for a football-themed hotel.
                         </p>
                         <div class="pill-row">
                             <span class="pill">Funnel strategy</span>
-                            <span class="pill">UGC-style ads</span>
-                            <span class="pill">Event & offer promos</span>
+                            <span class="pill">UGC ads</span>
+                            <span class="pill">Event promos</span>
                         </div>
                     </article>
                 </a>
 
-                <!-- Marlin -->
-                <a href="projects/project6.html" class="card-link">
+                <!-- PROJECT 6 -->
+                <a href="Projects/project6.html" class="card-link">
                     <article class="card card-hover">
                         <h3 class="card-title">Marlin del Rey & others</h3>
                         <p class="card-subtitle">Paid Social · Tourism & Experiences</p>
                         <p class="card-body">
-                            Performance creatives for global tour and experience brands.
-                            Constant testing of hooks, offers and layouts with ROAS and
-                            bookings as the main success metrics.
+                            Performance creatives optimized for ROAS and bookings.
                         </p>
                         <div class="pill-row">
                             <span class="pill">Creative strategy</span>
@@ -590,12 +450,13 @@
             </div>
         </section>
 
+
         <!-- 3D WORK -->
         <section id="work-3d">
             <p class="section-label">3D Work</p>
             <h2 class="section-heading">Selected 3D pieces</h2>
             <p class="section-subheading">
-                A few examples of 3D work I’ve done alongside game and marketing projects.
+                Some 3D studies made alongside game design coursework.
             </p>
 
             <div class="grid grid-3">
@@ -603,8 +464,7 @@
                     <h3 class="card-title">Environment Study</h3>
                     <p class="card-subtitle">Lighting & Composition</p>
                     <p class="card-body">
-                        Small-scale environment focused on atmosphere, color balance and
-                        readable focal points. Built to test how mood supports narrative beats.
+                        Small atmosphere-focused scene to test tone and narrative support.
                     </p>
                     <div class="pill-row">
                         <span class="pill">Lighting</span>
@@ -616,8 +476,7 @@
                     <h3 class="card-title">Prop Exploration</h3>
                     <p class="card-subtitle">Hard-surface assets</p>
                     <p class="card-body">
-                        Set of props created to support different gameplay spaces, keeping
-                        silhouettes clean and easy to read from the player camera.
+                        Props designed for readability and gameplay-driven silhouettes.
                     </p>
                     <div class="pill-row">
                         <span class="pill">Silhouette</span>
@@ -626,163 +485,26 @@
                 </article>
 
                 <article class="card">
-                    <h3 class="card-title">Material & Detail Passes</h3>
+                    <h3 class="card-title">Material Passes</h3>
                     <p class="card-subtitle">Surface work</p>
                     <p class="card-body">
-                        Experiments with materials and small details that add storytelling to
-                        environments without cluttering the scene.
+                        Material studies focused on storytelling through detail.
                     </p>
                     <div class="pill-row">
-                        <span class="pill">Shaders / materials</span>
-                        <span class="pill">Storytelling detail</span>
+                        <span class="pill">Shaders</span>
+                        <span class="pill">Detail work</span>
                     </div>
                 </article>
             </div>
         </section>
 
-        <!-- PROJECT DETAILS -->
-        <section id="details">
-            <p class="section-label">Project details</p>
-            <h2 class="section-heading">A closer look</h2>
-            <p class="section-subheading">
-                Click any card above to jump here. Each block can hold a deeper breakdown
-                and links to docs, builds or extra material.
-            </p>
-
-            <div class="detail-grid">
-                <div class="detail-block" id="proj-getitback">
-                    <h3 class="detail-title">Get it Back! – Roguelike Shooter</h3>
-                    <p class="detail-meta">Unity prototype · Top–down action & base-building</p>
-                    <p class="detail-body">
-                        Focused on fast combat, clear readability and a satisfying loop of
-                        taking risks in each run to recover objects that upgrade the player’s
-                        home/base. Enemy behaviours and room layouts are tuned around short,
-                        replayable sessions.
-                    </p>
-                    <ul class="detail-links">
-                        <li><a href="#" target="_blank">Design outline / GDD (placeholder)</a></li>
-                        <li><a href="#" target="_blank">Prototype build or video (placeholder)</a></li>
-                    </ul>
-                </div>
-
-                <div class="detail-block" id="proj-stillness">
-                    <h3 class="detail-title">Stillness – Systemic Narrative Simulation</h3>
-                    <p class="detail-meta">System design doc · Trust, perception & memory</p>
-                    <p class="detail-body">
-                        Models how NPCs change their internal state based on what they see,
-                        hear and remember from the player, and how those changes affect
-                        dialogue options, access to spaces and overall tone. Less about
-                        branching, more about how the system evolves over time.
-                    </p>
-                    <ul class="detail-links">
-                        <li><a href="#" target="_blank">System design document (placeholder)</a></li>
-                    </ul>
-                </div>
-
-                <div class="detail-block" id="proj-stealth">
-                    <h3 class="detail-title">Stealth Prototype – MGS-inspired</h3>
-                    <p class="detail-meta">Enemy states · Patrol, alert & chase</p>
-                    <p class="detail-body">
-                        Implements a clear state machine for guards (patrol, suspicious,
-                        alert/chase) with vision cones, hearing ranges and feedback that
-                        helps the player understand when they’re safe or about to be spotted.
-                    </p>
-                    <ul class="detail-links">
-                        <li><a href="#" target="_blank">Level overview or diagrams (placeholder)</a></li>
-                    </ul>
-                </div>
-
-                <div class="detail-block" id="proj-riftbound">
-                    <h3 class="detail-title">Riftbound – Tower Defense Roguelike</h3>
-                    <p class="detail-meta">Concept · Core loop & progression</p>
-                    <p class="detail-body">
-                        Explores how to balance moment-to-moment defence decisions with
-                        long-term progression: runs feed into base upgrades, and each upgrade
-                        changes how players approach future runs.
-                    </p>
-                    <ul class="detail-links">
-                        <li><a href="#" target="_blank">Concept deck or one-pager (placeholder)</a></li>
-                    </ul>
-                </div>
-
-                <div class="detail-block" id="proj-undici">
-                    <h3 class="detail-title">Undici Hotel – Boca Juniors Experience</h3>
-                    <p class="detail-meta">Paid social strategy · Content & events</p>
-                    <p class="detail-body">
-                        Work includes evergreen campaigns for rooms and experiences, plus
-                        event-led pushes (Fan Fests, match days, special promos). Creative is
-                        built around the emotional experience of being next to La Bombonera.
-                    </p>
-                    <ul class="detail-links">
-                        <li><a href="#" target="_blank">Creative examples / reel (placeholder)</a></li>
-                    </ul>
-                </div>
-
-                <div class="detail-block" id="proj-marlin">
-                    <h3 class="detail-title">Marlin del Rey & other operators</h3>
-                    <p class="detail-meta">Performance creatives · Tours & experiences</p>
-                    <p class="detail-body">
-                        Focus on testing: variations of hooks, offers, formats and framing,
-                        with decisions driven by booked tours and ROAS, not only CTR. This
-                        work overlaps heavily with my interest in systems thinking and player
-                        psychology.
-                    </p>
-                    <ul class="detail-links">
-                        <li><a href="#" target="_blank">Ad examples or case notes (placeholder)</a></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- EXPERIENCE -->
-        <section id="experience">
-            <p class="section-label">Experience</p>
-            <h2 class="section-heading">Where I’m currently involved</h2>
-
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div>
-                        <p class="timeline-title">
-                            Paid Social Media Manager – AAMP Agency
-                        </p>
-                        <p class="timeline-meta">2023 – Present · Remote</p>
-                        <p class="timeline-body">
-                            Managing campaigns and creatives for tourism, experiences and
-                            e-commerce brands. Full-funnel strategy, performance analysis and
-                            detailed creative briefs for design and video teams.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div>
-                        <p class="timeline-title">Game Design Student – Image Campus</p>
-                        <p class="timeline-meta">2023 – Present · Buenos Aires</p>
-                        <p class="timeline-body">
-                            Prototypes in Unity, systemic design documents, market and
-                            audience analysis and production workflows using agile
-                            methodologies.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- CONTACT -->
         <section id="contact">
             <p class="section-label">Contact</p>
             <h2 class="section-heading">Let’s talk</h2>
-            <p style="
-          font-size: 0.9rem;
-          color: var(--text-soft);
-          max-width: 540px;
-          margin-bottom: 14px;
-        ">
-                If you’d like to see more projects, request a design document or talk
-                about a role, collaboration or freelance work, feel free to reach out
-                and I’ll share anything you need.
+            <p style="font-size:.9rem;color:var(--text-soft);max-width:540px;margin-bottom:14px;">
+                Want to see more? Need docs, prototypes or collaboration info? Email me anytime.
             </p>
             <a class="btn-primary" href="mailto:santi.negro1@gmail.com">
                 Email me at santi.negro1@gmail.com
@@ -792,12 +514,6 @@
         <footer>
             <span>© <span id="year"></span> Santiago Negro. All rights reserved.</span>
             <div class="footer-links">
-                <a class="footer-link"
-                   href="https://www.linkedin.com"
-                   target="_blank"
-                   rel="noreferrer">
-                    LinkedIn
-                </a>
                 <a class="footer-link" href="#projects">Projects</a>
                 <a class="footer-link" href="#work-3d">3D Work</a>
                 <a class="footer-link" href="#contact">Contact</a>
@@ -808,5 +524,6 @@
     <script>
         document.getElementById("year").textContent = new Date().getFullYear();
     </script>
+
 </body>
 </html>
