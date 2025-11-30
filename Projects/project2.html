@@ -1,206 +1,53 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <title>Stillness – Project · Santiago Negro</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap">
-    <style>
-        :root {
-            --bg: #050608;
-            --surface: #0b0f16;
-            --border-soft: #252936;
-            --text-main: #f9fafb;
-            --text-soft: #d1d5db;
-            --text-muted: #9ca3af;
-            --accent: #f97316;
-            --accent-dark: #ea580c;
-            --radius-lg: 18px;
-            --radius-pill: 999px;
-            --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.6);
-        }
+﻿<template id="project2-template">
+    <article>
+        <h2 class="project-detail-title">Stillness – Systemic Narrative Simulation</h2>
+        <p class="project-detail-meta">
+            System design document · Trust, perception & memory · Role: Game Designer
+        </p>
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        <div class="project-detail-columns">
 
-        body {
-            font-family: "Lexend", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background: radial-gradient(circle at top left, #111827 0, #020308 55%);
-            color: var(--text-main);
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
-        }
+            <div>
+                <p class="project-detail-section-title">Overview</p>
+                <p class="project-detail-body">
+                    Stillness explores how internal states like trust, fear and certainty
+                    shape both NPC and player behaviour over time. Instead of fixed narrative branches,
+                    the game models how characters update their perception of the player and the world
+                    based on what they see, remember and believe.
+                </p>
 
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
+                <p class="project-detail-section-title">Design focus</p>
+                <ul class="project-detail-list">
+                    <li>Systemic approach to narrative rather than branching trees.</li>
+                    <li>Trust and confidence lines that affect dialogue, access and tone.</li>
+                    <li>States that react to context: environment, recent events, choices.</li>
+                </ul>
 
-        .page {
-            max-width: 760px;
-            margin: 40px auto 56px;
-            padding: 0 20px;
-        }
-
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 18px;
-        }
-
-            .back-link span {
-                font-size: 1rem;
-            }
-
-        .card {
-            background: var(--surface);
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border-soft);
-            padding: 20px 20px 18px;
-            box-shadow: var(--shadow-soft);
-        }
-
-        h1 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .meta {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-bottom: 14px;
-        }
-
-        .columns {
-            display: grid;
-            gap: 16px;
-        }
-
-        @media (min-width: 768px) {
-            .columns {
-                grid-template-columns: 2fr 1.3fr;
-            }
-        }
-
-        .section-title {
-            font-size: 0.9rem;
-            font-weight: 500;
-            margin-bottom: 6px;
-        }
-
-        .body {
-            font-size: 0.86rem;
-            color: var(--text-soft);
-            margin-bottom: 10px;
-        }
-
-        ul {
-            list-style: disc;
-            padding-left: 18px;
-            font-size: 0.84rem;
-            color: var(--text-soft);
-            margin-bottom: 10px;
-        }
-
-        .pill-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-top: 4px;
-        }
-
-        .pill {
-            font-size: 0.72rem;
-            padding: 3px 9px;
-            border-radius: var(--radius-pill);
-            border: 1px solid var(--border-soft);
-            color: var(--text-muted);
-        }
-
-        .links {
-            list-style: none;
-            padding-left: 0;
-            margin-top: 6px;
-        }
-
-            .links li {
-                margin-bottom: 4px;
-                font-size: 0.82rem;
-            }
-
-            .links a {
-                color: var(--accent);
-            }
-
-                .links a:hover {
-                    text-decoration: underline;
-                }
-    </style>
-</head>
-<body>
-    <div class="page">
-        <a class="back-link" href="https://santidark.github.io/SantiagoNegro-Portfolio/index.html#projects">
-            <span>←</span> Back to projects
-        </a>
-
-        <div class="card">
-            <h1>Stillness – Systemic Narrative Simulation</h1>
-            <p class="meta">
-                System design document · Trust, perception & memory · Role: Game Designer
-            </p>
-
-            <div class="columns">
-                <div>
-                    <p class="section-title">Overview</p>
-                    <p class="body">
-                        Stillness explores how internal states like trust, fear and certainty
-                        shape both NPC and player behaviour over time. Instead of fixed
-                        narrative branches, the game models how characters update their
-                        perception of the player and the world based on what they see,
-                        remember and believe.
-                    </p>
-
-                    <p class="section-title">Design focus</p>
-                    <ul>
-                        <li>Systemic approach to narrative rather than branching trees.</li>
-                        <li>Trust and confidence lines that affect dialogue, access and tone.</li>
-                        <li>States that react to context: environment, recent events, choices.</li>
-                    </ul>
-
-                    <div class="pill-row">
-                        <span class="pill">Systemic narrative</span>
-                        <span class="pill">Emotional models</span>
-                        <span class="pill">Player psychology</span>
-                    </div>
-                </div>
-
-                <div>
-                    <p class="section-title">Links & material</p>
-                    <p class="body">
-                        Main reference is a detailed design document that breaks down the
-                        systems, diagrams and examples of how states change moment-to-moment.
-                    </p>
-                    <ul class="links">
-                        <li><a href="#" target="_blank">System design document (placeholder)</a></li>
-                        <li><a href="#" target="_blank">State diagrams / slides (placeholder)</a></li>
-                    </ul>
-
-                    <p class="section-title">Context</p>
-                    <p class="body">
-                        Built as a systemic narrative assignment to combine psychology,
-                        semiotics and game design into a framework that could later be
-                        prototyped in-engine.
-                    </p>
+                <div class="pill-row">
+                    <span class="pill">Systemic narrative</span>
+                    <span class="pill">Emotional models</span>
+                    <span class="pill">Player psychology</span>
                 </div>
             </div>
+
+            <div>
+                <p class="project-detail-section-title">Links & material</p>
+                <p class="project-detail-body">
+                    Main reference is a detailed design document that breaks down the
+                    systems, diagrams and examples of how states change moment-to-moment.
+                </p>
+
+                <ul class="project-detail-links">
+                    <li><a href="#" target="_blank">System design document (placeholder)</a></li>
+                    <li><a href="#" target="_blank">State diagrams / slides (placeholder)</a></li>
+                </ul>
+
+                <p class="project-detail-section-title">Context</p>
+                <p class="project-detail-body">
+                    Built as a systemic narrative assignment to combine psychology,
+                    semiotics and game design into a framework that could later be prototyped in-engine.
+                </p>
+            </div>
         </div>
-    </div>
-</body>
-</html>
+    </article>
+</template>

@@ -1,205 +1,55 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <title>Riftbound – Project · Santiago Negro</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap">
-    <style>
-        :root {
-            --bg: #050608;
-            --surface: #0b0f16;
-            --border-soft: #252936;
-            --text-main: #f9fafb;
-            --text-soft: #d1d5db;
-            --text-muted: #9ca3af;
-            --accent: #f97316;
-            --accent-dark: #ea580c;
-            --radius-lg: 18px;
-            --radius-pill: 999px;
-            --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.6);
-        }
+﻿<template id="project4-template">
+    <article>
+        <h2 class="project-detail-title">Riftbound – Tower Defense Roguelike</h2>
+        <p class="project-detail-meta">
+            Concept & systems · Run-based tower defense with base-building meta · Role: Game Designer
+        </p>
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        <div class="project-detail-columns">
 
-        body {
-            font-family: "Lexend", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background: radial-gradient(circle at top left, #111827 0, #020308 55%);
-            color: var(--text-main);
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
-        }
+            <div>
+                <p class="project-detail-section-title">Overview</p>
+                <p class="project-detail-body">
+                    Riftbound mixes classic lane-based tower defense with roguelike
+                    structure. Each run sends the player through escalating waves,
+                    earning resources that can be invested into a persistent base that
+                    unlocks new towers, modifiers and strategies.
+                </p>
 
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
+                <p class="project-detail-section-title">Design focus</p>
+                <ul class="project-detail-list">
+                    <li>Core loop connecting runs, rewards and base upgrades.</li>
+                    <li>Modifiers that change how players think about each new run.</li>
+                    <li>Difficulty curve tuned around learning, not just grind.</li>
+                </ul>
 
-        .page {
-            max-width: 760px;
-            margin: 40px auto 56px;
-            padding: 0 20px;
-        }
-
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 18px;
-        }
-
-            .back-link span {
-                font-size: 1rem;
-            }
-
-        .card {
-            background: var(--surface);
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border-soft);
-            padding: 20px 20px 18px;
-            box-shadow: var(--shadow-soft);
-        }
-
-        h1 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .meta {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-bottom: 14px;
-        }
-
-        .columns {
-            display: grid;
-            gap: 16px;
-        }
-
-        @media (min-width: 768px) {
-            .columns {
-                grid-template-columns: 2fr 1.3fr;
-            }
-        }
-
-        .section-title {
-            font-size: 0.9rem;
-            font-weight: 500;
-            margin-bottom: 6px;
-        }
-
-        .body {
-            font-size: 0.86rem;
-            color: var(--text-soft);
-            margin-bottom: 10px;
-        }
-
-        ul {
-            list-style: disc;
-            padding-left: 18px;
-            font-size: 0.84rem;
-            color: var(--text-soft);
-            margin-bottom: 10px;
-        }
-
-        .pill-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-top: 4px;
-        }
-
-        .pill {
-            font-size: 0.72rem;
-            padding: 3px 9px;
-            border-radius: var(--radius-pill);
-            border: 1px solid var(--border-soft);
-            color: var(--text-muted);
-        }
-
-        .links {
-            list-style: none;
-            padding-left: 0;
-            margin-top: 6px;
-        }
-
-            .links li {
-                margin-bottom: 4px;
-                font-size: 0.82rem;
-            }
-
-            .links a {
-                color: var(--accent);
-            }
-
-                .links a:hover {
-                    text-decoration: underline;
-                }
-    </style>
-</head>
-<body>
-    <div class="page">
-        <a class="back-link" href="https://santidark.github.io/SantiagoNegro-Portfolio/index.html#projects">
-            <span>←</span> Back to projects
-        </a>
-
-        <div class="card">
-            <h1>Riftbound – Tower Defense Roguelike</h1>
-            <p class="meta">
-                Concept & systems · Run-based tower defense with base-building meta · Role: Game Designer
-            </p>
-
-            <div class="columns">
-                <div>
-                    <p class="section-title">Overview</p>
-                    <p class="body">
-                        Riftbound mixes classic lane-based tower defense with roguelike
-                        structure. Each run sends the player through escalating waves,
-                        earning resources that can be invested into a persistent base that
-                        unlocks new towers, modifiers and strategies.
-                    </p>
-
-                    <p class="section-title">Design focus</p>
-                    <ul>
-                        <li>Core loop connecting runs, rewards and base upgrades.</li>
-                        <li>Modifiers that change how players think about each new run.</li>
-                        <li>Difficulty curve tuned around learning, not just grind.</li>
-                    </ul>
-
-                    <div class="pill-row">
-                        <span class="pill">Progression systems</span>
-                        <span class="pill">Meta & core loop</span>
-                        <span class="pill">Economy structure</span>
-                    </div>
-                </div>
-
-                <div>
-                    <p class="section-title">Links & material</p>
-                    <p class="body">
-                        Includes a concept deck with target audience, references and
-                        monetization outline, plus system breakdowns for runs and base.
-                    </p>
-                    <ul class="links">
-                        <li><a href="#" target="_blank">Concept deck / one-pager (placeholder)</a></li>
-                        <li><a href="#" target="_blank">System flow diagrams (placeholder)</a></li>
-                    </ul>
-
-                    <p class="section-title">Context</p>
-                    <p class="body">
-                        Designed as a way to explore how Live Service / roguelike ideas can
-                        be applied to more traditional genres, keeping replayability and
-                        player agency at the center.
-                    </p>
+                <div class="pill-row">
+                    <span class="pill">Progression systems</span>
+                    <span class="pill">Meta & core loop</span>
+                    <span class="pill">Economy structure</span>
                 </div>
             </div>
+
+            <div>
+                <p class="project-detail-section-title">Links & material</p>
+                <p class="project-detail-body">
+                    Includes a concept deck with target audience, references and
+                    monetization outline, plus system breakdowns for runs and base.
+                </p>
+
+                <ul class="project-detail-links">
+                    <li><a href="#" target="_blank">Concept deck / one-pager (placeholder)</a></li>
+                    <li><a href="#" target="_blank">System flow diagrams (placeholder)</a></li>
+                </ul>
+
+                <p class="project-detail-section-title">Context</p>
+                <p class="project-detail-body">
+                    Designed as a way to explore how Live Service / roguelike ideas can
+                    be applied to more traditional genres, keeping replayability and
+                    player agency at the center.
+                </p>
+            </div>
+
         </div>
-    </div>
-</body>
-</html>
+    </article>
+</template>

@@ -1,204 +1,54 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <title>Stealth Prototype – Project · Santiago Negro</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap">
-    <style>
-        :root {
-            --bg: #050608;
-            --surface: #0b0f16;
-            --border-soft: #252936;
-            --text-main: #f9fafb;
-            --text-soft: #d1d5db;
-            --text-muted: #9ca3af;
-            --accent: #f97316;
-            --accent-dark: #ea580c;
-            --radius-lg: 18px;
-            --radius-pill: 999px;
-            --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.6);
-        }
+﻿<template id="project3-template">
+    <article>
+        <h2 class="project-detail-title">Stealth Prototype – MGS-inspired</h2>
+        <p class="project-detail-meta">
+            Level & systems prototype · Enemy states, patrol & vision cones · Role: Game Designer
+        </p>
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        <div class="project-detail-columns">
 
-        body {
-            font-family: "Lexend", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background: radial-gradient(circle at top left, #111827 0, #020308 55%);
-            color: var(--text-main);
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
-        }
+            <div>
+                <p class="project-detail-section-title">Overview</p>
+                <p class="project-detail-body">
+                    A small stealth prototype inspired by classic Metal Gear Solid,
+                    focused on guard behaviour and level readability. The goal was to
+                    make the player understand at a glance when they are safe, about to
+                    be spotted or fully detected.
+                </p>
 
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
+                <p class="project-detail-section-title">Design focus</p>
+                <ul class="project-detail-list">
+                    <li>Clear enemy state machine: patrol, suspicious, alert / chase.</li>
+                    <li>Vision cones and occlusion logic with clean feedback.</li>
+                    <li>Level layout that supports sneaking, flanking and planning routes.</li>
+                </ul>
 
-        .page {
-            max-width: 760px;
-            margin: 40px auto 56px;
-            padding: 0 20px;
-        }
-
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 18px;
-        }
-
-            .back-link span {
-                font-size: 1rem;
-            }
-
-        .card {
-            background: var(--surface);
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border-soft);
-            padding: 20px 20px 18px;
-            box-shadow: var(--shadow-soft);
-        }
-
-        h1 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .meta {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-bottom: 14px;
-        }
-
-        .columns {
-            display: grid;
-            gap: 16px;
-        }
-
-        @media (min-width: 768px) {
-            .columns {
-                grid-template-columns: 2fr 1.3fr;
-            }
-        }
-
-        .section-title {
-            font-size: 0.9rem;
-            font-weight: 500;
-            margin-bottom: 6px;
-        }
-
-        .body {
-            font-size: 0.86rem;
-            color: var(--text-soft);
-            margin-bottom: 10px;
-        }
-
-        ul {
-            list-style: disc;
-            padding-left: 18px;
-            font-size: 0.84rem;
-            color: var(--text-soft);
-            margin-bottom: 10px;
-        }
-
-        .pill-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-top: 4px;
-        }
-
-        .pill {
-            font-size: 0.72rem;
-            padding: 3px 9px;
-            border-radius: var(--radius-pill);
-            border: 1px solid var(--border-soft);
-            color: var(--text-muted);
-        }
-
-        .links {
-            list-style: none;
-            padding-left: 0;
-            margin-top: 6px;
-        }
-
-            .links li {
-                margin-bottom: 4px;
-                font-size: 0.82rem;
-            }
-
-            .links a {
-                color: var(--accent);
-            }
-
-                .links a:hover {
-                    text-decoration: underline;
-                }
-    </style>
-</head>
-<body>
-    <div class="page">
-        <a class="back-link" href="https://santidark.github.io/SantiagoNegro-Portfolio/index.html#projects">
-            <span>←</span> Back to projects
-        </a>
-
-        <div class="card">
-            <h1>Stealth Prototype – MGS-inspired</h1>
-            <p class="meta">
-                Level & systems prototype · Enemy states, patrol & vision cones · Role: Game Designer
-            </p>
-
-            <div class="columns">
-                <div>
-                    <p class="section-title">Overview</p>
-                    <p class="body">
-                        A small stealth prototype inspired by classic Metal Gear Solid,
-                        focused on guard behaviour and level readability. The goal was to
-                        make the player understand at a glance when they are safe, about to
-                        be spotted or fully detected.
-                    </p>
-
-                    <p class="section-title">Design focus</p>
-                    <ul>
-                        <li>Clear enemy state machine: patrol, suspicious, alert / chase.</li>
-                        <li>Vision cones and occlusion logic with clean feedback.</li>
-                        <li>Level layout that supports sneaking, flanking and planning routes.</li>
-                    </ul>
-
-                    <div class="pill-row">
-                        <span class="pill">Enemy AI states</span>
-                        <span class="pill">Level blockout</span>
-                        <span class="pill">Stealth readability</span>
-                    </div>
-                </div>
-
-                <div>
-                    <p class="section-title">Links & material</p>
-                    <p class="body">
-                        Documentation focuses on guard behaviour, state diagrams and how
-                        cameras and enemies coordinate to create tension spikes.
-                    </p>
-                    <ul class="links">
-                        <li><a href="#" target="_blank">AI & level diagrams (placeholder)</a></li>
-                        <li><a href="#" target="_blank">Prototype gameplay video (placeholder)</a></li>
-                    </ul>
-
-                    <p class="section-title">Context</p>
-                    <p class="body">
-                        Built as part of a stealth-focused coursework piece, combining Unity
-                        scripting with level design principles taken from MGS1-style spaces.
-                    </p>
+                <div class="pill-row">
+                    <span class="pill">Enemy AI states</span>
+                    <span class="pill">Level blockout</span>
+                    <span class="pill">Stealth readability</span>
                 </div>
             </div>
+
+            <div>
+                <p class="project-detail-section-title">Links & material</p>
+                <p class="project-detail-body">
+                    Documentation focuses on guard behaviour, state diagrams and how
+                    cameras and enemies coordinate to create tension spikes.
+                </p>
+
+                <ul class="project-detail-links">
+                    <li><a href="#" target="_blank">AI & level diagrams (placeholder)</a></li>
+                    <li><a href="#" target="_blank">Prototype gameplay video (placeholder)</a></li>
+                </ul>
+
+                <p class="project-detail-section-title">Context</p>
+                <p class="project-detail-body">
+                    Built as part of a stealth-focused coursework piece, combining Unity
+                    scripting with level design principles taken from MGS1-style spaces.
+                </p>
+            </div>
+
         </div>
-    </div>
-</body>
-</html>
+    </article>
+</template>
