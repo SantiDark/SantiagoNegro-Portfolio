@@ -12,7 +12,6 @@
     <meta property="og:title" content="Santiago Negro – Game Designer & Creative Performance Designer">
     <meta property="og:description" content="Game design, systems, prototyping & performance creatives.">
     <meta property="og:image" content="Photos/Santi.jpg">
-    <!-- opcional: poné tu URL real acá -->
     <meta property="og:url" content="">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap">
@@ -190,13 +189,13 @@
             color: var(--text-soft);
         }
 
-        /* ---- FOTO + CARD ---- */
+        /* ---- FOTO ---- */
 
         .hero-media {
             position: relative;
             display: flex;
             justify-content: flex-end;
-            align-items: flex-end;
+            align-items: center;
         }
 
         .hero-photo-frame {
@@ -213,30 +212,8 @@
             height: 250px;
             border-radius: 22px;
             object-fit: cover;
-            /* reencuadre para que se vea más tu cara */
             object-position: 40% 30%;
             border: 1px solid rgba(15,23,42,0.9);
-        }
-
-        .hero-card {
-            position: absolute;
-            bottom: 10px;
-            right: 16px;
-            background: rgba(11,15,22,0.93);
-            backdrop-filter: blur(5px);
-            border-radius: var(--radius-lg);
-            padding: 12px 16px;
-            max-width: 230px;
-            border: 1px solid rgba(255,255,255,0.06);
-            box-shadow: 0 14px 40px rgba(0,0,0,0.5);
-            font-size: .78rem;
-            color: var(--text-soft);
-        }
-
-        .hero-card-title {
-            font-weight: 600;
-            margin-bottom: 4px;
-            color: var(--text-main);
         }
 
         @media(max-width:768px) {
@@ -252,12 +229,6 @@
             .hero-photo-large {
                 width: 100%;
                 height: 250px;
-            }
-
-            .hero-card {
-                position: static;
-                margin-top: 12px;
-                max-width: 100%;
             }
         }
 
@@ -613,14 +584,6 @@
                 <div class="hero-photo-frame">
                     <img src="Photos/Santi.jpg" class="hero-photo-large" alt="Santiago Negro">
                 </div>
-
-                <aside class="hero-card">
-                    <p class="hero-card-title">About this portfolio</p>
-                    <p>
-                        Hybrid portfolio combining game design, systems thinking and performance-oriented creative work, with a focus on how decisions
-                        impact player experience and results.
-                    </p>
-                </aside>
             </div>
         </header>
 
@@ -750,7 +713,6 @@
             </p>
 
             <div class="video-frame">
-                <!-- cuando tengas tu reel, exportalo a MP4 y ponelo en /Media con este nombre -->
                 <video class="reel-video" src="Media/portfolio-reel.mp4" controls muted loop></video>
             </div>
         </section>
