@@ -74,24 +74,6 @@
             }
         }
 
-        /* -------- HERO + FOTO ---------- */
-
-        .hero-header {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 12px;
-        }
-
-        .hero-photo {
-            width: 80px;
-            height: 80px;
-            border-radius: 999px;
-            object-fit: cover;
-            border: 2px solid var(--border-soft);
-            box-shadow: 0 14px 32px rgba(0,0,0,0.7);
-        }
-
         .hero-title {
             font-size: clamp(2.3rem,4vw,3rem);
             font-weight: 700;
@@ -101,6 +83,7 @@
         .hero-role {
             font-size: 1rem;
             color: var(--text-muted);
+            margin-bottom: 16px;
         }
 
         .hero-intro {
@@ -176,21 +159,51 @@
             color: var(--text-muted);
         }
 
+        /* ---------- FOTO GRANDE + CARD ---------- */
+
+        .hero-media {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-photo-large {
+            width: 280px;
+            max-width: 100%;
+            border-radius: 24px;
+            object-fit: cover;
+            border: 2px solid var(--border-soft);
+            box-shadow: 0 22px 50px rgba(0,0,0,0.85);
+        }
+
         .hero-card {
+            position: absolute;
+            bottom: 14px;
+            left: 14px;
             background: radial-gradient(circle at top,rgba(249,115,22,.18),transparent 55%), var(--surface);
             border-radius: var(--radius-lg);
             border: 1px solid var(--border-soft);
-            padding: 18px;
+            padding: 14px 16px;
             box-shadow: var(--shadow-soft);
-            max-width: 260px;
+            max-width: 220px;
             font-size: .8rem;
             color: var(--text-soft);
-            justify-self: end;
         }
 
         @media(max-width:768px) {
+            .hero-media {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero-photo-large {
+                width: 220px;
+                margin-bottom: 12px;
+            }
+
             .hero-card {
-                justify-self: stretch;
+                position: static;
                 max-width: 100%;
             }
         }
@@ -441,14 +454,8 @@
         <!-- HEADER -->
         <header>
             <div>
-                <div class="hero-header">
-                    <img src="Photos/Santi.jpg" alt="Portrait of Santiago Negro" class="hero-photo" />
-                    <div>
-                        <h1 class="hero-title">Santiago Negro</h1>
-                        <p class="hero-role">Game Designer &amp; Creative Performance Designer</p>
-                    </div>
-                </div>
-
+                <h1 class="hero-title">Santiago Negro</h1>
+                <p class="hero-role">Game Designer & Creative Performance Designer</p>
                 <p class="hero-intro">
                     I design interactive experiences and performance-driven creative that connect emotion with measurable results.
                 </p>
@@ -468,12 +475,15 @@
                 <p class="hero-note">Based in Buenos Aires · Focused on Game Design and performance creatives.</p>
             </div>
 
-            <aside class="hero-card">
-                <p class="hero-card-title">About this portfolio</p>
-                <p class="hero-card-body">
-                    Curated overview of the projects and areas where I bring the most value.
-                </p>
-            </aside>
+            <div class="hero-media">
+                <img src="Photos/Santi.jpg" alt="Portrait of Santiago Negro" class="hero-photo-large" />
+                <aside class="hero-card">
+                    <p class="hero-card-title">About this portfolio</p>
+                    <p class="hero-card-body">
+                        Curated overview of the projects and areas where I bring the most value.
+                    </p>
+                </aside>
+            </div>
         </header>
 
         <!-- PROJECTS -->
@@ -674,35 +684,336 @@
     </div>
 
     <!-- ========== PROJECT TEMPLATES ========== -->
-    <!-- (resto de los templates igual que antes) -->
     <!-- PROJECT 1 -->
     <template id="project1-template">
-        <!-- … todo igual … -->
+        <article>
+            <h2 class="project-detail-title">Get it Back! – Roguelike Shooter</h2>
+            <p class="project-detail-meta">
+                Unity prototype · Top–down action &amp; base-building · Role: Game Designer
+            </p>
+
+            <div class="project-detail-columns">
+                <div>
+                    <p class="project-detail-section-title">Overview</p>
+                    <p class="project-detail-body">
+                        Get it Back! is a fast-paced top–down shooter where each run is about
+                        pushing your luck to recover stolen items that upgrade the player’s
+                        home. The core loop mixes tight combat with small, meaningful
+                        progression choices between runs.
+                    </p>
+
+                    <p class="project-detail-section-title">Design focus</p>
+                    <ul class="project-detail-list">
+                        <li>Readable combat with clear feedback and short time-to-fail.</li>
+                        <li>Risk / reward decisions around how far to push each run.</li>
+                        <li>Base upgrades that subtly change how players approach new runs.</li>
+                    </ul>
+
+                    <div class="pill-row">
+                        <span class="pill">Core loop</span>
+                        <span class="pill">Enemy &amp; room design</span>
+                        <span class="pill">Economy tuning (light)</span>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="project-detail-section-title">Links &amp; material</p>
+                    <p class="project-detail-body">
+                        These are placeholders you can replace with real links when you have
+                        builds, docs or videos you’re happy to share.
+                    </p>
+                    <ul class="project-detail-links">
+                        <li><a href="#" target="_blank">GDD / design outline (placeholder)</a></li>
+                        <li><a href="#" target="_blank">Prototype build or gameplay video (placeholder)</a></li>
+                    </ul>
+
+                    <p class="project-detail-section-title">Context</p>
+                    <p class="project-detail-body">
+                        Built as a personal / coursework prototype to explore how combat
+                        pacing and meta progression influence retention in small sessions.
+                    </p>
+                </div>
+            </div>
+        </article>
     </template>
 
     <!-- PROJECT 2 -->
     <template id="project2-template">
-        <!-- … -->
+        <article>
+            <h2 class="project-detail-title">Stillness – Systemic Narrative Simulation</h2>
+            <p class="project-detail-meta">
+                System design document · Trust, perception &amp; memory · Role: Game Designer
+            </p>
+
+            <div class="project-detail-columns">
+
+                <div>
+                    <p class="project-detail-section-title">Overview</p>
+                    <p class="project-detail-body">
+                        Stillness explores how internal states like trust, fear and certainty
+                        shape both NPC and player behaviour over time. Instead of fixed
+                        narrative branches, the game models how characters update their
+                        perception of the player and the world based on what they see,
+                        remember and believe.
+                    </p>
+
+                    <p class="project-detail-section-title">Design focus</p>
+                    <ul class="project-detail-list">
+                        <li>Systemic approach to narrative rather than branching trees.</li>
+                        <li>Trust and confidence lines that affect dialogue, access and tone.</li>
+                        <li>States that react to context: environment, recent events, choices.</li>
+                    </ul>
+
+                    <div class="pill-row">
+                        <span class="pill">Systemic narrative</span>
+                        <span class="pill">Emotional models</span>
+                        <span class="pill">Player psychology</span>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="project-detail-section-title">Links &amp; material</p>
+                    <p class="project-detail-body">
+                        Main reference is a detailed design document that breaks down the
+                        systems, diagrams and examples of how states change moment-to-moment.
+                    </p>
+                    <ul class="project-detail-links">
+                        <li><a href="#" target="_blank">System design document (placeholder)</a></li>
+                        <li><a href="#" target="_blank">State diagrams / slides (placeholder)</a></li>
+                    </ul>
+
+                    <p class="project-detail-section-title">Context</p>
+                    <p class="project-detail-body">
+                        Built as a systemic narrative assignment to combine psychology,
+                        semiotics and game design into a framework that could later be
+                        prototyped in-engine.
+                    </p>
+                </div>
+            </div>
+        </article>
     </template>
 
     <!-- PROJECT 3 -->
     <template id="project3-template">
-        <!-- … -->
+        <article>
+            <h2 class="project-detail-title">Stealth Prototype – MGS-inspired</h2>
+            <p class="project-detail-meta">
+                Level &amp; systems prototype · Enemy states, patrol &amp; vision cones · Role: Game Designer
+            </p>
+
+            <div class="project-detail-columns">
+
+                <div>
+                    <p class="project-detail-section-title">Overview</p>
+                    <p class="project-detail-body">
+                        A small stealth prototype inspired by classic Metal Gear Solid,
+                        focused on guard behaviour and level readability. The goal was to
+                        make the player understand at a glance when they are safe, about to
+                        be spotted or fully detected.
+                    </p>
+
+                    <p class="project-detail-section-title">Design focus</p>
+                    <ul class="project-detail-list">
+                        <li>Clear enemy state machine: patrol, suspicious, alert / chase.</li>
+                        <li>Vision cones and occlusion logic with clean feedback.</li>
+                        <li>Level layout that supports sneaking, flanking and planning routes.</li>
+                    </ul>
+
+                    <div class="pill-row">
+                        <span class="pill">Enemy AI states</span>
+                        <span class="pill">Level blockout</span>
+                        <span class="pill">Stealth readability</span>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="project-detail-section-title">Links &amp; material</p>
+                    <p class="project-detail-body">
+                        Documentation focuses on guard behaviour, state diagrams and how
+                        cameras and enemies coordinate to create tension spikes.
+                    </p>
+                    <ul class="project-detail-links">
+                        <li><a href="#" target="_blank">AI &amp; level diagrams (placeholder)</a></li>
+                        <li><a href="#" target="_blank">Prototype gameplay video (placeholder)</a></li>
+                    </ul>
+
+                    <p class="project-detail-section-title">Context</p>
+                    <p class="project-detail-body">
+                        Built as part of a stealth-focused coursework piece, combining Unity
+                        scripting with level design principles taken from MGS1-style spaces.
+                    </p>
+                </div>
+
+            </div>
+        </article>
     </template>
 
     <!-- PROJECT 4 -->
     <template id="project4-template">
-        <!-- … -->
+        <article>
+            <h2 class="project-detail-title">Riftbound – Tower Defense Roguelike</h2>
+            <p class="project-detail-meta">
+                Concept &amp; systems · Run-based tower defense with base-building meta · Role: Game Designer
+            </p>
+
+            <div class="project-detail-columns">
+
+                <div>
+                    <p class="project-detail-section-title">Overview</p>
+                    <p class="project-detail-body">
+                        Riftbound mixes classic lane-based tower defense with roguelike
+                        structure. Each run sends the player through escalating waves,
+                        earning resources that can be invested into a persistent base that
+                        unlocks new towers, modifiers and strategies.
+                    </p>
+
+                    <p class="project-detail-section-title">Design focus</p>
+                    <ul class="project-detail-list">
+                        <li>Core loop connecting runs, rewards and base upgrades.</li>
+                        <li>Modifiers that change how players think about each new run.</li>
+                        <li>Difficulty curve tuned around learning, not just grind.</li>
+                    </ul>
+
+                    <div class="pill-row">
+                        <span class="pill">Progression systems</span>
+                        <span class="pill">Meta &amp; core loop</span>
+                        <span class="pill">Economy structure</span>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="project-detail-section-title">Links &amp; material</p>
+                    <p class="project-detail-body">
+                        Includes a concept deck with target audience, references and
+                        monetization outline, plus system breakdowns for runs and base.
+                    </p>
+                    <ul class="project-detail-links">
+                        <li><a href="#" target="_blank">Concept deck / one-pager (placeholder)</a></li>
+                        <li><a href="#" target="_blank">System flow diagrams (placeholder)</a></li>
+                    </ul>
+
+                    <p class="project-detail-section-title">Context</p>
+                    <p class="project-detail-body">
+                        Designed as a way to explore how Live Service / roguelike ideas can
+                        be applied to more traditional genres, keeping replayability and
+                        player agency at the center.
+                    </p>
+                </div>
+
+            </div>
+        </article>
     </template>
 
     <!-- PROJECT 5 -->
     <template id="project5-template">
-        <!-- … -->
+        <article>
+            <h2 class="project-detail-title">Undici Hotel – Boca Juniors Experience</h2>
+            <p class="project-detail-meta">
+                Paid social strategy &amp; creative · Football-themed boutique hotel next to La Bombonera
+            </p>
+
+            <div class="project-detail-columns">
+
+                <div>
+                    <p class="project-detail-section-title">Overview</p>
+                    <p class="project-detail-body">
+                        Undici is a hotel literally next to Boca Juniors’ stadium. The goal
+                        of the account is to sell stays and events by leaning into the
+                        emotional experience of watching a match from the terrace and
+                        living a full “Boca fan” weekend.
+                    </p>
+
+                    <p class="project-detail-section-title">Work scope</p>
+                    <ul class="project-detail-list">
+                        <li>Full-funnel Meta campaigns: awareness, consideration and bookings.</li>
+                        <li>Creative concepts for Fan Fests, match days and special promos.</li>
+                        <li>UGC-style videos, carousels and graphics adapted to each offer.</li>
+                    </ul>
+
+                    <div class="pill-row">
+                        <span class="pill">Funnel strategy</span>
+                        <span class="pill">Storytelling &amp; offers</span>
+                        <span class="pill">UGC &amp; event ads</span>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="project-detail-section-title">Links &amp; material</p>
+                    <p class="project-detail-body">
+                        Placeholder links for reels and creatives. You can later plug in
+                        specific examples or a reel compilation.
+                    </p>
+                    <ul class="project-detail-links">
+                        <li><a href="#" target="_blank">Reel compilation / case video (placeholder)</a></li>
+                        <li><a href="#" target="_blank">Static &amp; carousel examples (placeholder)</a></li>
+                    </ul>
+
+                    <p class="project-detail-section-title">Impact</p>
+                    <p class="project-detail-body">
+                        Focused on increasing occupancy around match days and building a
+                        consistent brand narrative that connects the hotel with the emotion
+                        of being right next to La Bombonera.
+                    </p>
+                </div>
+
+            </div>
+        </article>
     </template>
 
     <!-- PROJECT 6 -->
     <template id="project6-template">
-        <!-- … -->
+        <article>
+            <h2 class="project-detail-title">Marlin del Rey &amp; other tourism brands</h2>
+            <p class="project-detail-meta">
+                Performance creatives for tours &amp; experiences · Meta Ads · Role: Creative &amp; Strategist
+            </p>
+
+            <div class="project-detail-columns">
+
+                <div>
+                    <p class="project-detail-section-title">Overview</p>
+                    <p class="project-detail-body">
+                        For Marlin del Rey and other tour operators, the goal is simple:
+                        turn attention into booked seats. The work focuses on creatives that
+                        clearly show the experience (sunset, wildlife, social moments) while
+                        making the offer and next step obvious.
+                    </p>
+
+                    <p class="project-detail-section-title">Design focus</p>
+                    <ul class="project-detail-list">
+                        <li>Testing hooks: POV, social proof, FOMO, price anchors.</li>
+                        <li>Ad structures that work across static, video and UGC.</li>
+                        <li>Close alignment between creative, landing page and offer.</li>
+                    </ul>
+
+                    <div class="pill-row">
+                        <span class="pill">Creative testing</span>
+                        <span class="pill">Tourism funnels</span>
+                        <span class="pill">Static &amp; video ads</span>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="project-detail-section-title">Links &amp; material</p>
+                    <p class="project-detail-body">
+                        Again, placeholders you can later replace with real case studies or
+                        ad compilations.
+                    </p>
+                    <ul class="project-detail-links">
+                        <li><a href="#" target="_blank">Ad compilation / reel (placeholder)</a></li>
+                        <li><a href="#" target="_blank">Static concepts &amp; copy (placeholder)</a></li>
+                    </ul>
+
+                    <p class="project-detail-section-title">Context</p>
+                    <p class="project-detail-body">
+                        This work sits at the intersection of game design thinking and
+                        performance marketing: understanding player / user motivation and
+                        building creatives that respect that while driving bookings.
+                    </p>
+                </div>
+
+            </div>
+        </article>
     </template>
 
     <script>
