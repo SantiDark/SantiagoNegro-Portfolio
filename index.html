@@ -213,22 +213,23 @@
             height: 250px;
             border-radius: 22px;
             object-fit: cover;
-            object-position: 55% 15%;
+            /* reencuadre para que se vea más tu cara */
+            object-position: 40% 30%;
             border: 1px solid rgba(15,23,42,0.9);
         }
 
         .hero-card {
             position: absolute;
-            bottom: 16px;
-            right: 22px;
+            bottom: 10px;
+            right: 16px;
             background: rgba(11,15,22,0.93);
             backdrop-filter: blur(5px);
             border-radius: var(--radius-lg);
-            padding: 14px 18px;
-            max-width: 240px;
+            padding: 12px 16px;
+            max-width: 230px;
             border: 1px solid rgba(255,255,255,0.06);
             box-shadow: 0 14px 40px rgba(0,0,0,0.5);
-            font-size: .8rem;
+            font-size: .78rem;
             color: var(--text-soft);
         }
 
@@ -373,18 +374,15 @@
             border-radius: var(--radius-lg);
             border: 1px solid var(--border-soft);
             background: #000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: .8rem;
-            color: var(--text-muted);
             box-shadow: var(--shadow-soft);
             overflow: hidden;
         }
 
-        .video-frame-inner {
-            padding: 16px;
-            text-align: center;
+        .reel-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         /* ============ MODAL / CASE STUDY ============ */
@@ -605,9 +603,8 @@
                 </p>
 
                 <div class="hero-links">
-                    <!-- reemplazá con tus links reales -->
-                    <a class="hero-link" href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-                    <a class="hero-link" href="https://itch.io" target="_blank" rel="noreferrer">itch.io ↗</a>
+                    <a class="hero-link" href="https://www.linkedin.com/in/santiago-negro-96927822a/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+                    <a class="hero-link" href="https://santiagonegro.itch.io/" target="_blank" rel="noreferrer">itch.io ↗</a>
                     <a class="hero-link" href="#projects">Jump to projects ↓</a>
                 </div>
             </div>
@@ -744,19 +741,17 @@
             </div>
         </section>
 
-        <!-- ============ REEL (placeholder) ============ -->
+        <!-- ============ REEL ============ -->
         <section id="reel">
             <p class="section-label">Reel</p>
             <h2 class="section-heading">Selected works reel</h2>
             <p class="section-subheading">
-                Short compilation of game prototypes and creatives. You can later replace this placeholder with an actual video file or YouTube/Vimeo embed.
+                Short compilation of game prototypes and creatives. Replace the video source with your own MP4 when you have it.
             </p>
 
             <div class="video-frame">
-                <div class="video-frame-inner">
-                    <!-- cuando tengas el reel, podés reemplazar esto por un <video> o <iframe> -->
-                    <p>Showreel placeholder – plug your MP4 or YouTube/Vimeo embed here.</p>
-                </div>
+                <!-- cuando tengas tu reel, exportalo a MP4 y ponelo en /Media con este nombre -->
+                <video class="reel-video" src="Media/portfolio-reel.mp4" controls muted loop></video>
             </div>
         </section>
 
@@ -941,8 +936,8 @@
             </p>
 
             <div class="project-media">
-                <img src="Media/get-it-back-gameplay.jpg" alt="Get it Back! gameplay placeholder">
-                <p class="project-media-caption">Gameplay slice – placeholder image (replace with your own capture or GIF).</p>
+                <img src="Media/get-it-back-gameplay.jpg" alt="Get it Back! gameplay">
+                <p class="project-media-caption">Gameplay slice – replace with your own capture or GIF.</p>
             </div>
 
             <div class="project-detail-columns">
@@ -997,8 +992,8 @@
             </p>
 
             <div class="project-media">
-                <img src="Media/stillness-diagram.jpg" alt="Stillness system diagram placeholder">
-                <p class="project-media-caption">Trust / perception system diagram – placeholder (replace with your own diagram).</p>
+                <img src="Media/stillness-diagram.jpg" alt="Stillness system diagram">
+                <p class="project-media-caption">Trust / perception system diagram – replace with your own diagram.</p>
             </div>
 
             <div class="project-detail-columns">
@@ -1052,8 +1047,8 @@
             </p>
 
             <div class="project-media">
-                <img src="Media/stealth-blockout.jpg" alt="Stealth prototype blockout placeholder">
-                <p class="project-media-caption">Top-down blockout of the stealth level – placeholder image.</p>
+                <img src="Media/stealth-blockout.jpg" alt="Stealth prototype blockout">
+                <p class="project-media-caption">Top-down blockout of the stealth level.</p>
             </div>
 
             <div class="project-detail-columns">
@@ -1098,8 +1093,8 @@
             </p>
 
             <div class="project-media">
-                <img src="Media/riftbound-flow.jpg" alt="Riftbound flow chart placeholder">
-                <p class="project-media-caption">High-level flow of run &amp; base loops – placeholder diagram.</p>
+                <img src="Media/riftbound-flow.jpg" alt="Riftbound flow chart">
+                <p class="project-media-caption">High-level flow of run &amp; base loops.</p>
             </div>
 
             <div class="project-detail-columns">
@@ -1146,8 +1141,8 @@
             </p>
 
             <div class="project-media">
-                <img src="Media/undici-ad-grid.jpg" alt="Undici ads grid placeholder">
-                <p class="project-media-caption">Grid of ads and reels created for Undici – placeholder image.</p>
+                <img src="Media/undici-ad-grid.jpg" alt="Undici ads grid">
+                <p class="project-media-caption">Grid of ads and reels created for Undici.</p>
             </div>
 
             <div class="project-detail-columns">
@@ -1201,8 +1196,8 @@
             </p>
 
             <div class="project-media">
-                <img src="Media/marlin-del-rey-ads.jpg" alt="Marlin del Rey ads placeholder">
-                <p class="project-media-caption">Examples of static and video ads for tours – placeholder image.</p>
+                <img src="Media/marlin-del-rey-ads.jpg" alt="Marlin del Rey ads">
+                <p class="project-media-caption">Examples of static and video ads for tours.</p>
             </div>
 
             <div class="project-detail-columns">
