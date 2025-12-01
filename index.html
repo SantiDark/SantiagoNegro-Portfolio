@@ -5,7 +5,16 @@
     <title>Santiago Negro – Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description"
-          content="Portfolio of Santiago Negro – Game Designer and Creative Performance Designer." />
+          content="Portfolio of Santiago Negro – Game Designer and Creative Performance Designer. Game design, systems, prototyping & performance creatives." />
+
+    <!-- Open Graph / Social preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Santiago Negro – Game Designer & Creative Performance Designer">
+    <meta property="og:description" content="Game design, systems, prototyping & performance creatives.">
+    <meta property="og:image" content="Photos/Santi.jpg">
+    <!-- opcional: poné tu URL real acá -->
+    <meta property="og:url" content="">
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap">
 
     <style>
@@ -343,40 +352,42 @@
             color: var(--text-muted);
         }
 
-        /* ============ FOOTER ============ */
+        /* ============ PROCESS SECTION ============ */
 
-        footer {
-            border-top: 1px solid var(--border-soft);
-            padding-top: 16px;
-            margin-top: 32px;
+        .process-steps {
+            list-style: decimal;
+            padding-left: 20px;
+            font-size: .86rem;
+            color: var(--text-soft);
+        }
+
+            .process-steps li {
+                margin-bottom: 6px;
+            }
+
+        /* ============ REEL / VIDEO ============ */
+
+        .video-frame {
+            width: 100%;
+            max-height: 360px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-soft);
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: .8rem;
             color: var(--text-muted);
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
+            box-shadow: var(--shadow-soft);
+            overflow: hidden;
         }
 
-        @media(min-width:640px) {
-            footer {
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-            }
+        .video-frame-inner {
+            padding: 16px;
+            text-align: center;
         }
 
-        .footer-links {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .footer-link {
-            text-decoration: underline;
-            text-decoration-style: dotted;
-            text-underline-offset: 3px;
-        }
-
-        /* ============ MODAL ============ */
+        /* ============ MODAL / CASE STUDY ============ */
 
         .modal-overlay {
             position: fixed;
@@ -483,6 +494,26 @@
                     text-decoration: underline;
                 }
 
+        /* media dentro de los case studies */
+
+        .project-media {
+            margin-bottom: 12px;
+        }
+
+            .project-media img,
+            .project-media video {
+                width: 100%;
+                border-radius: 14px;
+                border: 1px solid var(--border-soft);
+                display: block;
+            }
+
+        .project-media-caption {
+            font-size: .78rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
         /* Testimonials */
 
         .testimonials-grid {
@@ -501,6 +532,39 @@
             color: var(--text-muted);
             margin-top: 6px;
         }
+
+        /* ============ FOOTER ============ */
+
+        footer {
+            border-top: 1px solid var(--border-soft);
+            padding-top: 16px;
+            margin-top: 32px;
+            font-size: .8rem;
+            color: var(--text-muted);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        @media(min-width:640px) {
+            footer {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            text-decoration: underline;
+            text-decoration-style: dotted;
+            text-underline-offset: 3px;
+        }
     </style>
 </head>
 
@@ -511,9 +575,11 @@
         <header>
             <div>
                 <h1 class="hero-title">Santiago Negro</h1>
-                <p class="hero-role">Game Designer &amp; Creative Performance Designer</p>
+                <p class="hero-role">
+                    Game Designer (Systems &amp; Prototyping) · Creative Performance Designer (Meta Ads)
+                </p>
                 <p class="hero-current">
-                    Currently studying Game Design at Image Campus and working on paid social creatives for tourism and hospitality brands.
+                    Currently studying Game Design at Image Campus and building prototypes &amp; campaigns for tourism and hospitality brands.
                 </p>
 
                 <p class="hero-intro">
@@ -539,6 +605,7 @@
                 </p>
 
                 <div class="hero-links">
+                    <!-- reemplazá con tus links reales -->
                     <a class="hero-link" href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn ↗</a>
                     <a class="hero-link" href="https://itch.io" target="_blank" rel="noreferrer">itch.io ↗</a>
                     <a class="hero-link" href="#projects">Jump to projects ↓</a>
@@ -565,7 +632,7 @@
             <p class="section-label">About</p>
             <h2 class="section-heading">Background &amp; focus</h2>
             <p class="section-subheading">
-                Hybrid profile: game designer in training with a strong footing in performance marketing. I like when systems are readable, fair and
+                Hybrid profile: game designer in training with a strong footing in performance marketing. I care about systems being readable, fair and
                 emotionally coherent – whether it's a combat loop or a paid social funnel.
             </p>
 
@@ -641,6 +708,55 @@
                         <span class="pill">Figma / Canva</span>
                     </div>
                 </article>
+            </div>
+        </section>
+
+        <!-- ============ PROCESS ============ -->
+        <section id="process">
+            <p class="section-label">Process</p>
+            <h2 class="section-heading">How I work</h2>
+            <p class="section-subheading">
+                A simple process that I apply both to game design work and to performance creatives.
+            </p>
+
+            <div class="grid grid-2">
+                <article class="card">
+                    <h3 class="card-title">Design process</h3>
+                    <ol class="process-steps">
+                        <li><strong>Research &amp; references</strong> – understand goals, constraints and reference experiences.</li>
+                        <li><strong>Define the core loop</strong> – what players do repeatedly and why it’s engaging.</li>
+                        <li><strong>Prototype quickly</strong> – build the smallest slice that proves or disproves the idea.</li>
+                        <li><strong>Test for readability</strong> – iterate on feedback, clarity and difficulty spikes.</li>
+                        <li><strong>Document for the team</strong> – keep docs, diagrams and changelogs usable for others.</li>
+                    </ol>
+                </article>
+
+                <article class="card">
+                    <h3 class="card-title">Creative / campaign process</h3>
+                    <ol class="process-steps">
+                        <li><strong>Clarify the offer</strong> – what we’re selling, to whom and in which context.</li>
+                        <li><strong>Choose angles &amp; hooks</strong> – emotion, social proof, FOMO, price, POV, etc.</li>
+                        <li><strong>Design creatives</strong> – static, video or UGC adapted to placements and funnel stage.</li>
+                        <li><strong>Test &amp; learn</strong> – compare variations and measure what actually moves metrics.</li>
+                        <li><strong>Refine &amp; scale</strong> – keep what works, cut what doesn’t, plan the next round.</li>
+                    </ol>
+                </article>
+            </div>
+        </section>
+
+        <!-- ============ REEL (placeholder) ============ -->
+        <section id="reel">
+            <p class="section-label">Reel</p>
+            <h2 class="section-heading">Selected works reel</h2>
+            <p class="section-subheading">
+                Short compilation of game prototypes and creatives. You can later replace this placeholder with an actual video file or YouTube/Vimeo embed.
+            </p>
+
+            <div class="video-frame">
+                <div class="video-frame-inner">
+                    <!-- cuando tengas el reel, podés reemplazar esto por un <video> o <iframe> -->
+                    <p>Showreel placeholder – plug your MP4 or YouTube/Vimeo embed here.</p>
+                </div>
             </div>
         </section>
 
@@ -798,6 +914,8 @@
             <div class="footer-links">
                 <a class="footer-link" href="#about">About</a>
                 <a class="footer-link" href="#toolbox">Toolbox</a>
+                <a class="footer-link" href="#process">Process</a>
+                <a class="footer-link" href="#reel">Reel</a>
                 <a class="footer-link" href="#projects">Projects</a>
                 <a class="footer-link" href="#testimonials">Testimonials</a>
                 <a class="footer-link" href="#contact">Contact</a>
@@ -821,6 +939,11 @@
             <p class="project-detail-meta">
                 Unity prototype · Top–down combat &amp; base-building meta · Role: Game Designer
             </p>
+
+            <div class="project-media">
+                <img src="Media/get-it-back-gameplay.jpg" alt="Get it Back! gameplay placeholder">
+                <p class="project-media-caption">Gameplay slice – placeholder image (replace with your own capture or GIF).</p>
+            </div>
 
             <div class="project-detail-columns">
                 <div>
@@ -873,6 +996,11 @@
                 System design document · Trust, perception &amp; memory · Role: Game Designer
             </p>
 
+            <div class="project-media">
+                <img src="Media/stillness-diagram.jpg" alt="Stillness system diagram placeholder">
+                <p class="project-media-caption">Trust / perception system diagram – placeholder (replace with your own diagram).</p>
+            </div>
+
             <div class="project-detail-columns">
                 <div>
                     <p class="project-detail-section-title">Concept</p>
@@ -923,6 +1051,11 @@
                 Unity / Unreal coursework · Guard AI, vision &amp; readable layouts · Role: Game Designer
             </p>
 
+            <div class="project-media">
+                <img src="Media/stealth-blockout.jpg" alt="Stealth prototype blockout placeholder">
+                <p class="project-media-caption">Top-down blockout of the stealth level – placeholder image.</p>
+            </div>
+
             <div class="project-detail-columns">
                 <div>
                     <p class="project-detail-section-title">Overview</p>
@@ -963,6 +1096,11 @@
             <p class="project-detail-meta">
                 Concept &amp; system design · Run-based tower defense with persistent base · Role: Game Designer
             </p>
+
+            <div class="project-media">
+                <img src="Media/riftbound-flow.jpg" alt="Riftbound flow chart placeholder">
+                <p class="project-media-caption">High-level flow of run &amp; base loops – placeholder diagram.</p>
+            </div>
 
             <div class="project-detail-columns">
                 <div>
@@ -1006,6 +1144,11 @@
             <p class="project-detail-meta">
                 Paid social strategy &amp; creative · Football-themed boutique hotel next to La Bombonera
             </p>
+
+            <div class="project-media">
+                <img src="Media/undici-ad-grid.jpg" alt="Undici ads grid placeholder">
+                <p class="project-media-caption">Grid of ads and reels created for Undici – placeholder image.</p>
+            </div>
 
             <div class="project-detail-columns">
                 <div>
@@ -1056,6 +1199,11 @@
             <p class="project-detail-meta">
                 Performance creatives for tours &amp; experiences · Meta Ads · Role: Creative &amp; Strategist
             </p>
+
+            <div class="project-media">
+                <img src="Media/marlin-del-rey-ads.jpg" alt="Marlin del Rey ads placeholder">
+                <p class="project-media-caption">Examples of static and video ads for tours – placeholder image.</p>
+            </div>
 
             <div class="project-detail-columns">
                 <div>
