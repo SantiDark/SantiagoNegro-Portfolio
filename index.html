@@ -6,14 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description"
           content="Portfolio of Santiago Negro – Game Designer and Creative Performance Designer. Game design, systems, prototyping & performance creatives." />
+    <meta name="robots" content="index,follow" />
+
+    <!-- Canonical (set real URL once hosted) -->
+    <link rel="canonical" href="YOUR_SITE_URL" />
 
     <!-- Open Graph / Social preview -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Santiago Negro – Game Designer & Creative Performance Designer">
     <meta property="og:description" content="Game design, systems, prototyping & performance creatives.">
-    <meta property="og:image" content="Photos/Santi.jpg">
-    <meta property="og:url" content="">
+    <!-- IMPORTANT: use absolute URL when hosted -->
+    <meta property="og:image" content="YOUR_OG_IMAGE_URL">
+    <meta property="og:url" content="YOUR_SITE_URL">
 
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Santiago Negro – Portfolio">
+    <meta name="twitter:description" content="Game design, systems, prototyping & performance creatives.">
+    <meta name="twitter:image" content="YOUR_OG_IMAGE_URL">
+
+    <!-- Favicons (add files when you have them) -->
+    <link rel="icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap">
 
     <style>
@@ -31,16 +49,18 @@
             --radius-lg: 18px;
             --radius-pill: 999px;
             --shadow-soft: 0 18px 45px rgba(0,0,0,0.6);
+            --shadow-hard: 0 26px 70px rgba(0,0,0,0.9);
+            --focus: 0 0 0 3px rgba(249,115,22,0.25);
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
-            padding: 0;
+            padding: 0
         }
 
         html {
-            scroll-behavior: smooth;
+            scroll-behavior: smooth
         }
 
         body {
@@ -53,28 +73,108 @@
 
         a {
             color: inherit;
-            text-decoration: none;
+            text-decoration: none
+        }
+
+        button {
+            font-family: inherit
+        }
+
+        ::selection {
+            background: rgba(249,115,22,0.25)
         }
 
         .page {
             max-width: 1040px;
             margin: 0 auto;
-            padding: 40px 20px 64px;
+            padding: 96px 20px 64px; /* space for sticky nav */
         }
 
         @media(min-width:768px) {
             .page {
-                padding: 56px 24px 80px;
+                padding: 108px 24px 80px;
             }
         }
 
-        /* ============ HERO / HEADER ============ */
+        /* ============ NAVBAR ============ */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 60;
+            backdrop-filter: blur(10px);
+            background: rgba(2,3,8,0.55);
+            border-bottom: 1px solid rgba(37,41,54,0.65);
+        }
 
+        .nav-inner {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        @media(min-width:768px) {
+            .nav-inner {
+                padding: 14px 24px;
+            }
+        }
+
+        .brand {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+            gap: 2px;
+            min-width: 160px;
+        }
+
+            .brand strong {
+                font-size: .92rem
+            }
+
+            .brand span {
+                font-size: .75rem;
+                color: var(--text-muted)
+            }
+
+        .nav-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .nav-link {
+            font-size: .82rem;
+            color: var(--text-soft);
+            padding: 7px 12px;
+            border-radius: var(--radius-pill);
+            border: 1px solid rgba(37,41,54,0.75);
+            background: rgba(15,23,42,0.45);
+            transition: .15s;
+        }
+
+            .nav-link:hover {
+                border-color: rgba(249,115,22,0.65);
+                transform: translateY(-1px);
+            }
+
+        .nav-cta {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        /* ============ HERO / HEADER ============ */
         header {
             display: grid;
             grid-template-columns: minmax(0,2fr) minmax(0,1.1fr);
             gap: 32px;
-            margin-bottom: 56px;
+            margin-bottom: 28px;
             align-items: center;
         }
 
@@ -103,7 +203,7 @@
         }
 
         .hero-intro {
-            font-size: 0.95rem;
+            font-size: .95rem;
             color: var(--text-soft);
             max-width: 560px;
             margin-bottom: 18px;
@@ -117,7 +217,7 @@
         }
 
         .tag {
-            font-size: 0.75rem;
+            font-size: .75rem;
             padding: 4px 10px;
             border-radius: var(--radius-pill);
             background: rgba(15,23,42,.8);
@@ -153,6 +253,11 @@
                 transform: translateY(-1px);
             }
 
+            .btn-primary:focus {
+                outline: none;
+                box-shadow: var(--shadow-soft), var(--focus);
+            }
+
         .btn-ghost {
             padding: 9px 16px;
             border-radius: var(--radius-pill);
@@ -162,11 +267,19 @@
             color: var(--text-soft);
             cursor: pointer;
             transition: .15s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
 
             .btn-ghost:hover {
                 background: #1f2937;
                 border-color: #4b5563;
+            }
+
+            .btn-ghost:focus {
+                outline: none;
+                box-shadow: var(--focus);
             }
 
         .hero-note {
@@ -189,8 +302,13 @@
             color: var(--text-soft);
         }
 
-        /* ---- FOTO ---- */
+            .hero-link:focus {
+                outline: none;
+                box-shadow: var(--focus);
+                border-radius: 8px;
+            }
 
+        /* ---- FOTO ---- */
         .hero-media {
             position: relative;
             display: flex;
@@ -203,7 +321,7 @@
             border-radius: 26px;
             padding: 3px;
             background: radial-gradient(circle at top left, rgba(249,115,22,0.32), transparent 60%);
-            box-shadow: 0 26px 70px rgba(0,0,0,0.9);
+            box-shadow: var(--shadow-hard);
         }
 
         .hero-photo-large {
@@ -214,6 +332,7 @@
             object-fit: cover;
             object-position: 40% 30%;
             border: 1px solid rgba(15,23,42,0.9);
+            background: #000;
         }
 
         @media(max-width:768px) {
@@ -232,8 +351,50 @@
             }
         }
 
-        /* ============ SECCIONES GENERALES ============ */
+        /* ============ HIGHLIGHTS ============ */
+        .highlights {
+            margin-bottom: 44px;
+        }
 
+        .highlights-grid {
+            display: grid;
+            gap: 14px;
+        }
+
+        @media(min-width:768px) {
+            .highlights-grid {
+                grid-template-columns: repeat(3,1fr);
+            }
+        }
+
+        .highlight {
+            background: radial-gradient(circle at top, rgba(249,115,22,.10), transparent 55%), var(--surface);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-soft);
+            padding: 14px 16px;
+            box-shadow: var(--shadow-soft);
+        }
+
+            .highlight .kicker {
+                font-size: .72rem;
+                letter-spacing: .14em;
+                text-transform: uppercase;
+                color: var(--text-muted);
+                margin-bottom: 6px;
+            }
+
+            .highlight .title {
+                font-size: .95rem;
+                font-weight: 600;
+                margin-bottom: 6px;
+            }
+
+            .highlight .body {
+                font-size: .82rem;
+                color: var(--text-soft);
+            }
+
+        /* ============ SECCIONES GENERALES ============ */
         section {
             margin-bottom: 40px;
         }
@@ -281,16 +442,6 @@
             box-shadow: var(--shadow-soft);
         }
 
-        .card-hover {
-            transition: .15s;
-        }
-
-        .card-link:hover .card-hover {
-            transform: translateY(-3px);
-            border-color: var(--accent);
-            background: radial-gradient(circle at top,rgba(249,115,22,.12),transparent 55%),var(--surface);
-        }
-
         .card-title {
             font-size: .98rem;
             font-weight: 600;
@@ -324,8 +475,70 @@
             color: var(--text-muted);
         }
 
-        /* ============ PROCESS SECTION ============ */
+        /* Clickable project card buttons */
+        .project-btn {
+            width: 100%;
+            text-align: left;
+            border: none;
+            background: transparent;
+            padding: 0;
+            cursor: pointer;
+        }
 
+        .card-hover {
+            transition: .15s;
+        }
+
+        .project-btn:hover .card-hover {
+            transform: translateY(-3px);
+            border-color: var(--accent);
+            background: radial-gradient(circle at top,rgba(249,115,22,.12),transparent 55%),var(--surface);
+        }
+
+        .project-btn:focus {
+            outline: none;
+        }
+
+            .project-btn:focus .card-hover {
+                box-shadow: var(--shadow-soft), var(--focus);
+                border-color: rgba(249,115,22,0.8);
+            }
+
+        /* ============ FILTERS ============ */
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 10px 0 14px;
+        }
+
+        .filter-btn {
+            padding: 7px 12px;
+            border-radius: var(--radius-pill);
+            border: 1px solid var(--border-soft);
+            background: rgba(15,23,42,.75);
+            color: var(--text-soft);
+            font-size: .82rem;
+            cursor: pointer;
+            transition: .15s;
+        }
+
+            .filter-btn:hover {
+                border-color: rgba(249,115,22,0.65);
+                transform: translateY(-1px);
+            }
+
+            .filter-btn.is-active {
+                border-color: var(--accent-dark);
+                background: radial-gradient(circle at top,rgba(249,115,22,.12),transparent 60%), rgba(15,23,42,.85);
+            }
+
+            .filter-btn:focus {
+                outline: none;
+                box-shadow: var(--focus);
+            }
+
+        /* ============ PROCESS SECTION ============ */
         .process-steps {
             list-style: decimal;
             padding-left: 20px;
@@ -338,7 +551,6 @@
             }
 
         /* ============ REEL / VIDEO ============ */
-
         .video-frame {
             width: 100%;
             max-height: 360px;
@@ -357,7 +569,6 @@
         }
 
         /* ============ MODAL / CASE STUDY ============ */
-
         .modal-overlay {
             position: fixed;
             inset: 0;
@@ -366,7 +577,7 @@
             align-items: center;
             justify-content: center;
             padding: 24px;
-            z-index: 50;
+            z-index: 70;
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.18s ease-out;
@@ -382,9 +593,9 @@
             background: var(--surface);
             border-radius: var(--radius-lg);
             border: 1px solid var(--border-soft);
-            max-width: 780px;
+            max-width: 820px;
             width: 100%;
-            max-height: 80vh;
+            max-height: 82vh;
             overflow-y: auto;
             box-shadow: var(--shadow-soft);
             padding: 20px;
@@ -397,9 +608,20 @@
             background: transparent;
             border: none;
             color: var(--text-muted);
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             cursor: pointer;
+            padding: 6px 10px;
+            border-radius: 10px;
         }
+
+            .modal-close:hover {
+                background: rgba(31,41,55,0.55);
+            }
+
+            .modal-close:focus {
+                outline: none;
+                box-shadow: var(--focus);
+            }
 
         .project-detail-title {
             font-size: 1.3rem;
@@ -418,7 +640,7 @@
             gap: 16px;
         }
 
-        @media (min-width: 768px) {
+        @media(min-width:768px) {
             .project-detail-columns {
                 grid-template-columns: 2fr 1.3fr;
             }
@@ -426,7 +648,7 @@
 
         .project-detail-section-title {
             font-size: 0.9rem;
-            font-weight: 500;
+            font-weight: 600;
             margin-bottom: 6px;
         }
 
@@ -463,18 +685,22 @@
                     text-decoration: underline;
                 }
 
-        /* media dentro de los case studies */
+                .project-detail-links a:focus {
+                    outline: none;
+                    box-shadow: var(--focus);
+                    border-radius: 8px;
+                }
 
         .project-media {
             margin-bottom: 12px;
         }
 
-            .project-media img,
-            .project-media video {
+            .project-media img, .project-media video {
                 width: 100%;
                 border-radius: 14px;
                 border: 1px solid var(--border-soft);
                 display: block;
+                background: #000;
             }
 
         .project-media-caption {
@@ -484,7 +710,6 @@
         }
 
         /* Testimonials */
-
         .testimonials-grid {
             display: grid;
             gap: 14px;
@@ -503,7 +728,6 @@
         }
 
         /* ============ FOOTER ============ */
-
         footer {
             border-top: 1px solid var(--border-soft);
             padding-top: 16px;
@@ -534,19 +758,58 @@
             text-decoration-style: dotted;
             text-underline-offset: 3px;
         }
+
+            .footer-link:focus {
+                outline: none;
+                box-shadow: var(--focus);
+                border-radius: 8px;
+            }
+
+        /* Utility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            white-space: nowrap;
+            border: 0;
+        }
     </style>
 </head>
 
 <body>
+    <!-- Sticky Nav -->
+    <nav class="nav" aria-label="Primary">
+        <div class="nav-inner">
+            <div class="brand">
+                <strong>Santiago Negro</strong>
+                <span>Game Design · Creative Performance</span>
+            </div>
+
+            <div class="nav-links">
+                <a class="nav-link" href="#about">About</a>
+                <a class="nav-link" href="#projects">Projects</a>
+                <a class="nav-link" href="#reel">Reel</a>
+                <a class="nav-link" href="#contact">Contact</a>
+            </div>
+
+            <div class="nav-cta">
+                <a class="btn-ghost" href="Assets/SantiagoNegro-Resume.pdf" target="_blank" rel="noreferrer">Resume PDF ↗</a>
+                <a class="btn-primary" href="mailto:santi.negro1@gmail.com">Email ↗</a>
+            </div>
+        </div>
+    </nav>
+
     <div class="page">
 
-        <!-- ============ HERO ============ -->
+        <!-- HERO -->
         <header>
             <div>
                 <h1 class="hero-title">Santiago Negro</h1>
-                <p class="hero-role">
-                    Game Designer (Systems &amp; Prototyping) · Creative Performance Designer (Meta Ads)
-                </p>
+                <p class="hero-role">Game Designer (Systems &amp; Prototyping) · Creative Performance Designer (Meta Ads)</p>
                 <p class="hero-current">
                     Currently studying Game Design at Image Campus and building prototypes &amp; campaigns for tourism and hospitality brands.
                 </p>
@@ -556,7 +819,7 @@
                     prototypes to full-funnel campaigns.
                 </p>
 
-                <div class="hero-tags">
+                <div class="hero-tags" aria-label="Key skills">
                     <span class="tag">Game Design</span>
                     <span class="tag">Systems &amp; Narrative</span>
                     <span class="tag">Paid Social &amp; Creatives</span>
@@ -566,7 +829,7 @@
 
                 <div class="hero-actions">
                     <a href="mailto:santi.negro1@gmail.com" class="btn-primary">Contact me ↗</a>
-                    <a href="Assets/SantiagoNegro-Resume.pdf" class="btn-ghost">Download resume (PDF)</a>
+                    <a href="Assets/SantiagoNegro-Resume.pdf" class="btn-ghost" target="_blank" rel="noreferrer">Download resume (PDF) ↗</a>
                 </div>
 
                 <p class="hero-note">
@@ -582,12 +845,37 @@
 
             <div class="hero-media">
                 <div class="hero-photo-frame">
-                    <img src="Photos/Santi.jpg" class="hero-photo-large" alt="Santiago Negro">
+                    <img src="Photos/Santi.jpg"
+                         class="hero-photo-large"
+                         alt="Santiago Negro"
+                         loading="eager"
+                         decoding="async" />
                 </div>
             </div>
         </header>
 
-        <!-- ============ ABOUT ============ -->
+        <!-- HIGHLIGHTS -->
+        <section class="highlights" aria-label="Highlights">
+            <div class="highlights-grid">
+                <div class="highlight">
+                    <div class="kicker">Game design</div>
+                    <div class="title">Systems-first prototyping</div>
+                    <div class="body">Readable loops, enemy states, pacing, and quick iteration in Unity/Unreal.</div>
+                </div>
+                <div class="highlight">
+                    <div class="kicker">Performance</div>
+                    <div class="title">Creative built for testing</div>
+                    <div class="body">Hooks, angles, and assets aligned to funnel stage and offer clarity.</div>
+                </div>
+                <div class="highlight">
+                    <div class="kicker">Communication</div>
+                    <div class="title">Docs that teams can ship</div>
+                    <div class="body">Diagrams, one-pagers, and decision logs that reduce ambiguity.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
         <section id="about">
             <p class="section-label">About</p>
             <h2 class="section-heading">Background &amp; focus</h2>
@@ -627,7 +915,7 @@
             </div>
         </section>
 
-        <!-- ============ TOOLBOX ============ -->
+        <!-- TOOLBOX -->
         <section id="toolbox">
             <p class="section-label">Toolbox</p>
             <h2 class="section-heading">Tools &amp; skills</h2>
@@ -671,7 +959,7 @@
             </div>
         </section>
 
-        <!-- ============ PROCESS ============ -->
+        <!-- PROCESS -->
         <section id="process">
             <p class="section-label">Process</p>
             <h2 class="section-heading">How I work</h2>
@@ -704,7 +992,7 @@
             </div>
         </section>
 
-        <!-- ============ REEL ============ -->
+        <!-- REEL -->
         <section id="reel">
             <p class="section-label">Reel</p>
             <h2 class="section-heading">Selected works reel</h2>
@@ -713,21 +1001,32 @@
             </p>
 
             <div class="video-frame">
-                <video class="reel-video" src="Media/portfolio-reel.mp4" controls muted loop></video>
+                <video class="reel-video"
+                       src="Media/portfolio-reel.mp4"
+                       poster="Media/reel-poster.jpg"
+                       controls
+                       muted
+                       loop
+                       preload="metadata"></video>
             </div>
         </section>
 
-        <!-- ============ PROJECTS ============ -->
+        <!-- PROJECTS -->
         <section id="projects">
             <p class="section-label">Projects</p>
             <h2 class="section-heading">Selected work</h2>
 
-            <p class="section-subheading">Game projects (Unity, Unreal &amp; design docs)</p>
+            <p class="section-subheading">Filter</p>
+            <div class="filters" role="tablist" aria-label="Project filters">
+                <button class="filter-btn is-active" type="button" data-filter="all">All</button>
+                <button class="filter-btn" type="button" data-filter="game">Game Design</button>
+                <button class="filter-btn" type="button" data-filter="marketing">Performance</button>
+            </div>
 
+            <p class="section-subheading">Game projects (Unity, Unreal &amp; design docs)</p>
             <div class="grid grid-2">
 
-                <!-- PROJECT 1 -->
-                <a class="card-link" onclick="openProject('project1'); return false;">
+                <button class="project-btn" data-type="game" type="button" onclick="openProject('project1', this)">
                     <article class="card card-hover">
                         <h3 class="card-title">Get it Back! – Roguelike Shooter</h3>
                         <p class="card-subtitle">Game Design · Unity Prototype</p>
@@ -740,10 +1039,9 @@
                             <span class="pill">Run &amp; base link</span>
                         </div>
                     </article>
-                </a>
+                </button>
 
-                <!-- PROJECT 2 -->
-                <a class="card-link" onclick="openProject('project2'); return false;">
+                <button class="project-btn" data-type="game" type="button" onclick="openProject('project2', this)">
                     <article class="card card-hover">
                         <h3 class="card-title">Stillness – Systemic Narrative Simulation</h3>
                         <p class="card-subtitle">System Design Document</p>
@@ -755,10 +1053,9 @@
                             <span class="pill">Emotional models</span>
                         </div>
                     </article>
-                </a>
+                </button>
 
-                <!-- PROJECT 3 -->
-                <a class="card-link" onclick="openProject('project3'); return false;">
+                <button class="project-btn" data-type="game" type="button" onclick="openProject('project3', this)">
                     <article class="card card-hover">
                         <h3 class="card-title">Stealth Prototype – MGS-inspired</h3>
                         <p class="card-subtitle">Unity / Unreal Coursework</p>
@@ -770,10 +1067,9 @@
                             <span class="pill">Level readability</span>
                         </div>
                     </article>
-                </a>
+                </button>
 
-                <!-- PROJECT 4 -->
-                <a class="card-link" onclick="openProject('project4'); return false;">
+                <button class="project-btn" data-type="game" type="button" onclick="openProject('project4', this)">
                     <article class="card card-hover">
                         <h3 class="card-title">Riftbound – Tower Defense Roguelike</h3>
                         <p class="card-subtitle">Concept &amp; Systems</p>
@@ -785,15 +1081,14 @@
                             <span class="pill">Meta &amp; core loop</span>
                         </div>
                     </article>
-                </a>
+                </button>
+
             </div>
 
-            <p class="section-subheading">Client &amp; campaign work</p>
-
+            <p class="section-subheading" style="margin-top:16px;">Client &amp; campaign work</p>
             <div class="grid grid-2">
 
-                <!-- PROJECT 5 -->
-                <a class="card-link" onclick="openProject('project5'); return false;">
+                <button class="project-btn" data-type="marketing" type="button" onclick="openProject('project5', this)">
                     <article class="card card-hover">
                         <h3 class="card-title">Undici Hotel – Boca Juniors Experience</h3>
                         <p class="card-subtitle">Paid Social · Strategy &amp; Creatives</p>
@@ -806,10 +1101,9 @@
                             <span class="pill">Event promos</span>
                         </div>
                     </article>
-                </a>
+                </button>
 
-                <!-- PROJECT 6 -->
-                <a class="card-link" onclick="openProject('project6'); return false;">
+                <button class="project-btn" data-type="marketing" type="button" onclick="openProject('project6', this)">
                     <article class="card card-hover">
                         <h3 class="card-title">Marlin del Rey &amp; others</h3>
                         <p class="card-subtitle">Meta Ads · Tourism &amp; Experiences</p>
@@ -822,16 +1116,17 @@
                             <span class="pill">Static &amp; video ads</span>
                         </div>
                     </article>
-                </a>
+                </button>
+
             </div>
         </section>
 
-        <!-- ============ TESTIMONIALS ============ -->
+        <!-- TESTIMONIALS -->
         <section id="testimonials">
             <p class="section-label">Testimonials</p>
             <h2 class="section-heading">What people say</h2>
             <p class="section-subheading">
-                Placeholders you can later replace with quotes from professors, teammates or managers.
+                Replace these with real quotes (professors, teammates, managers). Even 1–2 real testimonials add a lot of credibility.
             </p>
 
             <div class="testimonials-grid">
@@ -853,7 +1148,7 @@
             </div>
         </section>
 
-        <!-- ============ CONTACT ============ -->
+        <!-- CONTACT -->
         <section id="contact">
             <p class="section-label">Contact</p>
             <h2 class="section-heading">Let’s talk</h2>
@@ -880,26 +1175,27 @@
         </footer>
     </div>
 
-    <!-- ============ MODAL ============ -->
-    <div id="project-modal" class="modal-overlay">
-        <div class="modal-dialog">
-            <button class="modal-close" type="button" onclick="closeProject()">×</button>
+    <!-- MODAL -->
+    <div id="project-modal" class="modal-overlay" aria-hidden="true">
+        <div class="modal-dialog"
+             role="dialog"
+             aria-modal="true"
+             aria-labelledby="modal-title">
+            <button class="modal-close" type="button" onclick="closeProject()" aria-label="Close dialog">×</button>
             <div id="modal-content"></div>
         </div>
     </div>
 
-    <!-- ============ PROJECT TEMPLATES (CASE STUDIES) ============ -->
-    <!-- PROJECT 1: Get it Back -->
+    <!-- PROJECT TEMPLATES -->
     <template id="project1-template">
         <article>
-            <h2 class="project-detail-title">Get it Back! – Roguelike Shooter</h2>
-            <p class="project-detail-meta">
-                Unity prototype · Top–down combat &amp; base-building meta · Role: Game Designer
-            </p>
+            <h2 class="project-detail-title" id="modal-title">Get it Back! – Roguelike Shooter</h2>
+            <p class="project-detail-meta">Unity prototype · Top–down combat &amp; base-building meta · Role: Game Designer</p>
 
             <div class="project-media">
-                <img src="Media/get-it-back-gameplay.jpg" alt="Get it Back! gameplay">
-                <p class="project-media-caption">Gameplay slice – replace with your own capture or GIF.</p>
+                <img src="Media/get-it-back-gameplay.jpg" alt="Get it Back! gameplay"
+                     loading="lazy" decoding="async">
+                <p class="project-media-caption">Use: GIF or screenshot. If you don’t have footage yet, use a clean cover or a loop diagram.</p>
             </div>
 
             <div class="project-detail-columns">
@@ -912,151 +1208,136 @@
 
                     <p class="project-detail-section-title">Design goals</p>
                     <ul class="project-detail-list">
-                        <li>Build a clear core loop that links moment-to-moment combat with long-term base progression.</li>
-                        <li>Keep runs short and readable so players can quickly understand risk vs. reward.</li>
-                        <li>Use base upgrades to subtly change how players approach new runs without overcomplicating the meta.</li>
+                        <li>Clear core loop linking combat and base progression.</li>
+                        <li>Short, readable runs with meaningful risk vs. reward.</li>
+                        <li>Upgrades that change playstyle without bloating complexity.</li>
                     </ul>
 
                     <p class="project-detail-section-title">What I focused on</p>
                     <ul class="project-detail-list">
-                        <li>Enemy behaviours and room layouts that create spikes of tension and breathing moments.</li>
-                        <li>Economy tuning for run rewards vs. base upgrades so decisions feel meaningful, not grindy.</li>
-                        <li>Feedback for hits, damage and pickups to keep combat responsive and legible.</li>
+                        <li>Enemy behaviours and room pacing (tension vs. breathing).</li>
+                        <li>Reward/economy tuning so choices feel meaningful, not grindy.</li>
+                        <li>Combat feedback (hits, damage, pickups) for readability.</li>
                     </ul>
                 </div>
 
                 <div>
                     <p class="project-detail-section-title">Links &amp; material</p>
-                    <p class="project-detail-body">
-                        Placeholder links – you can plug in builds and docs when they’re ready to share.
-                    </p>
                     <ul class="project-detail-links">
-                        <li><a href="#" target="_blank">GDD / design outline (placeholder)</a></li>
-                        <li><a href="#" target="_blank">Gameplay video or build (placeholder)</a></li>
+                        <li><a href="#" target="_blank" rel="noreferrer">Itch.io build (add link)</a></li>
+                        <li><a href="#" target="_blank" rel="noreferrer">Design one-pager / GDD (add link)</a></li>
+                        <li><a href="#" target="_blank" rel="noreferrer">Gameplay clip (add link)</a></li>
                     </ul>
 
                     <p class="project-detail-section-title">Takeaways</p>
                     <p class="project-detail-body">
-                        The project reinforced how important it is to connect the meta to what actually happens in a run. Small, visible upgrades and
-                        clear failure states helped players understand why a “bad run” still moved them forward.
+                        Connecting the meta to visible, moment-to-moment upgrades made even “bad runs” feel like progress.
                     </p>
                 </div>
             </div>
         </article>
     </template>
 
-    <!-- PROJECT 2: Stillness -->
     <template id="project2-template">
         <article>
-            <h2 class="project-detail-title">Stillness – Systemic Narrative Simulation</h2>
-            <p class="project-detail-meta">
-                System design document · Trust, perception &amp; memory · Role: Game Designer
-            </p>
+            <h2 class="project-detail-title" id="modal-title">Stillness – Systemic Narrative Simulation</h2>
+            <p class="project-detail-meta">System design document · Trust, perception &amp; memory · Role: Game Designer</p>
 
             <div class="project-media">
-                <img src="Media/stillness-diagram.jpg" alt="Stillness system diagram">
-                <p class="project-media-caption">Trust / perception system diagram – replace with your own diagram.</p>
+                <img src="Media/stillness-diagram.jpg" alt="Stillness system diagram"
+                     loading="lazy" decoding="async">
+                <p class="project-media-caption">Even if the project is WIP, a diagram like this is “proof” and reads professional.</p>
             </div>
 
             <div class="project-detail-columns">
                 <div>
                     <p class="project-detail-section-title">Concept</p>
                     <p class="project-detail-body">
-                        Stillness explores how trust, fear and confidence shape both NPC and player behaviour. Instead of fixed branches, characters
+                        Stillness explores how trust, fear and confidence shape NPC and player behaviour. Instead of fixed branches, characters
                         maintain internal states – what they saw, what they remember and what they choose to believe about the player.
                     </p>
 
                     <p class="project-detail-section-title">Core systems</p>
                     <ul class="project-detail-list">
-                        <li>A trust line that governs how open characters are to the player: access, information and tone.</li>
-                        <li>Perception vs. memory: what NPCs think happened can diverge from what actually happened.</li>
-                        <li>Context modifiers (environment, recent events, rumours) that bias how new information is interpreted.</li>
+                        <li>Trust line driving access, tone, and willingness to share info.</li>
+                        <li>Perception vs. memory: belief can diverge from reality.</li>
+                        <li>Context modifiers (environment, rumours, recent events).</li>
                     </ul>
 
-                    <p class="project-detail-section-title">Design work</p>
+                    <p class="project-detail-section-title">How it’s communicated</p>
                     <p class="project-detail-body">
-                        The document includes state diagrams, example scenarios and how UI and dialogue would communicate shifting relationships
-                        without overwhelming the player.
+                        UI/feedback concepts focus on clarity: players understand relationship drift without reading spreadsheets.
                     </p>
                 </div>
 
                 <div>
-                    <p class="project-detail-section-title">Material</p>
-                    <p class="project-detail-body">
-                        Main artifact is a detailed design doc plus diagrams you can later translate into code or Blueprints.
-                    </p>
+                    <p class="project-detail-section-title">Links &amp; material</p>
                     <ul class="project-detail-links">
-                        <li><a href="#" target="_blank">System design document (placeholder)</a></li>
-                        <li><a href="#" target="_blank">State diagrams / slides (placeholder)</a></li>
+                        <li><a href="#" target="_blank" rel="noreferrer">System design doc (add link)</a></li>
+                        <li><a href="#" target="_blank" rel="noreferrer">Slides / diagrams (add link)</a></li>
                     </ul>
 
                     <p class="project-detail-section-title">Takeaways</p>
                     <p class="project-detail-body">
-                        Working on Stillness helped me connect psychology and game design, and think about narrative as a set of systems rather than
-                        a set of scripts.
+                        Thinking of narrative as systems enabled more emergent outcomes while keeping authorial intent.
                     </p>
                 </div>
             </div>
         </article>
     </template>
 
-    <!-- PROJECT 3: Stealth Prototype -->
     <template id="project3-template">
         <article>
-            <h2 class="project-detail-title">Stealth Prototype – MGS-inspired</h2>
-            <p class="project-detail-meta">
-                Unity / Unreal coursework · Guard AI, vision &amp; readable layouts · Role: Game Designer
-            </p>
+            <h2 class="project-detail-title" id="modal-title">Stealth Prototype – MGS-inspired</h2>
+            <p class="project-detail-meta">Unity / Unreal coursework · Guard AI, vision &amp; readable layouts · Role: Game Designer</p>
 
             <div class="project-media">
-                <img src="Media/stealth-blockout.jpg" alt="Stealth prototype blockout">
-                <p class="project-media-caption">Top-down blockout of the stealth level.</p>
+                <img src="Media/stealth-blockout.jpg" alt="Stealth prototype blockout"
+                     loading="lazy" decoding="async">
+                <p class="project-media-caption">Blockouts are totally valid portfolio media (and show design thinking).</p>
             </div>
 
             <div class="project-detail-columns">
                 <div>
                     <p class="project-detail-section-title">Overview</p>
                     <p class="project-detail-body">
-                        A compact stealth slice inspired by classic Metal Gear Solid spaces. The focus was on guards that feel readable and fair, and
-                        layouts that let players quickly understand where they can move and what’s risky.
+                        A compact stealth slice inspired by classic MGS spaces. The focus: guards that feel readable and fair, plus layouts that teach
+                        risk through sightlines and cover.
                     </p>
 
                     <p class="project-detail-section-title">Systems</p>
                     <ul class="project-detail-list">
-                        <li>Guard state machine: patrol → suspicious → alert / chase → search → reset.</li>
-                        <li>Vision cones and occlusion using raycasts or triggers, with clear feedback when you’re almost spotted.</li>
-                        <li>Simple alarm system that propagates awareness between guards and cameras.</li>
+                        <li>Guard state machine: patrol → suspicious → alert/chase → search → reset.</li>
+                        <li>Vision cones + occlusion with clear “almost spotted” feedback.</li>
+                        <li>Alarm propagation between guards/cameras.</li>
                     </ul>
                 </div>
 
                 <div>
-                    <p class="project-detail-section-title">Level design</p>
-                    <p class="project-detail-body">
-                        Blockouts focused on lanes, cover and sightlines, making sure there’s always more than one viable route and that mistakes feel
-                        recoverable when you’re paying attention.
-                    </p>
-
-                    <p class="project-detail-section-title">Material</p>
+                    <p class="project-detail-section-title">Links &amp; material</p>
                     <ul class="project-detail-links">
-                        <li><a href="#" target="_blank">AI &amp; level diagrams (placeholder)</a></li>
-                        <li><a href="#" target="_blank">Prototype gameplay video (placeholder)</a></li>
+                        <li><a href="#" target="_blank" rel="noreferrer">AI diagrams (add link)</a></li>
+                        <li><a href="#" target="_blank" rel="noreferrer">Gameplay clip (add link)</a></li>
                     </ul>
+
+                    <p class="project-detail-section-title">Takeaways</p>
+                    <p class="project-detail-body">
+                        Readability beats “difficulty”: players accept failure if they understand why it happened.
+                    </p>
                 </div>
             </div>
         </article>
     </template>
 
-    <!-- PROJECT 4: Riftbound -->
     <template id="project4-template">
         <article>
-            <h2 class="project-detail-title">Riftbound – Tower Defense Roguelike</h2>
-            <p class="project-detail-meta">
-                Concept &amp; system design · Run-based tower defense with persistent base · Role: Game Designer
-            </p>
+            <h2 class="project-detail-title" id="modal-title">Riftbound – Tower Defense Roguelike</h2>
+            <p class="project-detail-meta">Concept &amp; system design · Run-based tower defense with persistent base · Role: Game Designer</p>
 
             <div class="project-media">
-                <img src="Media/riftbound-flow.jpg" alt="Riftbound flow chart">
-                <p class="project-media-caption">High-level flow of run &amp; base loops.</p>
+                <img src="Media/riftbound-flow.jpg" alt="Riftbound flow chart"
+                     loading="lazy" decoding="async">
+                <p class="project-media-caption">Flow charts are excellent when gameplay footage isn’t ready yet.</p>
             </div>
 
             <div class="project-detail-columns">
@@ -1076,122 +1357,110 @@
                 </div>
 
                 <div>
-                    <p class="project-detail-section-title">Material</p>
-                    <p class="project-detail-body">
-                        Includes a concept deck with audience, references and monetisation outline, plus flow diagrams for runs and base progression.
-                    </p>
+                    <p class="project-detail-section-title">Links &amp; material</p>
                     <ul class="project-detail-links">
-                        <li><a href="#" target="_blank">Concept deck / one-pager (placeholder)</a></li>
-                        <li><a href="#" target="_blank">System flow diagrams (placeholder)</a></li>
+                        <li><a href="#" target="_blank" rel="noreferrer">Concept deck (add link)</a></li>
+                        <li><a href="#" target="_blank" rel="noreferrer">System diagrams (add link)</a></li>
                     </ul>
 
                     <p class="project-detail-section-title">Takeaways</p>
                     <p class="project-detail-body">
-                        The project was a good exercise in thinking about how to keep players coming back without relying solely on numbers going up.
+                        Meta progression works best when it unlocks strategy (options), not just bigger numbers.
                     </p>
                 </div>
             </div>
         </article>
     </template>
 
-    <!-- PROJECT 5: Undici -->
     <template id="project5-template">
         <article>
-            <h2 class="project-detail-title">Undici Hotel – Boca Juniors Experience</h2>
-            <p class="project-detail-meta">
-                Paid social strategy &amp; creative · Football-themed boutique hotel next to La Bombonera
-            </p>
+            <h2 class="project-detail-title" id="modal-title">Undici Hotel – Boca Juniors Experience</h2>
+            <p class="project-detail-meta">Paid social strategy &amp; creative · Football-themed boutique hotel next to La Bombonera</p>
 
             <div class="project-media">
-                <img src="Media/undici-ad-grid.jpg" alt="Undici ads grid">
-                <p class="project-media-caption">Grid of ads and reels created for Undici.</p>
+                <img src="Media/undici-ad-grid.jpg" alt="Undici ads grid"
+                     loading="lazy" decoding="async">
+                <p class="project-media-caption">If you can’t show performance numbers, show creative variety + structure.</p>
             </div>
 
             <div class="project-detail-columns">
                 <div>
-                    <p class="project-detail-section-title">Context</p>
+                    <p class="project-detail-section-title">Goal</p>
                     <p class="project-detail-body">
-                        Undici is a hotel literally next to Boca Juniors’ stadium. The goal is to sell stays and events by turning the match-day
-                        experience into something guests can live from the terrace, the rooms and the spa.
+                        Increase bookings and event interest by positioning Undici as a match-day destination (not just a place to sleep), leveraging the “next to La Bombonera” factor.
                     </p>
 
-                    <p class="project-detail-section-title">Work scope</p>
+                    <p class="project-detail-section-title">What I did</p>
                     <ul class="project-detail-list">
-                        <li>Full-funnel Meta campaigns: awareness, consideration and bookings.</li>
-                        <li>Creative concepts for Fan Fests, match days and seasonal offers.</li>
-                        <li>UGC-style reels, carousels and statics adapted to each promo.</li>
+                        <li>Full-funnel creative planning (awareness → consideration → booking intent).</li>
+                        <li>Angles: match-day POV, terrace experience, “wake up next to the stadium”, spa + weekend plan.</li>
+                        <li>Format adaptation: reels/UGC, statics, carousels aligned to placements.</li>
                     </ul>
 
-                    <p class="project-detail-section-title">Creative approach</p>
+                    <p class="project-detail-section-title">Outcome</p>
                     <p class="project-detail-body">
-                        I focused on the emotional contrast: everyday life vs. “waking up literally next to La Bombonera”. Copy and footage push that
-                        fantasy first, then clarify the offer and dates.
+                        Stronger positioning around match-day weekends through consistent “experience-first” messaging and clear offers/dates per promo.
                     </p>
                 </div>
 
                 <div>
-                    <p class="project-detail-section-title">Material</p>
-                    <p class="project-detail-body">
-                        Placeholder links – can be replaced with a reel compilation and static examples.
-                    </p>
+                    <p class="project-detail-section-title">Links &amp; material</p>
                     <ul class="project-detail-links">
-                        <li><a href="#" target="_blank">Reel compilation / case video (placeholder)</a></li>
-                        <li><a href="#" target="_blank">Static &amp; carousel examples (placeholder)</a></li>
+                        <li><a href="#" target="_blank" rel="noreferrer">Reel compilation (add link)</a></li>
+                        <li><a href="#" target="_blank" rel="noreferrer">Statics/carousels (add link)</a></li>
+                        <li><a href="#" target="_blank" rel="noreferrer">Creative brief samples (add link)</a></li>
                     </ul>
 
-                    <p class="project-detail-section-title">Impact (qualitative)</p>
+                    <p class="project-detail-section-title">Takeaways</p>
                     <p class="project-detail-body">
-                        The account focuses on increasing occupancy around match days and positioning Undici as “the” place to live a Boca weekend, not
-                        just a place to sleep.
+                        The “fantasy” hook works best when the offer is immediately clarified (dates, what’s included, and next step).
                     </p>
                 </div>
             </div>
         </article>
     </template>
 
-    <!-- PROJECT 6: Marlin del Rey -->
     <template id="project6-template">
         <article>
-            <h2 class="project-detail-title">Marlin del Rey &amp; other tourism brands</h2>
-            <p class="project-detail-meta">
-                Performance creatives for tours &amp; experiences · Meta Ads · Role: Creative &amp; Strategist
-            </p>
+            <h2 class="project-detail-title" id="modal-title">Marlin del Rey &amp; other tourism brands</h2>
+            <p class="project-detail-meta">Performance creatives for tours &amp; experiences · Meta Ads · Role: Creative &amp; Strategist</p>
 
             <div class="project-media">
-                <img src="Media/marlin-del-rey-ads.jpg" alt="Marlin del Rey ads">
-                <p class="project-media-caption">Examples of static and video ads for tours.</p>
+                <img src="Media/marlin-del-rey-ads.jpg" alt="Marlin del Rey ads"
+                     loading="lazy" decoding="async">
+                <p class="project-media-caption">Tip: if you can’t show the best ads, show templates/frames and explain the testing logic.</p>
             </div>
 
             <div class="project-detail-columns">
                 <div>
-                    <p class="project-detail-section-title">Overview</p>
+                    <p class="project-detail-section-title">Goal</p>
                     <p class="project-detail-body">
-                        For Marlin del Rey and similar operators, the objective is straightforward: turn attention into booked seats. My work focuses on
-                        creatives that show the experience clearly (sunset, sailing, social moments) while making the offer and next step obvious.
+                        Drive bookings by making the experience instantly legible (what it looks like, who it’s for, what you do) and making the next step obvious.
                     </p>
 
-                    <p class="project-detail-section-title">Creative structures</p>
+                    <p class="project-detail-section-title">What I did</p>
                     <ul class="project-detail-list">
-                        <li>Hooks based on POV, social proof, FOMO and price anchors.</li>
-                        <li>Ad templates that work across static, video and UGC.</li>
-                        <li>Alignment between creative, landing page and offer messaging.</li>
+                        <li>Hook frameworks: POV, social proof, FOMO, price anchors.</li>
+                        <li>Creative templates for static/video/UGC to speed iteration.</li>
+                        <li>Message alignment between creative and offer/landing page.</li>
                     </ul>
+
+                    <p class="project-detail-section-title">Outcome</p>
+                    <p class="project-detail-body">
+                        Improved consistency and clarity across creative variants, enabling faster iteration and cleaner comparisons between angles.
+                    </p>
                 </div>
 
                 <div>
-                    <p class="project-detail-section-title">Material</p>
-                    <p class="project-detail-body">
-                        Again, placeholders you can replace with final case studies and ad compilations.
-                    </p>
+                    <p class="project-detail-section-title">Links &amp; material</p>
                     <ul class="project-detail-links">
-                        <li><a href="#" target="_blank">Ad compilation / reel (placeholder)</a></li>
-                        <li><a href="#" target="_blank">Static concepts &amp; copy (placeholder)</a></li>
+                        <li><a href="#" target="_blank" rel="noreferrer">Ad compilation (add link)</a></li>
+                        <li><a href="#" target="_blank" rel="noreferrer">Concept boards (add link)</a></li>
                     </ul>
 
                     <p class="project-detail-section-title">Takeaways</p>
                     <p class="project-detail-body">
-                        This work sits at the intersection of understanding what the “player” (the guest) wants from a trip and how to present it in a
-                        way that feels aspirational but grounded enough to click and book.
+                        Clarity wins: when the experience is obvious in the first seconds, the offer can do its job.
                     </p>
                 </div>
             </div>
@@ -1199,32 +1468,100 @@
     </template>
 
     <script>
-        // Año en el footer
+        // Footer year
         document.getElementById("year").textContent = new Date().getFullYear();
 
+        // Modal logic + accessibility (focus management + basic focus trap)
         const modal = document.getElementById('project-modal');
         const modalContent = document.getElementById('modal-content');
+        const dialog = modal.querySelector('.modal-dialog');
+        const closeBtn = modal.querySelector('.modal-close');
 
-        function openProject(id) {
+        let lastActiveEl = null;
+
+        function getFocusable(container) {
+            return Array.from(container.querySelectorAll(
+                'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'
+            ));
+        }
+
+        function openProject(id, openerEl) {
             const tpl = document.getElementById(id + '-template');
             if (!tpl) return;
+
+            lastActiveEl = openerEl || document.activeElement;
+
             modalContent.innerHTML = '';
             modalContent.appendChild(tpl.content.cloneNode(true));
+
             modal.classList.add('is-open');
+            modal.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
+
+            // Focus close button (or first focusable)
+            const focusables = getFocusable(dialog);
+            (focusables[0] || closeBtn).focus();
         }
 
         function closeProject() {
             modal.classList.remove('is-open');
+            modal.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = '';
+
+            if (lastActiveEl && typeof lastActiveEl.focus === 'function') {
+                lastActiveEl.focus();
+            }
         }
 
+        // Click outside closes
         modal.addEventListener('click', e => {
             if (e.target === modal) closeProject();
         });
 
+        // Escape closes + Tab focus trap
         document.addEventListener('keydown', e => {
-            if (e.key === 'Escape') closeProject();
+            if (!modal.classList.contains('is-open')) return;
+
+            if (e.key === 'Escape') {
+                closeProject();
+                return;
+            }
+
+            if (e.key === 'Tab') {
+                const focusables = getFocusable(dialog);
+                if (focusables.length === 0) return;
+
+                const first = focusables[0];
+                const last = focusables[focusables.length - 1];
+
+                if (e.shiftKey && document.activeElement === first) {
+                    e.preventDefault();
+                    last.focus();
+                } else if (!e.shiftKey && document.activeElement === last) {
+                    e.preventDefault();
+                    first.focus();
+                }
+            }
+        });
+
+        // Filters
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectButtons = document.querySelectorAll('.project-btn');
+
+        function applyFilter(type) {
+            projectButtons.forEach(btn => {
+                const t = btn.getAttribute('data-type');
+                const show = (type === 'all') || (t === type);
+                btn.style.display = show ? '' : 'none';
+            });
+        }
+
+        filterButtons.forEach(b => {
+            b.addEventListener('click', () => {
+                filterButtons.forEach(x => x.classList.remove('is-active'));
+                b.classList.add('is-active');
+                applyFilter(b.getAttribute('data-filter'));
+            });
         });
     </script>
 </body>
