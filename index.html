@@ -1105,6 +1105,228 @@
     from { width: 0; }
     to { width: 100%; }
   }
+
+  /* LOST SIGNAL visual */
+  .visual-lost-signal {
+    background: #060a08;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .signal-scene {
+    position: relative; width: 100%; height: 100%;
+    overflow: hidden;
+  }
+  .signal-noise {
+    position: absolute; inset: 0;
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,255,100,0.015) 2px,
+      rgba(0,255,100,0.015) 4px
+    );
+    animation: noise-scroll 0.5s steps(4) infinite;
+  }
+  @keyframes noise-scroll {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(8px); }
+  }
+  .signal-static {
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 3px,
+      rgba(0,255,80,0.02) 3px,
+      rgba(0,255,80,0.02) 4px
+    );
+  }
+  .signal-title-art {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-mono);
+    font-size: 56px;
+    font-weight: 300;
+    letter-spacing: 12px;
+    color: rgba(0,255,80,0.06);
+    user-select: none;
+    white-space: nowrap;
+  }
+  .signal-tower {
+    position: absolute;
+    bottom: 60px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 0;
+  }
+  .tower-body {
+    width: 3px; height: 70px;
+    background: linear-gradient(to top, rgba(0,255,80,0.5), rgba(0,255,80,0.1));
+  }
+  .tower-top {
+    width: 1px; height: 30px;
+    background: rgba(0,255,80,0.6);
+    box-shadow: 0 0 8px rgba(0,255,80,0.8);
+  }
+  .tower-blink {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: rgba(0,255,80,0.9);
+    box-shadow: 0 0 12px rgba(0,255,80,1);
+    animation: blink-signal 1.4s ease-in-out infinite;
+    margin-bottom: -3px;
+  }
+  @keyframes blink-signal {
+    0%, 45%, 55%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  .signal-rings {
+    position: absolute; inset: 0;
+    display: flex; align-items: flex-end; justify-content: center;
+    padding-bottom: 90px;
+  }
+  .signal-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(0,255,80,0.15);
+    animation: signal-expand 3s ease-out infinite;
+    opacity: 0;
+  }
+  .signal-ring:nth-child(1) { width: 80px; height: 40px; animation-delay: 0s; }
+  .signal-ring:nth-child(2) { width: 160px; height: 80px; animation-delay: 1s; }
+  .signal-ring:nth-child(3) { width: 260px; height: 130px; animation-delay: 2s; }
+  @keyframes signal-expand {
+    0% { opacity: 0.6; transform: scaleY(0.5); }
+    100% { opacity: 0; transform: scaleY(1) translateY(-20px); }
+  }
+  .signal-glitch {
+    position: absolute;
+    left: 0; right: 0;
+    height: 2px;
+    background: rgba(0,255,80,0.3);
+    animation: glitch-line 4s ease-in-out infinite;
+    opacity: 0;
+  }
+  @keyframes glitch-line {
+    0%, 100% { opacity: 0; top: 20%; }
+    10% { opacity: 1; top: 22%; }
+    12% { opacity: 0; top: 48%; }
+    14% { opacity: 1; top: 49%; }
+    16% { opacity: 0; }
+    70% { opacity: 0; top: 70%; }
+    72% { opacity: 0.7; top: 71%; }
+    74% { opacity: 0; }
+  }
+  .signal-freq {
+    position: absolute;
+    bottom: 20px; left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    color: rgba(0,255,80,0.35);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  /* VOID PROTOCOL visual */
+  .visual-void {
+    background: #020206;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .void-scene {
+    position: relative; width: 100%; height: 100%;
+    overflow: hidden;
+  }
+  .void-bg-text {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-display);
+    font-size: 70px;
+    font-weight: 800;
+    letter-spacing: -4px;
+    color: rgba(120,80,255,0.04);
+    user-select: none;
+    white-space: nowrap;
+  }
+  .void-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(120,80,255,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(120,80,255,0.06) 1px, transparent 1px);
+    background-size: 30px 30px;
+    animation: void-grid-drift 8s linear infinite;
+  }
+  @keyframes void-grid-drift {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(30px); }
+  }
+  .void-vignette {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 70% at 50% 50%, transparent 30%, #020206 100%);
+  }
+  .void-core {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .void-orb {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(150,100,255,0.8) 0%, rgba(80,40,200,0.3) 60%, transparent 100%);
+    box-shadow: 0 0 30px rgba(120,80,255,0.6), 0 0 60px rgba(120,80,255,0.2);
+    animation: void-pulse 3s ease-in-out infinite;
+  }
+  @keyframes void-pulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 30px rgba(120,80,255,0.6), 0 0 60px rgba(120,80,255,0.2); }
+    50% { transform: scale(1.15); box-shadow: 0 0 50px rgba(120,80,255,0.9), 0 0 100px rgba(120,80,255,0.3); }
+  }
+  .void-orbit {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(120,80,255,0.2);
+    animation: void-rotate linear infinite;
+  }
+  .void-orbit:nth-child(2) { width: 100px; height: 100px; animation-duration: 6s; }
+  .void-orbit:nth-child(3) { width: 170px; height: 170px; animation-duration: 10s; animation-direction: reverse; }
+  .void-orbit:nth-child(4) { width: 250px; height: 250px; animation-duration: 16s; border-style: dashed; opacity: 0.5; }
+  @keyframes void-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .void-node {
+    position: absolute;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: rgba(150,100,255,0.9);
+    box-shadow: 0 0 8px rgba(150,100,255,0.8);
+    top: -2.5px; left: calc(50% - 2.5px);
+  }
+  .void-data-stream {
+    position: absolute;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, rgba(120,80,255,0.4), transparent);
+    animation: data-stream 2s ease-in-out infinite;
+    opacity: 0;
+  }
+  .void-data-stream:nth-child(1) { height: 60px; left: 30%; animation-delay: 0s; }
+  .void-data-stream:nth-child(2) { height: 40px; left: 60%; animation-delay: 0.7s; }
+  .void-data-stream:nth-child(3) { height: 80px; left: 80%; animation-delay: 1.3s; }
+  .void-data-stream:nth-child(4) { height: 50px; left: 15%; animation-delay: 1.8s; }
+  @keyframes data-stream {
+    0% { opacity: 0; top: 10%; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; top: 90%; }
+  }
+  .void-scanline {
+    position: absolute; left: 0; right: 0; height: 1px;
+    background: rgba(120,80,255,0.15);
+    animation: scanline-drop 5s linear infinite;
+    top: 0;
+  }
+  @keyframes scanline-drop {
+    0% { top: 0; opacity: 0.8; }
+    100% { top: 100%; opacity: 0; }
+  }
 </style>
 </head>
 <body>
@@ -1208,7 +1430,7 @@
           <div class="stat-label">Years in Game Design</div>
         </div>
         <div class="stat-card">
-          <div class="stat-number">2</div>
+          <div class="stat-number">4</div>
           <div class="stat-label">Prototype Projects</div>
         </div>
         <div class="stat-card">
@@ -1357,6 +1579,134 @@
             <span class="tool-tag">C#</span>
             <span class="tool-tag">Blueprint</span>
             <span class="tool-tag">Visual Studio</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-hover-line"></div>
+    </div>
+
+    <!-- PROJECT 03: LOST SIGNAL -->
+    <div class="project-card reveal reveal-delay-2">
+      <div class="project-card-inner">
+        <div class="project-visual visual-lost-signal">
+          <div class="project-visual-bg signal-scene">
+            <div class="signal-static"></div>
+            <div class="signal-noise"></div>
+            <div class="signal-title-art">SIGNAL</div>
+            <div class="signal-rings">
+              <div class="signal-ring"></div>
+              <div class="signal-ring"></div>
+              <div class="signal-ring"></div>
+            </div>
+            <div class="signal-tower">
+              <div class="tower-blink"></div>
+              <div class="tower-top"></div>
+              <div class="tower-body"></div>
+            </div>
+            <div class="signal-glitch"></div>
+            <div class="signal-freq">FREQ — 00.000 MHz</div>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-num">// 03</div>
+          <h3 class="project-title">Lost Signal</h3>
+          <div class="project-category">Exploration Prototype · Unity</div>
+          <p class="project-desc">
+            A tense exploration prototype built around the loss of information. 
+            The world communicates through static, broken transmissions, and 
+            half-decoded messages. Players piece together a picture of what's 
+            happening from fragments — signal and noise become the core game mechanic.
+          </p>
+          <div class="project-pillars">
+            <div class="pillars-label">Design Pillars</div>
+            <div class="pillars-list">
+              <span class="pillar-tag">Ambiguity</span>
+              <span class="pillar-tag">Discovery</span>
+              <span class="pillar-tag">Dread</span>
+              <span class="pillar-tag">Isolation</span>
+              <span class="pillar-tag">Signal/Noise</span>
+            </div>
+          </div>
+          <div class="project-systems">
+            <div class="pillars-label">Systems Breakdown</div>
+            <div class="systems-grid">
+              <div class="system-item">Signal Decay Engine</div>
+              <div class="system-item">Environment Storytelling</div>
+              <div class="system-item">Audio Feedback Layer</div>
+              <div class="system-item">Transmission Log System</div>
+              <div class="system-item">Proximity Detection</div>
+              <div class="system-item">Interference Mechanics</div>
+            </div>
+          </div>
+          <div class="project-tools">
+            <span class="tool-tag">Unity</span>
+            <span class="tool-tag">C#</span>
+            <span class="tool-tag">FMOD</span>
+            <span class="tool-tag">Visual Studio</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-hover-line"></div>
+    </div>
+
+    <!-- PROJECT 04: VOID PROTOCOL -->
+    <div class="project-card reveal reveal-delay-3">
+      <div class="project-card-inner reverse">
+        <div class="project-visual visual-void">
+          <div class="project-visual-bg void-scene">
+            <div class="void-grid"></div>
+            <div class="void-vignette"></div>
+            <div class="void-bg-text">VOID</div>
+            <div class="void-data-stream"></div>
+            <div class="void-data-stream"></div>
+            <div class="void-data-stream"></div>
+            <div class="void-data-stream"></div>
+            <div class="void-core">
+              <div class="void-orb"></div>
+              <div class="void-orbit"><div class="void-node"></div></div>
+              <div class="void-orbit"><div class="void-node"></div></div>
+              <div class="void-orbit"><div class="void-node"></div></div>
+            </div>
+            <div class="void-scanline"></div>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-num">// 04</div>
+          <h3 class="project-title">void protocol</h3>
+          <div class="project-category">Stealth Systems Prototype · Unity</div>
+          <p class="project-desc">
+            A stealth-driven prototype where the player IS the threat — 
+            infiltrating hostile systems from the inside. void protocol 
+            explores information asymmetry as a core mechanic: the player 
+            knows more than the enemy, but acting on that knowledge always 
+            leaves a trace. Every move is a calculated risk.
+          </p>
+          <div class="project-pillars">
+            <div class="pillars-label">Design Pillars</div>
+            <div class="pillars-list">
+              <span class="pillar-tag">Information</span>
+              <span class="pillar-tag">Stealth</span>
+              <span class="pillar-tag">Consequence</span>
+              <span class="pillar-tag">Tension</span>
+              <span class="pillar-tag">Asymmetry</span>
+            </div>
+          </div>
+          <div class="project-systems">
+            <div class="pillars-label">Systems Breakdown</div>
+            <div class="systems-grid">
+              <div class="system-item">Alert State Machine</div>
+              <div class="system-item">Trace / Footprint System</div>
+              <div class="system-item">Patrol AI Behaviour</div>
+              <div class="system-item">Sight Cone Detection</div>
+              <div class="system-item">Objective Layer</div>
+              <div class="system-item">Risk Escalation Logic</div>
+            </div>
+          </div>
+          <div class="project-tools">
+            <span class="tool-tag">Unity</span>
+            <span class="tool-tag">C#</span>
+            <span class="tool-tag">Ink Dialogue</span>
+            <span class="tool-tag">Scrum</span>
           </div>
         </div>
       </div>
