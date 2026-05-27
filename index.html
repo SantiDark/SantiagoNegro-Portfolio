@@ -1,1668 +1,1745 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>Santiago Negro – Portfolio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description"
-          content="Portfolio of Santiago Negro – Game Designer and Creative Performance Designer. Game design, systems, prototyping & performance creatives." />
-    <meta name="robots" content="index,follow" />
-
-    <!-- Canonical (set real URL once hosted) -->
-    <link rel="canonical" href="YOUR_SITE_URL" />
-
-    <!-- Open Graph / Social preview -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Santiago Negro – Game Designer & Creative Performance Designer">
-    <meta property="og:description" content="Game design, systems, prototyping & performance creatives.">
-    <!-- IMPORTANT: use absolute URL when hosted -->
-    <meta property="og:image" content="YOUR_OG_IMAGE_URL">
-    <meta property="og:url" content="YOUR_SITE_URL">
-
-    <!-- Twitter Cards -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Santiago Negro – Portfolio">
-    <meta name="twitter:description" content="Game design, systems, prototyping & performance creatives.">
-    <meta name="twitter:image" content="YOUR_OG_IMAGE_URL">
-
-    <!-- Favicons (add files when you have them) -->
-    <link rel="icon" href="favicon.ico">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="manifest" href="site.webmanifest">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap">
-
-    <style>
-        :root {
-            /* color palette */
-            --bg: #050608;
-            --surface: #0b0f16;
-            --surface-soft: #151822;
-            --border-soft: #252936;
-            --text-main: #f9fafb;
-            --text-soft: #d1d5db;
-            --text-muted: #9ca3af;
-            --accent: #f97316;
-            --accent-soft: #4b2f22;
-            --accent-dark: #ea580c;
-
-            /* spacing scale */
-            --space-xs: 4px;
-            --space-sm: 8px;
-            --space-md: 16px;
-            --space-lg: 32px;
-            --space-xl: 64px;
-
-            /* radii */
-            --radius-lg: 18px;
-            --radius-md: 12px;
-            --radius-pill: 999px;
-
-            /* shadows */
-            --shadow-soft: 0 18px 45px rgba(0,0,0,0.6);
-            --shadow-hard: 0 26px 70px rgba(0,0,0,0.9);
-
-            /* focus outline */
-            --focus: 0 0 0 3px rgba(249,115,22,0.25);
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            transition: background .2s, color .2s, transform .2s;
-        }
-
-        html {
-            scroll-behavior: smooth
-        }
-
-        body {
-            font-family: "Lexend",system-ui,-apple-system;
-            background: radial-gradient(circle at top left,#111827 0,#020308 55%);
-            color: var(--text-main);
-            line-height: 1.78;
-            font-size: 1rem;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-            transition: color .2s, text-decoration .2s;
-        }
-
-        a:hover,
-        a:focus {
-            color: var(--accent);
-            text-decoration: underline;
-        }
-
-        a:focus {
-            outline: none;
-            box-shadow: var(--focus);
-            border-radius: 6px;
-        }
-
-        button {
-            font-family: inherit
-        }
-
-        ::selection {
-            background: rgba(249,115,22,0.25)
-        }
-
-        .page {
-            max-width: 1040px;
-            margin: 0 auto;
-            padding: 96px 20px 64px; /* space for sticky nav */
-        }
-
-        @media(min-width:768px) {
-            .page {
-                padding: 108px 24px 80px;
-            }
-        }
-
-        /* ============ NAVBAR ============ */
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 60;
-            backdrop-filter: blur(10px);
-            background: rgba(2,3,8,0.55);
-            border-bottom: 1px solid rgba(37,41,54,0.65);
-            box-shadow: 0 2px 12px rgba(0,0,0,0.5);
-        }
-
-        .nav-inner {
-            max-width: 1040px;
-            margin: 0 auto;
-            padding: var(--space-sm) var(--space-md);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: var(--space-sm);
-        }
-
-        @media(min-width:768px) {
-            .nav-inner {
-                padding: 14px 24px;
-            }
-        }
-
-        .brand {
-            display: flex;
-            flex-direction: column;
-            line-height: 1.1;
-            gap: 2px;
-            min-width: 160px;
-        }
-
-            .brand strong {
-                font-size: .92rem
-            }
-
-            .brand span {
-                font-size: .75rem;
-                color: var(--text-muted)
-            }
-
-        .nav-links {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            justify-content: flex-end;
-        }
-
-        .nav-link {
-            font-size: .82rem;
-            color: var(--text-soft);
-            padding: 7px 12px;
-            border-radius: var(--radius-pill);
-            border: 1px solid rgba(37,41,54,0.75);
-            background: rgba(15,23,42,0.45);
-            transition: .15s;
-        }
-
-            .nav-link:hover {
-                border-color: rgba(249,115,22,0.65);
-                transform: translateY(-1px);
-                color: var(--accent);
-            }
-
-            .nav-link:focus {
-                outline: none;
-                box-shadow: var(--focus);
-                border-radius: 8px;
-            }
-
-        .nav-cta {
-            display: flex;
-            gap: 8px;
-            align-items: center;
-        }
-
-        /* ============ HERO / HEADER ============ */
-        header {
-            position: relative;
-            display: grid;
-            grid-template-columns: minmax(0,2fr) minmax(0,1.1fr);
-            gap: 32px;
-            margin-bottom: 48px; /* increased spacing */
-            align-items: center;
-            /* subtle dark overlay for depth */
-            background: radial-gradient(circle at top left, rgba(0,0,0,0.35), transparent 60%);
-            padding: var(--space-lg) 0;
-        }
-
-        header::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-            background: radial-gradient(circle at center, rgba(0,0,0,0.2), transparent 70%);
-            z-index: 0;
-        }
-
-        header > div {
-            position: relative; /* keep text above overlay */
-            z-index: 1;
-        }
-
-        @media(max-width:768px) {
-            header {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .hero-title {
-            font-size: clamp(2.5rem,4.2vw,3.2rem);
-            font-weight: 700;
-            margin-bottom: var(--space-xs);
-            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-role {
-            font-size: 1rem;
-            color: var(--text-muted);
-            margin-bottom: 10px;
-        }
-
-        .hero-current {
-            font-size: .86rem;
-            color: var(--text-muted);
-            margin-bottom: 14px;
-        }
-
-        .hero-intro {
-            font-size: .95rem;
-            color: var(--text-soft);
-            max-width: 560px;
-            margin-bottom: 18px;
-        }
-
-        .hero-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-bottom: 22px;
-        }
-
-        .tag {
-            font-size: .75rem;
-            padding: 4px 10px;
-            border-radius: var(--radius-pill);
-            background: rgba(15,23,42,.8);
-            border: 1px solid var(--border-soft);
-            color: var(--text-muted);
-        }
-
-        .hero-actions {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 12px;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary {
-            padding: 9px 18px;
-            border-radius: var(--radius-pill);
-            border: 1px solid var(--accent-dark);
-            background: linear-gradient(135deg,var(--accent),var(--accent-dark));
-            color: #fef3c7;
-            font-size: .9rem;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            cursor: pointer;
-            box-shadow: var(--shadow-soft);
-            transition: .15s;
-        }
-
-            .btn-primary:hover {
-                filter: brightness(1.05);
-                transform: translateY(-1px) scale(1.02);
-            }
-
-            .btn-primary:focus {
-                outline: none;
-                box-shadow: var(--shadow-soft), var(--focus);
-            }
-
-            .btn-primary:focus {
-                outline: none;
-                box-shadow: var(--shadow-soft), var(--focus);
-            }
-
-        .btn-ghost {
-            padding: 9px 16px;
-            border-radius: var(--radius-pill);
-            border: 1px solid var(--border-soft);
-            background: rgba(15,23,42,.9);
-            font-size: .9rem;
-            color: var(--text-soft);
-            cursor: pointer;
-            transition: .15s;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-            .btn-ghost:hover {
-                background: #1f2937;
-                border-color: #4b5563;
-                transform: translateY(-1px);
-            }
-
-            .btn-ghost:focus {
-                outline: none;
-                box-shadow: var(--focus);
-            }
-
-            .btn-ghost:focus {
-                outline: none;
-                box-shadow: var(--focus);
-            }
-
-        .hero-note {
-            font-size: .8rem;
-            color: var(--text-muted);
-        }
-
-        .hero-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 8px;
-            font-size: .8rem;
-        }
-
-        .hero-link {
-            text-decoration: underline;
-            text-decoration-style: dotted;
-            text-underline-offset: 3px;
-            color: var(--text-soft);
-        }
-
-            .hero-link:focus {
-                outline: none;
-                box-shadow: var(--focus);
-                border-radius: 8px;
-            }
-
-        /* ---- FOTO ---- */
-        .hero-media {
-            position: relative;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-        }
-
-        .hero-photo-frame {
-            position: relative;
-            border-radius: 26px;
-            padding: 3px;
-            background: radial-gradient(circle at top left, rgba(249,115,22,0.32), transparent 60%);
-            box-shadow: var(--shadow-hard);
-            transition: transform .3s;
-        }
-
-        .hero-photo-frame:hover {
-            transform: scale(1.03) rotate(-1deg);
-        }
-
-        .hero-photo-large {
-            display: block;
-            width: 360px;
-            height: 250px;
-            border-radius: 22px;
-            object-fit: cover;
-            object-position: 40% 30%;
-            border: 1px solid rgba(15,23,42,0.9);
-            background: #000;
-        }
-
-        @media(max-width:768px) {
-            .hero-media {
-                justify-content: center;
-                margin-top: 12px;
-            }
-
-            .hero-photo-frame {
-                width: 100%;
-            }
-
-            .hero-photo-large {
-                width: 100%;
-                height: 250px;
-            }
-        }
-
-        /* ============ HIGHLIGHTS ============ */
-        .highlights {
-            margin-bottom: 64px; /* more breathing room around highlights section */
-        }
-
-        .highlights-grid {
-            display: grid;
-            gap: 20px; /* slightly wider gaps between highlight cards */
-        }
-
-        @media(min-width:768px) {
-            .highlights-grid {
-                grid-template-columns: repeat(3,1fr);
-            }
-        }
-
-        .highlight {
-            background: radial-gradient(circle at top, rgba(249,115,22,.10), transparent 55%), var(--surface);
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border-soft);
-            padding: 14px 16px;
-            box-shadow: var(--shadow-soft);
-            transition: transform .25s, box-shadow .25s;
-        }
-
-        .highlight:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-hard);
-        }
-
-            .highlight .kicker {
-                font-size: .72rem;
-                letter-spacing: .14em;
-                text-transform: uppercase;
-                color: var(--text-muted);
-                margin-bottom: 6px;
-            }
-
-            .highlight .title {
-                font-size: .95rem;
-                font-weight: 600;
-                margin-bottom: 6px;
-            }
-
-            .highlight .body {
-                font-size: .82rem;
-                color: var(--text-soft);
-            }
-
-        /* ============ SECCIONES GENERALES ============ */
-        section {
-            margin-bottom: var(--space-xl); /* extra space between generic sections */
-        }
-
-        /* divider line above sections except first */
-        section + section {
-            border-top: 1px solid var(--border-soft);
-            padding-top: var(--space-xl);
-        }
-
-        .section-label {
-            font-size: .7rem;
-            letter-spacing: .18em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            margin-bottom: 6px;
-        }
-
-        .section-heading {
-            font-size: 1.35rem;
-            font-weight: 600;
-            margin-bottom: 12px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-dark));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .section-subheading {
-            font-size: .9rem;
-            color: var(--text-muted);
-            margin-bottom: 14px;
-        }
-
-        .grid {
-            display: grid;
-            gap: 20px; /* larger gap for grid layouts */
-        }
-
-        @media(min-width:768px) {
-            .grid-2 {
-                grid-template-columns: repeat(2,1fr);
-            }
-
-            .grid-3 {
-                grid-template-columns: repeat(3,1fr);
-            }
-        }
-
-        .card {
-            background: var(--surface);
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border-soft);
-            padding: var(--space-md);
-            box-shadow: var(--shadow-soft);
-            transition: transform .25s, box-shadow .25s;
-        }
-
-        .card:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: var(--shadow-hard);
-        }
-
-        .card:focus-within {
-            box-shadow: var(--shadow-soft), var(--focus);
-        }
-
-        .card-title {
-            font-size: .98rem;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .card-subtitle {
-            font-size: .78rem;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-        }
-
-        .card-body {
-            font-size: .82rem;
-            color: var(--text-soft);
-            margin-bottom: 8px;
-        }
-
-        .pill-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-        }
-
-        .pill {
-            font-size: .72rem;
-            padding: 3px 9px;
-            border-radius: var(--radius-pill);
-            background: rgba(15,23,42,.9);
-            border: 1px solid var(--border-soft);
-            color: var(--text-muted);
-        }
-
-        /* Clickable project card buttons */
-        .project-btn {
-            width: 100%;
-            text-align: left;
-            border: none;
-            background: transparent;
-            padding: 0;
-            cursor: pointer;
-        }
-
-        .card-hover {
-            transition: .15s;
-        }
-
-        .project-btn:hover .card-hover {
-            transform: translateY(-3px);
-            border-color: var(--accent);
-            background: radial-gradient(circle at top,rgba(249,115,22,.12),transparent 55%),var(--surface);
-        }
-
-        .project-btn:focus {
-            outline: none;
-        }
-
-            .project-btn:focus .card-hover {
-                box-shadow: var(--shadow-soft), var(--focus);
-                border-color: rgba(249,115,22,0.8);
-            }
-
-        /* ============ FILTERS ============ */
-        .filters {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin: 10px 0 14px;
-        }
-
-        .filter-btn {
-            padding: 7px 12px;
-            border-radius: var(--radius-pill);
-            border: 1px solid var(--border-soft);
-            background: rgba(15,23,42,.75);
-            color: var(--text-soft);
-            font-size: .82rem;
-            cursor: pointer;
-            transition: .15s;
-        }
-
-            .filter-btn:hover {
-                border-color: rgba(249,115,22,0.65);
-                transform: translateY(-1px);
-            }
-
-            .filter-btn.is-active {
-                border-color: var(--accent-dark);
-                background: radial-gradient(circle at top,rgba(249,115,22,.12),transparent 60%), rgba(15,23,42,.85);
-            }
-
-            .filter-btn:focus {
-                outline: none;
-                box-shadow: var(--focus);
-            }
-
-        /* ============ PROCESS SECTION ============ */
-        .process-steps {
-            list-style: decimal;
-            padding-left: 20px;
-            font-size: .86rem;
-            color: var(--text-soft);
-        }
-
-            .process-steps li {
-                margin-bottom: 6px;
-            }
-
-        /* ============ REEL / VIDEO ============ */
-        .video-frame {
-            width: 100%;
-            max-height: 360px;
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border-soft);
-            background: #000;
-            box-shadow: var(--shadow-soft);
-            overflow: hidden;
-        }
-
-        .reel-video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* ============ MODAL / CASE STUDY ============ */
-        .modal-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.7);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 24px;
-            z-index: 70;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.18s ease-out;
-        }
-
-            .modal-overlay.is-open {
-                opacity: 1;
-                pointer-events: auto;
-            }
-
-        .modal-dialog {
-            position: relative;
-            background: var(--surface);
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border-soft);
-            max-width: 820px;
-            width: 100%;
-            max-height: 82vh;
-            overflow-y: auto;
-            box-shadow: var(--shadow-soft);
-            padding: 20px;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 10px;
-            right: 12px;
-            background: transparent;
-            border: none;
-            color: var(--text-muted);
-            font-size: 1.4rem;
-            cursor: pointer;
-            padding: 6px 10px;
-            border-radius: 10px;
-        }
-
-            .modal-close:hover {
-                background: rgba(31,41,55,0.55);
-            }
-
-            .modal-close:focus {
-                outline: none;
-                box-shadow: var(--focus);
-            }
-
-        .project-detail-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .project-detail-meta {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-bottom: 14px;
-        }
-
-        .project-detail-columns {
-            display: grid;
-            gap: 16px;
-        }
-
-        @media(min-width:768px) {
-            .project-detail-columns {
-                grid-template-columns: 2fr 1.3fr;
-            }
-        }
-
-        .project-detail-section-title {
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 6px;
-        }
-
-        .project-detail-body {
-            font-size: 0.86rem;
-            color: var(--text-soft);
-            margin-bottom: 10px;
-        }
-
-        .project-detail-list {
-            list-style: disc;
-            padding-left: 18px;
-            font-size: 0.84rem;
-            color: var(--text-soft);
-            margin-bottom: 10px;
-        }
-
-        .project-detail-links {
-            list-style: none;
-            padding-left: 0;
-            margin-top: 6px;
-        }
-
-            .project-detail-links li {
-                margin-bottom: 4px;
-                font-size: 0.82rem;
-            }
-
-            .project-detail-links a {
-                color: var(--accent);
-            }
-
-                .project-detail-links a:hover {
-                    text-decoration: underline;
-                }
-
-                .project-detail-links a:focus {
-                    outline: none;
-                    box-shadow: var(--focus);
-                    border-radius: 8px;
-                }
-
-        .project-media {
-            margin-bottom: 12px;
-        }
-
-            .project-media img, .project-media video {
-                width: 100%;
-                border-radius: 14px;
-                border: 1px solid var(--border-soft);
-                display: block;
-                background: #000;
-            }
-
-        .project-media-caption {
-            font-size: .78rem;
-            color: var(--text-muted);
-            margin-top: 4px;
-        }
-
-        /* Testimonials */
-        .testimonials-grid {
-            display: grid;
-            gap: 14px;
-        }
-
-        @media(min-width:768px) {
-            .testimonials-grid {
-                grid-template-columns: repeat(2,1fr);
-            }
-        }
-
-        .testimonial-role {
-            font-size: .78rem;
-            color: var(--text-muted);
-            margin-top: 6px;
-        }
-
-        /* ============ FOOTER ============ */
-        footer {
-            border-top: 1px solid var(--border-soft);
-            padding-top: var(--space-md);
-            margin-top: var(--space-lg);
-            font-size: .8rem;
-            color: var(--text-muted);
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-sm);
-        }
-
-        @media(min-width:640px) {
-            footer {
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-            }
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .footer-link {
-            text-decoration: underline;
-            text-decoration-style: dotted;
-            text-underline-offset: 3px;
-        }
-
-            .footer-link:focus {
-                outline: none;
-                box-shadow: var(--focus);
-                border-radius: 8px;
-            }
-
-        /* Utility */
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0,0,0,0);
-            white-space: nowrap;
-            border: 0;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Santiago Negro — Game Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #080808;
+    --surface: #0f0f0f;
+    --surface2: #161616;
+    --surface3: #1e1e1e;
+    --border: rgba(255,255,255,0.07);
+    --border-hover: rgba(255,255,255,0.15);
+    --orange: #f5620f;
+    --orange-dim: #c44e08;
+    --orange-glow: rgba(245,98,15,0.15);
+    --amber: #f0a500;
+    --text: #e8e6e1;
+    --text-secondary: #8a8580;
+    --text-muted: #4a4742;
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* CUSTOM CURSOR */
+  .cursor {
+    position: fixed;
+    width: 10px; height: 10px;
+    background: var(--orange);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s, height 0.2s, background 0.2s;
+    mix-blend-mode: normal;
+  }
+  .cursor-ring {
+    position: fixed;
+    width: 36px; height: 36px;
+    border: 1px solid rgba(245,98,15,0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: width 0.35s cubic-bezier(0.25,1,0.5,1), height 0.35s cubic-bezier(0.25,1,0.5,1), border-color 0.2s;
+  }
+  .cursor.hover { width: 6px; height: 6px; background: var(--amber); }
+  .cursor-ring.hover { width: 52px; height: 52px; border-color: rgba(240,165,0,0.5); }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 3px; }
+  ::-webkit-scrollbar-track { background: var(--black); }
+  ::-webkit-scrollbar-thumb { background: var(--orange-dim); border-radius: 2px; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 48px;
+    background: transparent;
+    transition: background 0.4s, padding 0.4s;
+  }
+  nav.scrolled {
+    background: rgba(8,8,8,0.92);
+    padding: 14px 48px;
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(12px);
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 17px;
+    letter-spacing: -0.5px;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--orange); }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute; bottom: -3px; left: 0;
+    width: 0; height: 1px;
+    background: var(--orange);
+    transition: width 0.3s;
+  }
+  .nav-links a:hover { color: var(--text); }
+  .nav-links a:hover::after { width: 100%; }
+
+  /* SECTIONS */
+  section { position: relative; }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    padding: 120px 48px 80px;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    overflow: hidden;
+  }
+  .hero-bg canvas { position: absolute; inset: 0; }
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+  }
+  .hero-glow {
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(245,98,15,0.12) 0%, transparent 70%);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulse-glow 4s ease-in-out infinite;
+  }
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    text-align: center;
+  }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fade-up 0.8s 0.2s forwards;
+  }
+  .hero-tag::before, .hero-tag::after {
+    content: '';
+    display: block;
+    width: 32px; height: 1px;
+    background: var(--orange);
+    opacity: 0.5;
+  }
+  .hero-name {
+    font-family: var(--font-display);
+    font-size: clamp(56px, 10vw, 120px);
+    font-weight: 800;
+    line-height: 0.92;
+    letter-spacing: -3px;
+    color: var(--text);
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fade-up 0.9s 0.4s forwards;
+  }
+  .hero-name .accent { color: var(--orange); }
+  .hero-subtitle {
+    font-family: var(--font-display);
+    font-size: clamp(16px, 2.5vw, 22px);
+    font-weight: 400;
+    color: var(--text-secondary);
+    letter-spacing: 0.02em;
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fade-up 0.9s 0.55s forwards;
+  }
+  .hero-desc {
+    max-width: 520px;
+    margin: 0 auto 48px;
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    opacity: 0;
+    animation: fade-up 0.9s 0.7s forwards;
+  }
+  .hero-cta {
+    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+    opacity: 0;
+    animation: fade-up 0.9s 0.85s forwards;
+  }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--orange);
+    color: #fff;
+    padding: 14px 32px;
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+    transition: all 0.25s;
+    cursor: none;
+  }
+  .btn-primary:hover { background: var(--amber); transform: translateY(-2px); }
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: transparent;
+    color: var(--text);
+    padding: 13px 32px;
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid var(--border-hover);
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+    transition: all 0.25s;
+    cursor: none;
+  }
+  .btn-secondary:hover { border-color: var(--orange); color: var(--orange); transform: translateY(-2px); }
+  .hero-scroll {
+    position: absolute; bottom: 36px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    opacity: 0;
+    animation: fade-up 1s 1.2s forwards;
+  }
+  .hero-scroll-line {
+    width: 1px; height: 40px;
+    background: linear-gradient(to bottom, transparent, var(--orange));
+    animation: scroll-line 2s ease-in-out infinite;
+  }
+  @keyframes scroll-line {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    51% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+  }
+
+  /* SHARED SECTION STYLES */
+  .section-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 120px 48px;
+  }
+  .section-tag {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 20px;
+  }
+  .section-tag::before {
+    content: '';
+    display: block;
+    width: 24px; height: 1px;
+    background: var(--orange);
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 60px);
+    font-weight: 800;
+    letter-spacing: -2px;
+    line-height: 1;
+    color: var(--text);
+    margin-bottom: 16px;
+  }
+  .section-title .dim { color: var(--text-muted); }
+
+  /* REVEAL ANIMATIONS */
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.8s cubic-bezier(0.25,1,0.5,1), transform 0.8s cubic-bezier(0.25,1,0.5,1);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* DIVIDER */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border), transparent);
+  }
+
+  /* ABOUT */
+  #about { background: var(--surface); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-top: 64px;
+  }
+  .about-text p {
+    color: var(--text-secondary);
+    font-size: 15px;
+    line-height: 1.9;
+    margin-bottom: 20px;
+  }
+  .about-text p strong { color: var(--text); font-weight: 500; }
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .stat-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    padding: 28px 24px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  }
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(to right, var(--orange), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .stat-card:hover { border-color: var(--border-hover); }
+  .stat-card:hover::before { opacity: 1; }
+  .stat-number {
+    font-family: var(--font-display);
+    font-size: 40px;
+    font-weight: 800;
+    color: var(--orange);
+    letter-spacing: -2px;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .stat-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .about-principles {
+    margin-top: 40px;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .principle {
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 16px 20px;
+    background: var(--surface2);
+    border-left: 2px solid var(--orange);
+  }
+  .principle-num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--orange);
+    opacity: 0.6;
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+  .principle-text {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  .principle-text strong { color: var(--text); font-weight: 500; }
+
+  /* PROJECTS */
+  #projects { background: var(--black); }
+  .projects-list { margin-top: 72px; display: flex; flex-direction: column; gap: 4px; }
+
+  .project-card {
+    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: border-color 0.4s;
+    cursor: none;
+  }
+  .project-card:hover { border-color: rgba(245,98,15,0.3); }
+  .project-card-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 480px;
+  }
+  .project-card-inner.reverse { direction: rtl; }
+  .project-card-inner.reverse > * { direction: ltr; }
+
+  .project-visual {
+    position: relative;
+    overflow: hidden;
+    min-height: 480px;
+    background: var(--surface2);
+  }
+  .project-visual-bg {
+    position: absolute; inset: 0;
+    transition: transform 0.6s cubic-bezier(0.25,1,0.5,1);
+  }
+  .project-card:hover .project-visual-bg { transform: scale(1.04); }
+
+  /* STILL visual */
+  .visual-still {
+    background: #050a0f;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .still-scene {
+    position: relative;
+    width: 100%; height: 100%;
+  }
+  .still-floor {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 40%;
+    background: linear-gradient(to top, rgba(12,18,28,1) 0%, rgba(12,18,28,0) 100%);
+  }
+  .still-grid-lines {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(50,120,200,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(50,120,200,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .still-title-art {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-display);
+    font-size: 80px;
+    font-weight: 800;
+    letter-spacing: -4px;
+    color: rgba(255,255,255,0.04);
+    user-select: none;
+    white-space: nowrap;
+  }
+  .still-figure {
+    position: absolute;
+    bottom: 60px; left: 50%;
+    transform: translateX(-50%);
+    width: 2px; height: 80px;
+    background: rgba(50,120,255,0.4);
+    box-shadow: 0 0 20px rgba(50,120,255,0.6);
+  }
+  .still-figure::before {
+    content: '';
+    position: absolute; top: -12px; left: 50%;
+    transform: translateX(-50%);
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    border: 1px solid rgba(50,120,255,0.5);
+    background: rgba(50,120,255,0.15);
+    box-shadow: 0 0 15px rgba(50,120,255,0.6);
+  }
+  .still-circles {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .still-circle {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(50,120,255,0.12);
+    animation: still-expand 6s linear infinite;
+    opacity: 0;
+  }
+  .still-circle:nth-child(1) { width: 120px; height: 120px; animation-delay: 0s; }
+  .still-circle:nth-child(2) { width: 200px; height: 200px; animation-delay: 2s; }
+  .still-circle:nth-child(3) { width: 300px; height: 300px; animation-delay: 4s; }
+  @keyframes still-expand {
+    0% { opacity: 0.6; transform: scale(0.7); }
+    100% { opacity: 0; transform: scale(1.1); }
+  }
+  .still-memory-dots {
+    position: absolute; inset: 0;
+  }
+  .memory-dot {
+    position: absolute;
+    width: 3px; height: 3px;
+    border-radius: 50%;
+    background: rgba(80,150,255,0.5);
+    box-shadow: 0 0 6px rgba(80,150,255,0.5);
+    animation: dot-flicker 3s ease-in-out infinite;
+  }
+  @keyframes dot-flicker {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+  .project-card:hover .still-figure {
+    box-shadow: 0 0 40px rgba(50,120,255,0.9);
+  }
+
+  /* ROGUELIKE visual */
+  .visual-roguelike {
+    background: #0a0805;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .rogue-grid {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(245,98,15,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245,98,15,0.04) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  .rogue-hex-bg {
+    position: absolute; inset: 0;
+    overflow: hidden;
+    opacity: 0.4;
+  }
+  .rogue-scanlines {
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 3px,
+      rgba(0,0,0,0.15) 3px,
+      rgba(0,0,0,0.15) 4px
+    );
+  }
+  .rogue-center {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+  }
+  .rogue-crosshair {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .crosshair-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(245,98,15,0.2);
+    animation: rogue-spin 8s linear infinite;
+  }
+  .crosshair-ring:nth-child(1) { width: 180px; height: 180px; border-style: dashed; }
+  .crosshair-ring:nth-child(2) { width: 280px; height: 280px; animation-direction: reverse; animation-duration: 12s; border-style: dotted; }
+  .crosshair-ring:nth-child(3) { width: 360px; height: 360px; animation-duration: 20s; }
+  @keyframes rogue-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  .rogue-reticle {
+    position: absolute;
+    width: 50px; height: 50px;
+    border-top: 2px solid var(--orange);
+    border-left: 2px solid var(--orange);
+  }
+  .rogue-reticle.tr { top: -25px; right: -25px; transform: rotate(90deg); }
+  .rogue-reticle.bl { bottom: -25px; left: -25px; transform: rotate(-90deg); }
+  .rogue-reticle.br { bottom: -25px; right: -25px; transform: rotate(180deg); }
+  .rogue-text-art {
+    font-family: var(--font-display);
+    font-size: 72px;
+    font-weight: 800;
+    letter-spacing: -4px;
+    color: rgba(245,98,15,0.06);
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+  }
+  .rogue-particles { position: absolute; inset: 0; overflow: hidden; }
+  .rogue-particle {
+    position: absolute;
+    width: 2px; height: 2px;
+    background: var(--orange);
+    border-radius: 50%;
+    box-shadow: 0 0 4px var(--orange);
+    animation: rogue-float linear infinite;
+    opacity: 0;
+  }
+  @keyframes rogue-float {
+    0% { opacity: 0; transform: translateY(0) translateX(0); }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; transform: translateY(-200px) translateX(var(--drift, 20px)); }
+  }
+  .hp-bar-container {
+    position: absolute;
+    bottom: 32px; left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    z-index: 5;
+    text-align: center;
+  }
+  .hp-label {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: rgba(245,98,15,0.6);
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+  .hp-bar {
+    width: 100%; height: 4px;
+    background: rgba(245,98,15,0.15);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .hp-fill {
+    height: 100%;
+    background: linear-gradient(to right, var(--orange), var(--amber));
+    border-radius: 2px;
+    animation: hp-drain 3s ease-in-out infinite;
+  }
+  @keyframes hp-drain {
+    0%, 20% { width: 78%; }
+    50% { width: 32%; }
+    60% { width: 55%; }
+    100% { width: 78%; }
+  }
+
+  .project-info {
+    padding: 48px 52px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .project-num {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+  .project-title {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+  .project-category {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--orange);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .project-desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 32px;
+  }
+  .project-pillars {
+    margin-bottom: 28px;
+  }
+  .pillars-label {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+  }
+  .pillars-list {
+    display: flex; flex-wrap: wrap; gap: 6px;
+  }
+  .pillar-tag {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    padding: 4px 10px;
+    border: 1px solid var(--border-hover);
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    transition: all 0.2s;
+  }
+  .pillar-tag:hover { border-color: var(--orange); color: var(--orange); }
+  .project-systems {
+    margin-bottom: 28px;
+  }
+  .systems-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+    margin-top: 10px;
+  }
+  .system-item {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+  .system-item::before {
+    content: '';
+    display: block;
+    width: 4px; height: 4px;
+    background: var(--orange);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .project-tools {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin-top: auto;
+  }
+  .tool-tag {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    padding: 3px 8px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+  .project-hover-line {
+    position: absolute; bottom: 0; left: 0;
+    height: 2px; width: 0;
+    background: var(--orange);
+    transition: width 0.5s cubic-bezier(0.25,1,0.5,1);
+  }
+  .project-card:hover .project-hover-line { width: 100%; }
+
+  /* SKILLS */
+  #skills { background: var(--surface); }
+  .skills-wrapper {
+    margin-top: 64px;
+  }
+  .skills-categories { display: flex; flex-direction: column; gap: 48px; }
+  .skill-category-title {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+  }
+  .skill-item {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    padding: 20px 20px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s, transform 0.2s;
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+    cursor: none;
+  }
+  .skill-item:hover {
+    border-color: rgba(245,98,15,0.4);
+    transform: translateY(-2px);
+  }
+  .skill-item::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(245,98,15,0.05), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .skill-item:hover::after { opacity: 1; }
+  .skill-bar-bg {
+    position: absolute; bottom: 0; left: 0;
+    height: 2px; width: 100%;
+    background: var(--border);
+  }
+  .skill-bar-fill {
+    position: absolute; bottom: 0; left: 0;
+    height: 2px;
+    background: linear-gradient(to right, var(--orange), var(--amber));
+    width: 0;
+    transition: width 1s cubic-bezier(0.25,1,0.5,1);
+  }
+  .skill-name {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+    position: relative; z-index: 1;
+  }
+  .skill-level {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    position: relative; z-index: 1;
+  }
+
+  /* EXPERIENCE */
+  #experience { background: var(--black); }
+  .experience-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-top: 64px;
+  }
+  .timeline { position: relative; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 6px; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--orange), transparent);
+  }
+  .timeline-item {
+    padding-left: 36px;
+    padding-bottom: 44px;
+    position: relative;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 6px;
+    width: 13px; height: 13px;
+    border-radius: 50%;
+    background: var(--black);
+    border: 2px solid var(--orange);
+    box-shadow: 0 0 10px rgba(245,98,15,0.4);
+    transition: box-shadow 0.3s;
+  }
+  .timeline-item:hover::before {
+    box-shadow: 0 0 18px rgba(245,98,15,0.7);
+  }
+  .timeline-year {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--orange);
+    margin-bottom: 6px;
+  }
+  .timeline-role {
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+  .timeline-company {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    font-style: italic;
+  }
+  .timeline-desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+  .education-grid { display: flex; flex-direction: column; gap: 16px; }
+  .edu-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 24px 28px;
+    border-left: 2px solid var(--orange);
+    transition: background 0.3s;
+  }
+  .edu-card:hover { background: var(--surface2); }
+  .edu-school {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .edu-degree {
+    font-size: 13px;
+    color: var(--orange);
+    font-family: var(--font-mono);
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+  .edu-year {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+  }
+  .cert-list { margin-top: 32px; display: flex; flex-direction: column; gap: 8px; }
+  .cert-item {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--text-secondary);
+    transition: border-color 0.2s;
+  }
+  .cert-item:hover { border-color: var(--border-hover); }
+  .cert-item::before {
+    content: '▸';
+    color: var(--orange);
+    font-size: 10px;
+    flex-shrink: 0;
+  }
+
+  /* CONTACT */
+  #contact {
+    background: var(--surface);
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-bg-text {
+    position: absolute;
+    font-family: var(--font-display);
+    font-size: 200px;
+    font-weight: 800;
+    color: rgba(245,98,15,0.03);
+    letter-spacing: -8px;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+  }
+  .contact-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 120px 48px;
+    position: relative;
+    z-index: 2;
+  }
+  .contact-email {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 3vw, 30px);
+    font-weight: 700;
+    color: var(--text);
+    margin: 40px 0;
+    letter-spacing: -0.5px;
+  }
+  .contact-email a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid var(--orange);
+    padding-bottom: 2px;
+    transition: color 0.2s;
+  }
+  .contact-email a:hover { color: var(--orange); }
+  .contact-links {
+    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+  .contact-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 1px solid var(--border);
+    transition: all 0.2s;
+  }
+  .contact-link:hover {
+    color: var(--orange);
+    border-color: var(--orange);
+  }
+  .contact-link svg { width: 14px; height: 14px; }
+
+  /* FOOTER */
+  footer {
+    background: var(--black);
+    border-top: 1px solid var(--border);
+    padding: 24px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .footer-name {
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-muted);
+  }
+  .footer-name span { color: var(--orange); }
+  .footer-copy {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+  }
+
+  /* MOBILE */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    nav.scrolled { padding: 12px 24px; }
+    .nav-links { display: none; }
+    #hero { padding: 100px 24px 80px; }
+    .section-inner { padding: 80px 24px; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .about-stats { grid-template-columns: 1fr 1fr; }
+    .project-card-inner { grid-template-columns: 1fr; }
+    .project-card-inner.reverse { direction: ltr; }
+    .project-visual { min-height: 300px; }
+    .project-info { padding: 36px 28px; }
+    .skills-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+    .experience-layout { grid-template-columns: 1fr; gap: 48px; }
+    .systems-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+    body { cursor: auto; }
+    .cursor, .cursor-ring { display: none; }
+    .contact-inner { padding: 80px 24px; }
+  }
+
+  /* SCROLL PROGRESS */
+  .scroll-progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 2px;
+    background: linear-gradient(to right, var(--orange), var(--amber));
+    z-index: 200;
+    transform-origin: left;
+    transition: width 0.1s linear;
+  }
+
+  /* LOADING SCREEN */
+  .loader {
+    position: fixed; inset: 0;
+    background: var(--black);
+    z-index: 1000;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    transition: opacity 0.6s, visibility 0.6s;
+  }
+  .loader.hidden { opacity: 0; visibility: hidden; }
+  .loader-name {
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: var(--text);
+    overflow: hidden;
+  }
+  .loader-name span {
+    display: inline-block;
+    animation: loader-slide 1.2s cubic-bezier(0.25,1,0.5,1) forwards;
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  .loader-name span:nth-child(1) { animation-delay: 0.1s; }
+  .loader-name span:nth-child(2) { animation-delay: 0.15s; color: var(--orange); }
+  .loader-name span:nth-child(3) { animation-delay: 0.2s; }
+  .loader-name span:nth-child(4) { animation-delay: 0.25s; }
+  .loader-name span:nth-child(5) { animation-delay: 0.3s; }
+  .loader-name span:nth-child(6) { animation-delay: 0.35s; }
+  .loader-name span:nth-child(7) { animation-delay: 0.4s; }
+  .loader-name span:nth-child(8) { animation-delay: 0.45s; }
+  .loader-name span:nth-child(9) { animation-delay: 0.5s; }
+  .loader-name span:nth-child(10) { animation-delay: 0.55s; }
+  .loader-name span:nth-child(11) { animation-delay: 0.6s; }
+  .loader-name span:nth-child(12) { animation-delay: 0.65s; }
+  .loader-name span:nth-child(13) { animation-delay: 0.7s; }
+  .loader-name span:nth-child(14) { animation-delay: 0.75s; }
+  @keyframes loader-slide {
+    from { opacity: 0; transform: translateY(80%); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .loader-bar-wrap {
+    width: 200px; height: 2px;
+    background: var(--border);
+    overflow: hidden;
+    border-radius: 1px;
+  }
+  .loader-bar {
+    height: 100%;
+    background: var(--orange);
+    animation: load-fill 1.4s cubic-bezier(0.25,1,0.5,1) forwards;
+    transform-origin: left;
+  }
+  @keyframes load-fill {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+</style>
 </head>
-
 <body>
-    <!-- Sticky Nav -->
-    <nav class="nav" aria-label="Primary">
-        <div class="nav-inner">
-            <div class="brand">
-                <strong>Santiago Negro</strong>
-                <span>Game Design · Creative Performance</span>
-            </div>
 
-            <div class="nav-links">
-                <a class="nav-link" href="#about">About</a>
-                <a class="nav-link" href="#projects">Projects</a>
-                <a class="nav-link" href="#reel">Reel</a>
-                <a class="nav-link" href="#contact">Contact</a>
-            </div>
+<!-- LOADER -->
+<div class="loader" id="loader">
+  <div class="loader-name">
+    <span>S</span><span>A</span><span>N</span><span>T</span><span>I</span><span>A</span><span>G</span><span>O</span>&nbsp;<span>N</span><span>E</span><span>G</span><span>R</span><span>O</span>
+  </div>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+</div>
 
-            <div class="nav-cta">
-                <a class="btn-ghost" href="Assets/SantiagoNegro-Resume.pdf" target="_blank" rel="noreferrer">Resume PDF ↗</a>
-                <a class="btn-primary" href="mailto:santi.negro1@gmail.com">Email ↗</a>
-            </div>
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+
+<!-- SCROLL PROGRESS -->
+<div class="scroll-progress" id="scroll-progress"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo">SN<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+    <canvas id="hero-canvas"></canvas>
+  </div>
+  <div class="hero-content">
+    <div class="hero-tag">Game Designer</div>
+    <h1 class="hero-name">Santiago<br><span class="accent">Negro</span></h1>
+    <p class="hero-subtitle">Systems &amp; Prototyping — Buenos Aires</p>
+    <p class="hero-desc">
+      I design games and interactive systems that create meaningful player experiences — 
+      from the tension of a single mechanic to the depth of interlocking narrative worlds.
+    </p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn-primary">View Projects</a>
+      <a href="#contact" class="btn-secondary">Contact Me</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-tag">About Me</div>
+      <h2 class="section-title">Designing Systems<br><span class="dim">That Think</span></h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text reveal reveal-delay-1">
+        <p>
+          I'm a <strong>game designer</strong> with a deep focus on systems design, player psychology, and rapid prototyping. 
+          My background spans graphic design, digital media, and game development — a combination that lets me approach 
+          problems from both a visual and mechanical perspective.
+        </p>
+        <p>
+          Currently studying Game Design at <strong>Image Campus</strong>, I work at the intersection of 
+          <strong>narrative systems</strong>, <strong>gameplay loops</strong>, and <strong>iterative prototyping</strong>. 
+          I believe great games are built in layers — each mechanic, interaction, and choice carefully designed 
+          to serve a larger emotional truth.
+        </p>
+        <p>
+          My process is grounded in player psychology: understanding not just what players do, 
+          but <strong>why they do it</strong>. I prototype fast, test relentlessly, and 
+          iterate with purpose — letting the design emerge through play rather than planning alone.
+        </p>
+        <div class="about-principles">
+          <div class="principle">
+            <span class="principle-num">01</span>
+            <span class="principle-text"><strong>Systems first.</strong> Every mechanic should generate emergent behavior. I design rules, not outcomes.</span>
+          </div>
+          <div class="principle">
+            <span class="principle-num">02</span>
+            <span class="principle-text"><strong>Player psychology.</strong> The best mechanics tap into intrinsic motivation — curiosity, mastery, agency.</span>
+          </div>
+          <div class="principle">
+            <span class="principle-num">03</span>
+            <span class="principle-text"><strong>Prototype ruthlessly.</strong> Ideas are cheap. A working prototype reveals truth that documentation never will.</span>
+          </div>
         </div>
-    </nav>
+      </div>
+      <div class="about-stats reveal reveal-delay-2">
+        <div class="stat-card">
+          <div class="stat-number">2+</div>
+          <div class="stat-label">Years in Game Design</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">2</div>
+          <div class="stat-label">Prototype Projects</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">Unity</div>
+          <div class="stat-label">Primary Engine</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">C#</div>
+          <div class="stat-label">Core Language</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <div class="page">
+<div class="divider"></div>
 
-        <!-- HERO -->
-        <header>
-            <div>
-                <h1 class="hero-title">Santiago Negro</h1>
-                <p class="hero-role">Game Designer (Systems &amp; Prototyping) · Creative Performance Designer (Meta Ads)</p>
-                <p class="hero-current">
-                    Currently studying Game Design at Image Campus and building prototypes &amp; campaigns for tourism and hospitality brands.
-                </p>
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-tag">Featured Projects</div>
+      <h2 class="section-title">The Work<br><span class="dim">That Defines Me</span></h2>
+    </div>
+  </div>
+  <div class="projects-list">
 
-                <p class="hero-intro">
-                    I design interactive experiences and performance-driven creative that connect emotion with measurable results – from systems and
-                    prototypes to full-funnel campaigns.
-                </p>
-
-                <div class="hero-tags" aria-label="Key skills">
-                    <span class="tag">Game Design</span>
-                    <span class="tag">Systems &amp; Narrative</span>
-                    <span class="tag">Paid Social &amp; Creatives</span>
-                    <span class="tag">Level Design</span>
-                    <span class="tag">Prototyping</span>
-                </div>
-
-                <div class="hero-actions">
-                    <a href="mailto:santi.negro1@gmail.com" class="btn-primary">Contact me ↗</a>
-                    <a href="Assets/SantiagoNegro-Resume.pdf" class="btn-ghost" target="_blank" rel="noreferrer">Download resume (PDF) ↗</a>
-                </div>
-
-                <p class="hero-note">
-                    Based in Buenos Aires · Focused on game feel, readable systems and creatives that actually perform.
-                </p>
-
-                <div class="hero-links">
-                    <a class="hero-link" href="https://www.linkedin.com/in/santiago-negro-96927822a/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-                    <a class="hero-link" href="https://santiagonegro.itch.io/" target="_blank" rel="noreferrer">itch.io ↗</a>
-                    <a class="hero-link" href="#projects">Jump to projects ↓</a>
-                </div>
+    <!-- PROJECT 01: STILL -->
+    <div class="project-card reveal">
+      <div class="project-card-inner">
+        <div class="project-visual visual-still">
+          <div class="project-visual-bg still-scene">
+            <div class="still-grid-lines"></div>
+            <div class="still-floor"></div>
+            <div class="still-title-art">STILL</div>
+            <div class="still-circles">
+              <div class="still-circle"></div>
+              <div class="still-circle"></div>
+              <div class="still-circle"></div>
             </div>
-
-            <div class="hero-media">
-                <div class="hero-photo-frame">
-                    <img src="Photos/Santi.jpg"
-                         class="hero-photo-large"
-                         alt="Santiago Negro"
-                         loading="eager"
-                         decoding="async" />
-                </div>
+            <div class="still-memory-dots" id="memory-dots"></div>
+            <div class="still-figure"></div>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-num">// 01</div>
+          <h3 class="project-title">STILL</h3>
+          <div class="project-category">Narrative Systemic Prototype · Unity</div>
+          <p class="project-desc">
+            A systemic narrative prototype where NPCs don't wait for you to act. 
+            Their routines evolve. Their memory fragments. Their trust — once broken — 
+            doesn't reset. STILL is a study in what happens when the world thinks for itself, 
+            and the player must observe before they can truly understand.
+          </p>
+          <div class="project-pillars">
+            <div class="pillars-label">Design Pillars</div>
+            <div class="pillars-list">
+              <span class="pillar-tag">Memory</span>
+              <span class="pillar-tag">Trust</span>
+              <span class="pillar-tag">Identity</span>
+              <span class="pillar-tag">Perception</span>
+              <span class="pillar-tag">Systemic Story</span>
             </div>
-        </header>
-
-        <!-- HIGHLIGHTS -->
-        <section class="highlights" aria-label="Highlights">
-            <div class="highlights-grid">
-                <div class="highlight">
-                    <div class="kicker">Game design</div>
-                    <div class="title">Systems-first prototyping</div>
-                    <div class="body">Readable loops, enemy states, pacing, and quick iteration in Unity/Unreal.</div>
-                </div>
-                <div class="highlight">
-                    <div class="kicker">Performance</div>
-                    <div class="title">Creative built for testing</div>
-                    <div class="body">Hooks, angles, and assets aligned to funnel stage and offer clarity.</div>
-                </div>
-                <div class="highlight">
-                    <div class="kicker">Communication</div>
-                    <div class="title">Docs that teams can ship</div>
-                    <div class="body">Diagrams, one-pagers, and decision logs that reduce ambiguity.</div>
-                </div>
+          </div>
+          <div class="project-systems">
+            <div class="pillars-label">Systems Breakdown</div>
+            <div class="systems-grid">
+              <div class="system-item">NPC Memory Architecture</div>
+              <div class="system-item">Trust Relationship Graph</div>
+              <div class="system-item">Routine Simulation Layer</div>
+              <div class="system-item">Perception State Machine</div>
+              <div class="system-item">Emergent Narrative Engine</div>
+              <div class="system-item">Dynamic Dialogue Trees</div>
             </div>
-        </section>
-
-        <!-- ABOUT -->
-        <section id="about">
-            <p class="section-label">About</p>
-            <h2 class="section-heading">Background &amp; focus</h2>
-            <p class="section-subheading">
-                Hybrid profile: game designer in training with a strong footing in performance marketing. I care about systems being readable, fair and
-                emotionally coherent – whether it's a combat loop or a paid social funnel.
-            </p>
-
-            <div class="grid grid-2">
-                <article class="card">
-                    <h3 class="card-title">Game Design</h3>
-                    <p class="card-body">
-                        Working on prototypes and design docs that focus on core loops, systemic behaviour and player psychology. I use Unity and Unreal
-                        to prototype mechanics, enemy states, stealth readability and run-based progression inspired by games like Hades and Hotline Miami.
-                    </p>
-                    <div class="pill-row">
-                        <span class="pill">Unity / C#</span>
-                        <span class="pill">Unreal / Blueprints</span>
-                        <span class="pill">Systems &amp; loops</span>
-                        <span class="pill">Level &amp; pacing</span>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <h3 class="card-title">Creative Performance</h3>
-                    <p class="card-body">
-                        As a paid social creative I work with tourism and hospitality brands, designing ad structures, hooks and funnels that turn
-                        attention into bookings. I combine narrative thinking with testing: UGC, static and video ads aligned with landing pages and offers.
-                    </p>
-                    <div class="pill-row">
-                        <span class="pill">Meta Ads</span>
-                        <span class="pill">Creative strategy</span>
-                        <span class="pill">Storytelling in ads</span>
-                        <span class="pill">Funnel thinking</span>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- TOOLBOX -->
-        <section id="toolbox">
-            <p class="section-label">Toolbox</p>
-            <h2 class="section-heading">Tools &amp; skills</h2>
-            <p class="section-subheading">
-                A quick snapshot of the tools I use the most – both for building games and for building campaigns.
-            </p>
-
-            <div class="grid grid-3">
-                <article class="card">
-                    <h3 class="card-title">Game dev</h3>
-                    <div class="pill-row">
-                        <span class="pill">Unity (Built-in / URP)</span>
-                        <span class="pill">C# scripting</span>
-                        <span class="pill">Unreal / Blueprints</span>
-                        <span class="pill">Level blockouts</span>
-                        <span class="pill">Prototyping</span>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <h3 class="card-title">Design &amp; narrative</h3>
-                    <div class="pill-row">
-                        <span class="pill">Core &amp; meta loops</span>
-                        <span class="pill">Systemic narrative</span>
-                        <span class="pill">Enemy &amp; AI states</span>
-                        <span class="pill">Balancing &amp; pacing</span>
-                        <span class="pill">Docs &amp; diagrams</span>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <h3 class="card-title">Performance &amp; ops</h3>
-                    <div class="pill-row">
-                        <span class="pill">Meta Ads Manager</span>
-                        <span class="pill">Funnel strategy</span>
-                        <span class="pill">Creative testing</span>
-                        <span class="pill">Notion</span>
-                        <span class="pill">Figma / Canva</span>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- PROCESS -->
-        <section id="process">
-            <p class="section-label">Process</p>
-            <h2 class="section-heading">How I work</h2>
-            <p class="section-subheading">
-                A simple process that I apply both to game design work and to performance creatives.
-            </p>
-
-            <div class="grid grid-2">
-                <article class="card">
-                    <h3 class="card-title">Design process</h3>
-                    <ol class="process-steps">
-                        <li><strong>Research &amp; references</strong> – understand goals, constraints and reference experiences.</li>
-                        <li><strong>Define the core loop</strong> – what players do repeatedly and why it’s engaging.</li>
-                        <li><strong>Prototype quickly</strong> – build the smallest slice that proves or disproves the idea.</li>
-                        <li><strong>Test for readability</strong> – iterate on feedback, clarity and difficulty spikes.</li>
-                        <li><strong>Document for the team</strong> – keep docs, diagrams and changelogs usable for others.</li>
-                    </ol>
-                </article>
-
-                <article class="card">
-                    <h3 class="card-title">Creative / campaign process</h3>
-                    <ol class="process-steps">
-                        <li><strong>Clarify the offer</strong> – what we’re selling, to whom and in which context.</li>
-                        <li><strong>Choose angles &amp; hooks</strong> – emotion, social proof, FOMO, price, POV, etc.</li>
-                        <li><strong>Design creatives</strong> – static, video or UGC adapted to placements and funnel stage.</li>
-                        <li><strong>Test &amp; learn</strong> – compare variations and measure what actually moves metrics.</li>
-                        <li><strong>Refine &amp; scale</strong> – keep what works, cut what doesn’t, plan the next round.</li>
-                    </ol>
-                </article>
-            </div>
-        </section>
-
-        <!-- REEL -->
-        <section id="reel">
-            <p class="section-label">Reel</p>
-            <h2 class="section-heading">Selected works reel</h2>
-            <p class="section-subheading">
-                Short compilation of game prototypes and creatives. Replace the video source with your own MP4 when you have it.
-            </p>
-
-            <div class="video-frame">
-                <video class="reel-video"
-                       src="Media/portfolio-reel.mp4"
-                       poster="Media/reel-poster.jpg"
-                       controls
-                       muted
-                       loop
-                       preload="metadata"></video>
-            </div>
-        </section>
-
-        <!-- PROJECTS -->
-        <section id="projects">
-            <p class="section-label">Projects</p>
-            <h2 class="section-heading">Selected work</h2>
-
-            <p class="section-subheading">Filter</p>
-            <div class="filters" role="tablist" aria-label="Project filters">
-                <button class="filter-btn is-active" type="button" data-filter="all">All</button>
-                <button class="filter-btn" type="button" data-filter="game">Game Design</button>
-                <button class="filter-btn" type="button" data-filter="marketing">Performance</button>
-            </div>
-
-            <p class="section-subheading">Game projects (Unity, Unreal &amp; design docs)</p>
-            <div class="grid grid-2">
-
-                <button class="project-btn" data-type="game" type="button" onclick="openProject('project1', this)">
-                    <article class="card card-hover">
-                        <h3 class="card-title">Get it Back! – Roguelike Shooter</h3>
-                        <p class="card-subtitle">Game Design · Unity Prototype</p>
-                        <p class="card-body">
-                            Top–down shooter with base-building meta where each run pushes how far players risk their build before returning home.
-                        </p>
-                        <div class="pill-row">
-                            <span class="pill">Core loop</span>
-                            <span class="pill">Combat &amp; pacing</span>
-                            <span class="pill">Run &amp; base link</span>
-                        </div>
-                    </article>
-                </button>
-
-                <button class="project-btn" data-type="game" type="button" onclick="openProject('project2', this)">
-                    <article class="card card-hover">
-                        <h3 class="card-title">Stillness – Systemic Narrative Simulation</h3>
-                        <p class="card-subtitle">System Design Document</p>
-                        <p class="card-body">
-                            A systemic approach to trust, perception and memory where NPCs update their beliefs instead of following fixed branches.
-                        </p>
-                        <div class="pill-row">
-                            <span class="pill">Systemic narrative</span>
-                            <span class="pill">Emotional models</span>
-                        </div>
-                    </article>
-                </button>
-
-                <button class="project-btn" data-type="game" type="button" onclick="openProject('project3', this)">
-                    <article class="card card-hover">
-                        <h3 class="card-title">Stealth Prototype – MGS-inspired</h3>
-                        <p class="card-subtitle">Unity / Unreal Coursework</p>
-                        <p class="card-body">
-                            Small stealth slice focused on guard states, vision cones and layouts that communicate when you’re safe or about to be caught.
-                        </p>
-                        <div class="pill-row">
-                            <span class="pill">Enemy states</span>
-                            <span class="pill">Level readability</span>
-                        </div>
-                    </article>
-                </button>
-
-                <button class="project-btn" data-type="game" type="button" onclick="openProject('project4', this)">
-                    <article class="card card-hover">
-                        <h3 class="card-title">Riftbound – Tower Defense Roguelike</h3>
-                        <p class="card-subtitle">Concept &amp; Systems</p>
-                        <p class="card-body">
-                            Run-based tower defense with a persistent base where upgrades change how you approach each new run.
-                        </p>
-                        <div class="pill-row">
-                            <span class="pill">Progression</span>
-                            <span class="pill">Meta &amp; core loop</span>
-                        </div>
-                    </article>
-                </button>
-
-            </div>
-
-            <p class="section-subheading" style="margin-top:16px;">Client &amp; campaign work</p>
-            <div class="grid grid-2">
-
-                <button class="project-btn" data-type="marketing" type="button" onclick="openProject('project5', this)">
-                    <article class="card card-hover">
-                        <h3 class="card-title">Undici Hotel – Boca Juniors Experience</h3>
-                        <p class="card-subtitle">Paid Social · Strategy &amp; Creatives</p>
-                        <p class="card-body">
-                            Full-funnel creatives for a football-themed boutique hotel next to La Bombonera, leaning into the match-day experience.
-                        </p>
-                        <div class="pill-row">
-                            <span class="pill">Funnel strategy</span>
-                            <span class="pill">UGC &amp; reels</span>
-                            <span class="pill">Event promos</span>
-                        </div>
-                    </article>
-                </button>
-
-                <button class="project-btn" data-type="marketing" type="button" onclick="openProject('project6', this)">
-                    <article class="card card-hover">
-                        <h3 class="card-title">Marlin del Rey &amp; others</h3>
-                        <p class="card-subtitle">Meta Ads · Tourism &amp; Experiences</p>
-                        <p class="card-body">
-                            Performance creatives for sailing and tour operators, mixing POV hooks, social proof and clear offers for bookings.
-                        </p>
-                        <div class="pill-row">
-                            <span class="pill">Creative testing</span>
-                            <span class="pill">Tourism funnels</span>
-                            <span class="pill">Static &amp; video ads</span>
-                        </div>
-                    </article>
-                </button>
-
-            </div>
-        </section>
-
-        <!-- TESTIMONIALS -->
-        <section id="testimonials">
-            <p class="section-label">Testimonials</p>
-            <h2 class="section-heading">What people say</h2>
-            <p class="section-subheading">
-                Replace these with real quotes (professors, teammates, managers). Even 1–2 real testimonials add a lot of credibility.
-            </p>
-
-            <div class="testimonials-grid">
-                <article class="card">
-                    <p class="card-body">
-                        “Santiago approaches design problems methodically and always backs ideas with clear systems thinking. His documentation is
-                        structured and easy for the rest of the team to act on.”
-                    </p>
-                    <p class="testimonial-role">Professor · Game Design coursework</p>
-                </article>
-
-                <article class="card">
-                    <p class="card-body">
-                        “He understands both the emotional side of the creative and the numbers behind it. Briefs, assets and copy come aligned with our
-                        goals, which makes testing and scaling much easier.”
-                    </p>
-                    <p class="testimonial-role">Manager · Paid Social &amp; Creative</p>
-                </article>
-            </div>
-        </section>
-
-        <!-- CONTACT -->
-        <section id="contact">
-            <p class="section-label">Contact</p>
-            <h2 class="section-heading">Let’s talk</h2>
-            <p style="font-size:.9rem;color:var(--text-soft);max-width:540px;margin-bottom:14px;">
-                Want to see more builds, docs or decks? Need help with a prototype or campaign? Send me a message and I’ll happily share more.
-            </p>
-
-            <a class="btn-primary" href="mailto:santi.negro1@gmail.com">
-                Email me at santi.negro1@gmail.com
-            </a>
-        </section>
-
-        <footer>
-            <span>© <span id="year"></span> Santiago Negro. All rights reserved.</span>
-            <div class="footer-links">
-                <a class="footer-link" href="#about">About</a>
-                <a class="footer-link" href="#toolbox">Toolbox</a>
-                <a class="footer-link" href="#process">Process</a>
-                <a class="footer-link" href="#reel">Reel</a>
-                <a class="footer-link" href="#projects">Projects</a>
-                <a class="footer-link" href="#testimonials">Testimonials</a>
-                <a class="footer-link" href="#contact">Contact</a>
-            </div>
-        </footer>
+          </div>
+          <div class="project-tools">
+            <span class="tool-tag">Unity</span>
+            <span class="tool-tag">C#</span>
+            <span class="tool-tag">Ink Dialogue</span>
+            <span class="tool-tag">Scrum</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-hover-line"></div>
     </div>
 
-    <!-- MODAL -->
-    <div id="project-modal" class="modal-overlay" aria-hidden="true">
-        <div class="modal-dialog"
-             role="dialog"
-             aria-modal="true"
-             aria-labelledby="modal-title">
-            <button class="modal-close" type="button" onclick="closeProject()" aria-label="Close dialog">×</button>
-            <div id="modal-content"></div>
+    <!-- PROJECT 02: ROGUELIKE SHOOTER -->
+    <div class="project-card reveal reveal-delay-1">
+      <div class="project-card-inner reverse">
+        <div class="project-visual visual-roguelike">
+          <div class="project-visual-bg still-scene">
+            <div class="rogue-grid"></div>
+            <div class="rogue-scanlines"></div>
+            <div class="rogue-text-art">ROGUE</div>
+            <div class="rogue-crosshair">
+              <div class="crosshair-ring"></div>
+              <div class="crosshair-ring"></div>
+              <div class="crosshair-ring"></div>
+              <div style="position:relative; width:80px; height:80px;">
+                <div class="rogue-reticle" style="top:-25px; left:-25px; transform: rotate(0deg);"></div>
+                <div class="rogue-reticle tr"></div>
+                <div class="rogue-reticle bl"></div>
+                <div class="rogue-reticle br"></div>
+              </div>
+            </div>
+            <div class="rogue-particles" id="rogue-particles"></div>
+            <div class="hp-bar-container">
+              <div class="hp-label">Player HP</div>
+              <div class="hp-bar"><div class="hp-fill"></div></div>
+            </div>
+          </div>
         </div>
+        <div class="project-info">
+          <div class="project-num">// 02</div>
+          <h3 class="project-title">Roguelike<br>Shooter</h3>
+          <div class="project-category">Combat Loop Prototype · Unity</div>
+          <p class="project-desc">
+            A fast-paced roguelike shooter built around one question: 
+            <em>what makes combat feel alive?</em> Designed from the core loop outward — 
+            every wave, upgrade, and difficulty spike is a carefully tuned pressure valve. 
+            The player is always one decision away from a run-ending mistake.
+          </p>
+          <div class="project-pillars">
+            <div class="pillars-label">Design Pillars</div>
+            <div class="pillars-list">
+              <span class="pillar-tag">Combat Flow</span>
+              <span class="pillar-tag">Risk/Reward</span>
+              <span class="pillar-tag">Progression</span>
+              <span class="pillar-tag">Difficulty Curve</span>
+              <span class="pillar-tag">Replayability</span>
+            </div>
+          </div>
+          <div class="project-systems">
+            <div class="pillars-label">Systems Breakdown</div>
+            <div class="systems-grid">
+              <div class="system-item">Wave Encounter Designer</div>
+              <div class="system-item">Enemy Behavior Trees</div>
+              <div class="system-item">Upgrade Tree Logic</div>
+              <div class="system-item">Dynamic Difficulty Scaling</div>
+              <div class="system-item">Progression Loop Engine</div>
+              <div class="system-item">Hit-Feel Feedback System</div>
+            </div>
+          </div>
+          <div class="project-tools">
+            <span class="tool-tag">Unity</span>
+            <span class="tool-tag">C#</span>
+            <span class="tool-tag">Blueprint</span>
+            <span class="tool-tag">Visual Studio</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-hover-line"></div>
     </div>
 
-    <!-- PROJECT TEMPLATES -->
-    <template id="project1-template">
-        <article>
-            <h2 class="project-detail-title" id="modal-title">Get it Back! – Roguelike Shooter</h2>
-            <p class="project-detail-meta">Unity prototype · Top–down combat &amp; base-building meta · Role: Game Designer</p>
+  </div>
+</section>
 
-            <div class="project-media">
-                <img src="Media/get-it-back-gameplay.jpg" alt="Get it Back! gameplay"
-                     loading="lazy" decoding="async">
-                <p class="project-media-caption">Use: GIF or screenshot. If you don’t have footage yet, use a clean cover or a loop diagram.</p>
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-tag">Skills</div>
+      <h2 class="section-title">Tools &amp; <span class="dim">Craft</span></h2>
+    </div>
+    <div class="skills-wrapper">
+      <div class="skills-categories">
+        <div class="reveal reveal-delay-1">
+          <div class="skill-category-title">Game Development</div>
+          <div class="skills-grid" id="skills-dev">
+            <div class="skill-item" data-level="90">
+              <div class="skill-name">Unity</div>
+              <div class="skill-level">Expert</div>
+              <div class="skill-bar-bg"><div class="skill-bar-fill"></div></div>
             </div>
-
-            <div class="project-detail-columns">
-                <div>
-                    <p class="project-detail-section-title">Overview</p>
-                    <p class="project-detail-body">
-                        Get it Back! is a fast-paced top–down shooter where players dive into short runs to recover stolen items that upgrade their
-                        home base. Each run asks a simple question: do you push for one more room, or cash out and bank your progress?
-                    </p>
-
-                    <p class="project-detail-section-title">Design goals</p>
-                    <ul class="project-detail-list">
-                        <li>Clear core loop linking combat and base progression.</li>
-                        <li>Short, readable runs with meaningful risk vs. reward.</li>
-                        <li>Upgrades that change playstyle without bloating complexity.</li>
-                    </ul>
-
-                    <p class="project-detail-section-title">What I focused on</p>
-                    <ul class="project-detail-list">
-                        <li>Enemy behaviours and room pacing (tension vs. breathing).</li>
-                        <li>Reward/economy tuning so choices feel meaningful, not grindy.</li>
-                        <li>Combat feedback (hits, damage, pickups) for readability.</li>
-                    </ul>
-                </div>
-
-                <div>
-                    <p class="project-detail-section-title">Links &amp; material</p>
-                    <ul class="project-detail-links">
-                        <li><a href="#" target="_blank" rel="noreferrer">Itch.io build (add link)</a></li>
-                        <li><a href="#" target="_blank" rel="noreferrer">Design one-pager / GDD (add link)</a></li>
-                        <li><a href="#" target="_blank" rel="noreferrer">Gameplay clip (add link)</a></li>
-                    </ul>
-
-                    <p class="project-detail-section-title">Takeaways</p>
-                    <p class="project-detail-body">
-                        Connecting the meta to visible, moment-to-moment upgrades made even “bad runs” feel like progress.
-                    </p>
-                </div>
+            <div class="skill-item" data-level="70">
+              <div class="skill-name">Unreal Engine</div>
+              <div class="skill-level">Proficient</div>
+              <div class="skill-bar-bg"><div class="skill-bar-fill"></div></div>
             </div>
-        </article>
-    </template>
-
-    <template id="project2-template">
-        <article>
-            <h2 class="project-detail-title" id="modal-title">Stillness – Systemic Narrative Simulation</h2>
-            <p class="project-detail-meta">System design document · Trust, perception &amp; memory · Role: Game Designer</p>
-
-            <div class="project-media">
-                <img src="Media/stillness-diagram.jpg" alt="Stillness system diagram"
-                     loading="lazy" decoding="async">
-                <p class="project-media-caption">Even if the project is WIP, a diagram like this is “proof” and reads professional.</p>
+            <div class="skill-item" data-level="80">
+              <div class="skill-name">C#</div>
+              <div class="skill-level">Proficient</div>
+              <div class="skill-bar-bg"><div class="skill-bar-fill"></div></div>
             </div>
-
-            <div class="project-detail-columns">
-                <div>
-                    <p class="project-detail-section-title">Concept</p>
-                    <p class="project-detail-body">
-                        Stillness explores how trust, fear and confidence shape NPC and player behaviour. Instead of fixed branches, characters
-                        maintain internal states – what they saw, what they remember and what they choose to believe about the player.
-                    </p>
-
-                    <p class="project-detail-section-title">Core systems</p>
-                    <ul class="project-detail-list">
-                        <li>Trust line driving access, tone, and willingness to share info.</li>
-                        <li>Perception vs. memory: belief can diverge from reality.</li>
-                        <li>Context modifiers (environment, rumours, recent events).</li>
-                    </ul>
-
-                    <p class="project-detail-section-title">How it’s communicated</p>
-                    <p class="project-detail-body">
-                        UI/feedback concepts focus on clarity: players understand relationship drift without reading spreadsheets.
-                    </p>
-                </div>
-
-                <div>
-                    <p class="project-detail-section-title">Links &amp; material</p>
-                    <ul class="project-detail-links">
-                        <li><a href="#" target="_blank" rel="noreferrer">System design doc (add link)</a></li>
-                        <li><a href="#" target="_blank" rel="noreferrer">Slides / diagrams (add link)</a></li>
-                    </ul>
-
-                    <p class="project-detail-section-title">Takeaways</p>
-                    <p class="project-detail-body">
-                        Thinking of narrative as systems enabled more emergent outcomes while keeping authorial intent.
-                    </p>
-                </div>
+            <div class="skill-item" data-level="65">
+              <div class="skill-name">Blueprints</div>
+              <div class="skill-level">Intermediate</div>
+              <div class="skill-bar-bg"><div class="skill-bar-fill"></div></div>
             </div>
-        </article>
-    </template>
-
-    <template id="project3-template">
-        <article>
-            <h2 class="project-detail-title" id="modal-title">Stealth Prototype – MGS-inspired</h2>
-            <p class="project-detail-meta">Unity / Unreal coursework · Guard AI, vision &amp; readable layouts · Role: Game Designer</p>
-
-            <div class="project-media">
-                <img src="Media/stealth-blockout.jpg" alt="Stealth prototype blockout"
-                     loading="lazy" decoding="async">
-                <p class="project-media-caption">Blockouts are totally valid portfolio media (and show design thinking).</p>
+            <div class="skill-item" data-level="60">
+              <div class="skill-name">Blender</div>
+              <div class="skill-level">Intermediate</div>
+              <div class="skill-bar-bg"><div class="skill-bar-fill"></div></div>
             </div>
-
-            <div class="project-detail-columns">
-                <div>
-                    <p class="project-detail-section-title">Overview</p>
-                    <p class="project-detail-body">
-                        A compact stealth slice inspired by classic MGS spaces. The focus: guards that feel readable and fair, plus layouts that teach
-                        risk through sightlines and cover.
-                    </p>
-
-                    <p class="project-detail-section-title">Systems</p>
-                    <ul class="project-detail-list">
-                        <li>Guard state machine: patrol → suspicious → alert/chase → search → reset.</li>
-                        <li>Vision cones + occlusion with clear “almost spotted” feedback.</li>
-                        <li>Alarm propagation between guards/cameras.</li>
-                    </ul>
-                </div>
-
-                <div>
-                    <p class="project-detail-section-title">Links &amp; material</p>
-                    <ul class="project-detail-links">
-                        <li><a href="#" target="_blank" rel="noreferrer">AI diagrams (add link)</a></li>
-                        <li><a href="#" target="_blank" rel="noreferrer">Gameplay clip (add link)</a></li>
-                    </ul>
-
-                    <p class="project-detail-section-title">Takeaways</p>
-                    <p class="project-detail-body">
-                        Readability beats “difficulty”: players accept failure if they understand why it happened.
-                    </p>
-                </div>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <div class="skill-category-title">Design Disciplines</div>
+          <div class="skills-grid">
+            <div class="skill-item" data-level="92">
+              <div class="skill-name">Systems Design</div>
+              <div class="skill-level">Expert</div>
+              <div class="skill-bar-bg"><div class="skill-bar-fill"></div></div>
             </div>
-        </article>
-    </template>
-
-    <template id="project4-template">
-        <article>
-            <h2 class="project-detail-title" id="modal-title">Riftbound – Tower Defense Roguelike</h2>
-            <p class="project-detail-meta">Concept &amp; system design · Run-based tower defense with persistent base · Role: Game Designer</p>
-
-            <div class="project-media">
-                <img src="Media/riftbound-flow.jpg" alt="Riftbound flow chart"
-                     loading="lazy" decoding="async">
-                <p class="project-media-caption">Flow charts are excellent when gameplay footage isn’t ready yet.</p>
+            <div class="skill-item" data-level="88">
+              <div class="skill-name">Gameplay Design</div>
+              <div class="skill-level">Expert</div>
+              <div class="skill-bar-bg"><div class="skill-bar-fill"></div></div>
             </div>
-
-            <div class="project-detail-columns">
-                <div>
-                    <p class="project-detail-section-title">Concept</p>
-                    <p class="project-detail-body">
-                        Riftbound mixes lane-based tower defense with a roguelike structure. Players push through escalating waves, then invest earned
-                        resources into a base that unlocks new towers, modifiers and strategies.
-                    </p>
-
-                    <p class="project-detail-section-title">Systems</p>
-                    <ul class="project-detail-list">
-                        <li>Run loop: draft builds, place towers, survive waves, choose rewards.</li>
-                        <li>Meta loop: return to base, invest in permanent upgrades, unlock new options.</li>
-                        <li>Difficulty knobs that focus on learning first, grind second.</li>
-                    </ul>
-                </div>
-
-                <div>
-                    <p class="project-detail-section-title">Links &amp; material</p>
-                    <ul class="project-detail-links">
-                        <li><a href="#" target="_blank" rel="noreferrer">Concept deck (add link)</a></li>
-                        <li><a href="#" target="_blank" rel="noreferrer">System diagrams (add link)</a></li>
-                    </ul>
-
-                    <p class="project-detail-section-title">Takeaways</p>
-                    <p class="project-detail-body">
-                        Meta progression works best when it unlocks strategy (options), not just bigger numbers.
-                    </p>
-                </div>
+            <div class="skill-item" data-level="85">
+              <div class="skill-name">Narrative Design</div>
+              <div class="skill-level">Advanced</div>
+              <div class="skill-bar-bg"><div class="skill-bar-fill"></div></div>
             </div>
-        </article>
-    </template>
-
-    <template id="project5-template">
-        <article>
-            <h2 class="project-detail-title" id="modal-title">Undici Hotel – Boca Juniors Experience</h2>
-            <p class="project-detail-meta">Paid social strategy &amp; creative · Football-themed boutique hotel next to La Bombonera</p>
-
-            <div class="project-media">
-                <img src="Media/undici-ad-grid.jpg" alt="Undici ads grid"
-                     loading="lazy" decoding="async">
-                <p class="project-media-caption">If you can’t show performance numbers, show creative variety + structure.</p>
+            <div class="skill-item" data-level="90">
+              <div class="skill-name">Prototyping</div>
+              <div class="skill-level">Expert</div>
+              <div class="skill-bar-bg"><div class="skill-bar-fill"></div></div>
             </div>
-
-            <div class="project-detail-columns">
-                <div>
-                    <p class="project-detail-section-title">Goal</p>
-                    <p class="project-detail-body">
-                        Increase bookings and event interest by positioning Undici as a match-day destination (not just a place to sleep), leveraging the “next to La Bombonera” factor.
-                    </p>
-
-                    <p class="project-detail-section-title">What I did</p>
-                    <ul class="project-detail-list">
-                        <li>Full-funnel creative planning (awareness → consideration → booking intent).</li>
-                        <li>Angles: match-day POV, terrace experience, “wake up next to the stadium”, spa + weekend plan.</li>
-                        <li>Format adaptation: reels/UGC, statics, carousels aligned to placements.</li>
-                    </ul>
-
-                    <p class="project-detail-section-title">Outcome</p>
-                    <p class="project-detail-body">
-                        Stronger positioning around match-day weekends through consistent “experience-first” messaging and clear offers/dates per promo.
-                    </p>
-                </div>
-
-                <div>
-                    <p class="project-detail-section-title">Links &amp; material</p>
-                    <ul class="project-detail-links">
-                        <li><a href="#" target="_blank" rel="noreferrer">Reel compilation (add link)</a></li>
-                        <li><a href="#" target="_blank" rel="noreferrer">Statics/carousels (add link)</a></li>
-                        <li><a href="#" target="_blank" rel="noreferrer">Creative brief samples (add link)</a></li>
-                    </ul>
-
-                    <p class="project-detail-section-title">Takeaways</p>
-                    <p class="project-detail-body">
-                        The “fantasy” hook works best when the offer is immediately clarified (dates, what’s included, and next step).
-                    </p>
-                </div>
+            <div class="skill-item" data-level="78">
+              <div class="skill-name">Level Design</div>
+              <div class="skill-level">Advanced</div>
+              <div class="skill-bar-bg"><div class="skill-bar-fill"></div></div>
             </div>
-        </article>
-    </template>
-
-    <template id="project6-template">
-        <article>
-            <h2 class="project-detail-title" id="modal-title">Marlin del Rey &amp; other tourism brands</h2>
-            <p class="project-detail-meta">Performance creatives for tours &amp; experiences · Meta Ads · Role: Creative &amp; Strategist</p>
-
-            <div class="project-media">
-                <img src="Media/marlin-del-rey-ads.jpg" alt="Marlin del Rey ads"
-                     loading="lazy" decoding="async">
-                <p class="project-media-caption">Tip: if you can’t show the best ads, show templates/frames and explain the testing logic.</p>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-3">
+          <div class="skill-category-title">Creative &amp; Strategy</div>
+          <div class="skills-grid">
+            <div class="skill-item" data-level="95">
+              <div class="skill-name">Adobe Suite</div>
+              <div class="skill-level">Expert</div>
+              <div class="skill-bar-bg"><div class="skill-bar-fill"></div></div>
             </div>
-
-            <div class="project-detail-columns">
-                <div>
-                    <p class="project-detail-section-title">Goal</p>
-                    <p class="project-detail-body">
-                        Drive bookings by making the experience instantly legible (what it looks like, who it’s for, what you do) and making the next step obvious.
-                    </p>
-
-                    <p class="project-detail-section-title">What I did</p>
-                    <ul class="project-detail-list">
-                        <li>Hook frameworks: POV, social proof, FOMO, price anchors.</li>
-                        <li>Creative templates for static/video/UGC to speed iteration.</li>
-                        <li>Message alignment between creative and offer/landing page.</li>
-                    </ul>
-
-                    <p class="project-detail-section-title">Outcome</p>
-                    <p class="project-detail-body">
-                        Improved consistency and clarity across creative variants, enabling faster iteration and cleaner comparisons between angles.
-                    </p>
-                </div>
-
-                <div>
-                    <p class="project-detail-section-title">Links &amp; material</p>
-                    <ul class="project-detail-links">
-                        <li><a href="#" target="_blank" rel="noreferrer">Ad compilation (add link)</a></li>
-                        <li><a href="#" target="_blank" rel="noreferrer">Concept boards (add link)</a></li>
-                    </ul>
-
-                    <p class="project-detail-section-title">Takeaways</p>
-                    <p class="project-detail-body">
-                        Clarity wins: when the experience is obvious in the first seconds, the offer can do its job.
-                    </p>
-                </div>
+            <div class="skill-item" data-level="88">
+              <div class="skill-name">Paid Social</div>
+              <div class="skill-level">Advanced</div>
+              <div class="skill-bar-bg"><div class="skill-bar-fill"></div></div>
             </div>
-        </article>
-    </template>
+            <div class="skill-item" data-level="82">
+              <div class="skill-name">Creative Strategy</div>
+              <div class="skill-level">Advanced</div>
+              <div class="skill-bar-bg"><div class="skill-bar-fill"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script>
-        // Footer year
-        document.getElementById("year").textContent = new Date().getFullYear();
+<div class="divider"></div>
 
-        // Modal logic + accessibility (focus management + basic focus trap)
-        const modal = document.getElementById('project-modal');
-        const modalContent = document.getElementById('modal-content');
-        const dialog = modal.querySelector('.modal-dialog');
-        const closeBtn = modal.querySelector('.modal-close');
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-tag">Experience</div>
+      <h2 class="section-title">Built Through<br><span class="dim">Real Work</span></h2>
+    </div>
+    <div class="experience-layout">
+      <div class="timeline reveal reveal-delay-1">
+        <div class="timeline-item">
+          <div class="timeline-year">2025 — Present</div>
+          <div class="timeline-role">Paid Social Manager</div>
+          <div class="timeline-company">AAMP Agency</div>
+          <div class="timeline-desc">Managing paid media campaigns across Meta and Google platforms. Optimizing performance budgets and creative strategy to drive measurable ROI — applying design thinking to data-driven systems.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2025</div>
+          <div class="timeline-role">Paid Ads Designer</div>
+          <div class="timeline-company">Fdigital Agency — Cinme</div>
+          <div class="timeline-desc">Crafted high-performing paid ad creatives blending compelling visuals with strategic messaging. Rapid iteration cycles mirroring game design's prototype-test-refine loop.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2025</div>
+          <div class="timeline-role">Social Media Manager &amp; Designer</div>
+          <div class="timeline-company">Fdigital Agency — Undici</div>
+          <div class="timeline-desc">Built brand identity and designed cross-platform content. Developed the visual system from the ground up — a systems-thinking approach applied to brand design.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2024</div>
+          <div class="timeline-role">Social Media Manager</div>
+          <div class="timeline-company">Fdigital Agency — Loula</div>
+          <div class="timeline-desc">Designed the complete marketing strategy for Loula wallet. Cross-disciplinary work spanning strategy, design, and performance analysis.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2023</div>
+          <div class="timeline-role">Graphic Designer</div>
+          <div class="timeline-company">Import Vélez</div>
+          <div class="timeline-desc">Led the Graphic Design area — packaging, social content, photo/video editing. Creative problem-solving under real production constraints.</div>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="skill-category-title" style="font-family: var(--font-mono); font-size:10px; letter-spacing:0.25em; text-transform:uppercase; color: var(--text-muted); margin-bottom:20px; padding-bottom:10px; border-bottom: 1px solid var(--border);">Education</div>
+        <div class="education-grid">
+          <div class="edu-card">
+            <div class="edu-school">Image Campus</div>
+            <div class="edu-degree">Game Design</div>
+            <div class="edu-year">2024 — 2026</div>
+          </div>
+          <div class="edu-card">
+            <div class="edu-school">UADE</div>
+            <div class="edu-degree">Graphic &amp; Multimedia Design</div>
+            <div class="edu-year">2022 — 2024</div>
+          </div>
+          <div class="edu-card">
+            <div class="edu-school">St. Patrick's School</div>
+            <div class="edu-degree">Humanities</div>
+            <div class="edu-year">2007 — 2021</div>
+          </div>
+        </div>
+        <div class="cert-list" style="margin-top: 32px;">
+          <div class="skill-category-title" style="font-family: var(--font-mono); font-size:10px; letter-spacing:0.25em; text-transform:uppercase; color: var(--text-muted); margin-bottom:12px; padding-bottom:10px; border-bottom: 1px solid var(--border);">Certifications</div>
+          <div class="cert-item">Cambridge First Certificate (English)</div>
+          <div class="cert-item">Cambridge Preliminary English Test</div>
+          <div class="cert-item">Coding Videogames with C++ — UTN</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        let lastActiveEl = null;
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-bg-text">HELLO</div>
+  <div class="contact-inner reveal">
+    <div class="section-tag" style="justify-content:center;">Contact</div>
+    <h2 class="section-title" style="margin-bottom:12px;">Let's Make<br><span class="dim">Something Real</span></h2>
+    <p style="color: var(--text-secondary); font-size: 15px; max-width: 420px; margin: 0 auto 32px;">
+      Open to game design roles, collaborations, and experimental projects. 
+      If you're building something interesting — reach out.
+    </p>
+    <div class="contact-email">
+      <a href="mailto:santi.negro1@gmail.com">santi.negro1@gmail.com</a>
+    </div>
+    <div class="contact-links">
+      <a href="https://www.linkedin.com/in/santiago-negro-96927822a/" target="_blank" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a href="https://santiagonegro.itch.io/" target="_blank" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2H3v16h5v4l4-4h5l4-4V2z"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="9" y1="12" x2="13" y2="12"/></svg>
+        itch.io
+      </a>
+      <a href="tel:+541140806247" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6 19.79 19.79 0 0 1 1.61 5.06 2 2 0 0 1 3.58 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.9a16 16 0 0 0 6 6l1.06-1.06a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +54 11 4080 6247
+      </a>
+    </div>
+    <a href="mailto:santi.negro1@gmail.com" class="btn-primary">Start a Conversation</a>
+  </div>
+</section>
 
-        function getFocusable(container) {
-            return Array.from(container.querySelectorAll(
-                'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'
-            ));
-        }
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">Santiago <span>Negro</span></div>
+  <div class="footer-copy">© 2025 — Game Designer, Buenos Aires</div>
+</footer>
 
-        function openProject(id, openerEl) {
-            const tpl = document.getElementById(id + '-template');
-            if (!tpl) return;
+<script>
+// LOADER
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('loader').classList.add('hidden');
+  }, 1800);
+});
 
-            lastActiveEl = openerEl || document.activeElement;
+// CURSOR
+const cursor = document.getElementById('cursor');
+const cursorRing = document.getElementById('cursor-ring');
+let mouseX = 0, mouseY = 0;
+let ringX = 0, ringY = 0;
 
-            modalContent.innerHTML = '';
-            modalContent.appendChild(tpl.content.cloneNode(true));
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX; mouseY = e.clientY;
+  cursor.style.left = mouseX + 'px';
+  cursor.style.top = mouseY + 'px';
+});
 
-            modal.classList.add('is-open');
-            modal.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden';
+function animateRing() {
+  ringX += (mouseX - ringX) * 0.12;
+  ringY += (mouseY - ringY) * 0.12;
+  cursorRing.style.left = ringX + 'px';
+  cursorRing.style.top = ringY + 'px';
+  requestAnimationFrame(animateRing);
+}
+animateRing();
 
-            // Focus close button (or first focusable)
-            const focusables = getFocusable(dialog);
-            (focusables[0] || closeBtn).focus();
-        }
+document.querySelectorAll('a, button, .skill-item, .project-card, .stat-card').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursor.classList.add('hover');
+    cursorRing.classList.add('hover');
+  });
+  el.addEventListener('mouseleave', () => {
+    cursor.classList.remove('hover');
+    cursorRing.classList.remove('hover');
+  });
+});
 
-        function closeProject() {
-            modal.classList.remove('is-open');
-            modal.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
+// NAV SCROLL
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+  const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+  document.getElementById('scroll-progress').style.width = (pct * 100) + '%';
+});
 
-            if (lastActiveEl && typeof lastActiveEl.focus === 'function') {
-                lastActiveEl.focus();
-            }
-        }
+// REVEAL OBSERVER
+const revealEls = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+revealEls.forEach(el => revealObserver.observe(el));
 
-        // Click outside closes
-        modal.addEventListener('click', e => {
-            if (e.target === modal) closeProject();
-        });
+// SKILL BARS
+const skillObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const items = e.target.querySelectorAll('.skill-item[data-level]');
+      items.forEach((item, i) => {
+        const level = item.getAttribute('data-level');
+        setTimeout(() => {
+          item.querySelector('.skill-bar-fill').style.width = level + '%';
+        }, i * 80);
+      });
+    }
+  });
+}, { threshold: 0.2 });
+document.querySelectorAll('.skills-grid').forEach(g => skillObserver.observe(g));
 
-        // Escape closes + Tab focus trap
-        document.addEventListener('keydown', e => {
-            if (!modal.classList.contains('is-open')) return;
+// HERO CANVAS — particle field
+const canvas = document.getElementById('hero-canvas');
+const ctx = canvas.getContext('2d');
+let W, H, particles = [];
 
-            if (e.key === 'Escape') {
-                closeProject();
-                return;
-            }
+function resize() {
+  W = canvas.width = canvas.offsetWidth;
+  H = canvas.height = canvas.offsetHeight;
+}
+window.addEventListener('resize', resize);
+resize();
 
-            if (e.key === 'Tab') {
-                const focusables = getFocusable(dialog);
-                if (focusables.length === 0) return;
+for (let i = 0; i < 60; i++) {
+  particles.push({
+    x: Math.random() * W,
+    y: Math.random() * H,
+    vx: (Math.random() - 0.5) * 0.3,
+    vy: (Math.random() - 0.5) * 0.3,
+    size: Math.random() * 1.5 + 0.3,
+    opacity: Math.random() * 0.4 + 0.1
+  });
+}
 
-                const first = focusables[0];
-                const last = focusables[focusables.length - 1];
+let mouse = { x: W/2, y: H/2 };
+document.addEventListener('mousemove', e => {
+  const rect = canvas.getBoundingClientRect();
+  mouse.x = e.clientX - rect.left;
+  mouse.y = e.clientY - rect.top;
+});
 
-                if (e.shiftKey && document.activeElement === first) {
-                    e.preventDefault();
-                    last.focus();
-                } else if (!e.shiftKey && document.activeElement === last) {
-                    e.preventDefault();
-                    first.focus();
-                }
-            }
-        });
+function drawParticles() {
+  ctx.clearRect(0, 0, W, H);
+  particles.forEach(p => {
+    const dx = mouse.x - p.x;
+    const dy = mouse.y - p.y;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+    if (dist < 150) {
+      p.vx += dx * 0.00005;
+      p.vy += dy * 0.00005;
+    }
+    p.x += p.vx; p.y += p.vy;
+    if (p.x < 0 || p.x > W) p.vx *= -1;
+    if (p.y < 0 || p.y > H) p.vy *= -1;
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(245,98,15,${p.opacity})`;
+    ctx.fill();
+  });
+  // draw connections
+  for (let i = 0; i < particles.length; i++) {
+    for (let j = i+1; j < particles.length; j++) {
+      const dx = particles[i].x - particles[j].x;
+      const dy = particles[i].y - particles[j].y;
+      const d = Math.sqrt(dx*dx + dy*dy);
+      if (d < 100) {
+        ctx.beginPath();
+        ctx.strokeStyle = `rgba(245,98,15,${0.08 * (1 - d/100)})`;
+        ctx.lineWidth = 0.5;
+        ctx.moveTo(particles[i].x, particles[i].y);
+        ctx.lineTo(particles[j].x, particles[j].y);
+        ctx.stroke();
+      }
+    }
+  }
+  requestAnimationFrame(drawParticles);
+}
+drawParticles();
 
-        // Filters
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const projectButtons = document.querySelectorAll('.project-btn');
+// STILL — memory dots
+const memoryDots = document.getElementById('memory-dots');
+if (memoryDots) {
+  for (let i = 0; i < 18; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'memory-dot';
+    dot.style.left = (10 + Math.random() * 80) + '%';
+    dot.style.top = (10 + Math.random() * 80) + '%';
+    dot.style.animationDelay = (Math.random() * 3) + 's';
+    dot.style.animationDuration = (2 + Math.random() * 2) + 's';
+    memoryDots.appendChild(dot);
+  }
+}
 
-        function applyFilter(type) {
-            projectButtons.forEach(btn => {
-                const t = btn.getAttribute('data-type');
-                const show = (type === 'all') || (t === type);
-                btn.style.display = show ? '' : 'none';
-            });
-        }
-
-        filterButtons.forEach(b => {
-            b.addEventListener('click', () => {
-                filterButtons.forEach(x => x.classList.remove('is-active'));
-                b.classList.add('is-active');
-                applyFilter(b.getAttribute('data-filter'));
-            });
-        });
-    </script>
+// ROGUELIKE — particles
+const rogueParticles = document.getElementById('rogue-particles');
+if (rogueParticles) {
+  for (let i = 0; i < 20; i++) {
+    const p = document.createElement('div');
+    p.className = 'rogue-particle';
+    p.style.left = (Math.random() * 100) + '%';
+    p.style.bottom = '0';
+    p.style.setProperty('--drift', ((Math.random() - 0.5) * 60) + 'px');
+    p.style.animationDuration = (2 + Math.random() * 3) + 's';
+    p.style.animationDelay = (Math.random() * 4) + 's';
+    rogueParticles.appendChild(p);
+  }
+}
+</script>
 </body>
 </html>
